@@ -1,0 +1,2245 @@
+;--------------------------------------------------------
+; File Created by SDCC : free open source ANSI-C Compiler
+; Version 4.1.0 #12072 (MINGW64)
+;--------------------------------------------------------
+	.module keypad
+	.optsdcc -mstm8
+	
+;--------------------------------------------------------
+; Public variables in this module
+;--------------------------------------------------------
+	.globl _GPIO_ReadInputPin
+	.globl _GPIO_WriteLow
+	.globl _GPIO_WriteHigh
+	.globl _GPIO_Init
+	.globl _init_keypad
+	.globl _check_keypad
+;--------------------------------------------------------
+; ram data
+;--------------------------------------------------------
+	.area DATA
+;--------------------------------------------------------
+; ram data
+;--------------------------------------------------------
+	.area INITIALIZED
+;--------------------------------------------------------
+; absolute external ram data
+;--------------------------------------------------------
+	.area DABS (ABS)
+
+; default segment ordering for linker
+	.area HOME
+	.area GSINIT
+	.area GSFINAL
+	.area CONST
+	.area INITIALIZER
+	.area CODE
+
+;--------------------------------------------------------
+; global & static initialisations
+;--------------------------------------------------------
+	.area HOME
+	.area GSINIT
+	.area GSFINAL
+	.area GSINIT
+;--------------------------------------------------------
+; Home
+;--------------------------------------------------------
+	.area HOME
+	.area HOME
+;--------------------------------------------------------
+; code
+;--------------------------------------------------------
+	.area CODE
+	Skeypad$init_keypad$0 ==.
+;	./src/keypad.c: 12: void init_keypad(void)
+; genLabel
+;	-----------------------------------------
+;	 function init_keypad
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_init_keypad:
+	Skeypad$init_keypad$1 ==.
+	Skeypad$init_keypad$2 ==.
+;	./src/keypad.c: 15: GPIO_Init(R1_PORT, R1_PIN, GPIO_MODE_OUT_OD_HIZ_SLOW);
+; genIPush
+	push	#0x90
+	Skeypad$init_keypad$3 ==.
+; genIPush
+	push	#0x02
+	Skeypad$init_keypad$4 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$init_keypad$5 ==.
+	push	#0x50
+	Skeypad$init_keypad$6 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Skeypad$init_keypad$7 ==.
+	Skeypad$init_keypad$8 ==.
+;	./src/keypad.c: 16: GPIO_Init(R2_PORT, R2_PIN, GPIO_MODE_OUT_OD_HIZ_SLOW);
+; genIPush
+	push	#0x90
+	Skeypad$init_keypad$9 ==.
+; genIPush
+	push	#0x01
+	Skeypad$init_keypad$10 ==.
+; genIPush
+	push	#0x14
+	Skeypad$init_keypad$11 ==.
+	push	#0x50
+	Skeypad$init_keypad$12 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Skeypad$init_keypad$13 ==.
+	Skeypad$init_keypad$14 ==.
+;	./src/keypad.c: 17: GPIO_Init(R3_PORT, R3_PIN, GPIO_MODE_OUT_OD_HIZ_SLOW);
+; genIPush
+	push	#0x90
+	Skeypad$init_keypad$15 ==.
+; genIPush
+	push	#0x20
+	Skeypad$init_keypad$16 ==.
+; genIPush
+	push	#0x0f
+	Skeypad$init_keypad$17 ==.
+	push	#0x50
+	Skeypad$init_keypad$18 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Skeypad$init_keypad$19 ==.
+	Skeypad$init_keypad$20 ==.
+;	./src/keypad.c: 18: GPIO_Init(R4_PORT, R4_PIN, GPIO_MODE_OUT_OD_HIZ_SLOW);
+; genIPush
+	push	#0x90
+	Skeypad$init_keypad$21 ==.
+; genIPush
+	push	#0x40
+	Skeypad$init_keypad$22 ==.
+; genIPush
+	push	#0x0f
+	Skeypad$init_keypad$23 ==.
+	push	#0x50
+	Skeypad$init_keypad$24 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Skeypad$init_keypad$25 ==.
+	Skeypad$init_keypad$26 ==.
+;	./src/keypad.c: 20: GPIO_Init(C1_PORT, C1_PIN, GPIO_MODE_IN_PU_NO_IT);
+; genIPush
+	push	#0x40
+	Skeypad$init_keypad$27 ==.
+; genIPush
+	push	#0x01
+	Skeypad$init_keypad$28 ==.
+; genIPush
+	push	#0x1e
+	Skeypad$init_keypad$29 ==.
+	push	#0x50
+	Skeypad$init_keypad$30 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Skeypad$init_keypad$31 ==.
+	Skeypad$init_keypad$32 ==.
+;	./src/keypad.c: 21: GPIO_Init(C2_PORT, C2_PIN, GPIO_MODE_IN_PU_NO_IT);
+; genIPush
+	push	#0x40
+	Skeypad$init_keypad$33 ==.
+; genIPush
+	push	#0x04
+	Skeypad$init_keypad$34 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$init_keypad$35 ==.
+	push	#0x50
+	Skeypad$init_keypad$36 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Skeypad$init_keypad$37 ==.
+	Skeypad$init_keypad$38 ==.
+;	./src/keypad.c: 22: GPIO_Init(C3_PORT, C3_PIN, GPIO_MODE_IN_PU_NO_IT);
+; genIPush
+	push	#0x40
+	Skeypad$init_keypad$39 ==.
+; genIPush
+	push	#0x08
+	Skeypad$init_keypad$40 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$init_keypad$41 ==.
+	push	#0x50
+	Skeypad$init_keypad$42 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Skeypad$init_keypad$43 ==.
+; genLabel
+00101$:
+	Skeypad$init_keypad$44 ==.
+;	./src/keypad.c: 23: }
+; genEndFunction
+	Skeypad$init_keypad$45 ==.
+	XG$init_keypad$0$0 ==.
+	ret
+	Skeypad$init_keypad$46 ==.
+	Skeypad$check_keypad$47 ==.
+;	./src/keypad.c: 25: uint8_t check_keypad(void)
+; genLabel
+;	-----------------------------------------
+;	 function check_keypad
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 1 bytes.
+_check_keypad:
+	Skeypad$check_keypad$48 ==.
+	push	a
+	Skeypad$check_keypad$49 ==.
+	Skeypad$check_keypad$50 ==.
+;	./src/keypad.c: 27: uint8_t bagr = 0xFF;
+; genAssign
+	ld	a, #0xff
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$51 ==.
+;	./src/keypad.c: 30: ROW_ON(R1);
+; genIPush
+	push	#0x02
+	Skeypad$check_keypad$52 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$53 ==.
+	push	#0x50
+	Skeypad$check_keypad$54 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Skeypad$check_keypad$55 ==.
+	Skeypad$check_keypad$56 ==.
+;	./src/keypad.c: 31: if (COLUMN_GET(C1)) {
+; genIPush
+	push	#0x01
+	Skeypad$check_keypad$57 ==.
+; genIPush
+	push	#0x1e
+	Skeypad$check_keypad$58 ==.
+	push	#0x50
+	Skeypad$check_keypad$59 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$60 ==.
+; genIfx
+	tnz	a
+	jreq	00187$
+	jp	00102$
+00187$:
+	Skeypad$check_keypad$61 ==.
+	Skeypad$check_keypad$62 ==.
+;	./src/keypad.c: 32: bagr = 1;
+; genAssign
+	ld	a, #0x01
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$63 ==.
+; genLabel
+00102$:
+	Skeypad$check_keypad$64 ==.
+;	./src/keypad.c: 34: if (COLUMN_GET(C2)) {
+; genIPush
+	push	#0x04
+	Skeypad$check_keypad$65 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$66 ==.
+	push	#0x50
+	Skeypad$check_keypad$67 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$68 ==.
+; genIfx
+	tnz	a
+	jreq	00188$
+	jp	00104$
+00188$:
+	Skeypad$check_keypad$69 ==.
+	Skeypad$check_keypad$70 ==.
+;	./src/keypad.c: 35: bagr = 2;
+; genAssign
+	ld	a, #0x02
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$71 ==.
+; genLabel
+00104$:
+	Skeypad$check_keypad$72 ==.
+;	./src/keypad.c: 37: if (COLUMN_GET(C3)) {
+; genIPush
+	push	#0x08
+	Skeypad$check_keypad$73 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$74 ==.
+	push	#0x50
+	Skeypad$check_keypad$75 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$76 ==.
+; genIfx
+	tnz	a
+	jreq	00189$
+	jp	00106$
+00189$:
+	Skeypad$check_keypad$77 ==.
+	Skeypad$check_keypad$78 ==.
+;	./src/keypad.c: 38: bagr = 3;
+; genAssign
+	ld	a, #0x03
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$79 ==.
+; genLabel
+00106$:
+	Skeypad$check_keypad$80 ==.
+;	./src/keypad.c: 41: ROW_OFF(R1);
+; genIPush
+	push	#0x02
+	Skeypad$check_keypad$81 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$82 ==.
+	push	#0x50
+	Skeypad$check_keypad$83 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Skeypad$check_keypad$84 ==.
+	Skeypad$check_keypad$85 ==.
+;	./src/keypad.c: 44: ROW_ON(R2);
+; genIPush
+	push	#0x01
+	Skeypad$check_keypad$86 ==.
+; genIPush
+	push	#0x14
+	Skeypad$check_keypad$87 ==.
+	push	#0x50
+	Skeypad$check_keypad$88 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Skeypad$check_keypad$89 ==.
+	Skeypad$check_keypad$90 ==.
+;	./src/keypad.c: 45: if (COLUMN_GET(C1)) {
+; genIPush
+	push	#0x01
+	Skeypad$check_keypad$91 ==.
+; genIPush
+	push	#0x1e
+	Skeypad$check_keypad$92 ==.
+	push	#0x50
+	Skeypad$check_keypad$93 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$94 ==.
+; genIfx
+	tnz	a
+	jreq	00190$
+	jp	00108$
+00190$:
+	Skeypad$check_keypad$95 ==.
+	Skeypad$check_keypad$96 ==.
+;	./src/keypad.c: 46: bagr = 4;
+; genAssign
+	ld	a, #0x04
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$97 ==.
+; genLabel
+00108$:
+	Skeypad$check_keypad$98 ==.
+;	./src/keypad.c: 48: if (COLUMN_GET(C2)) {
+; genIPush
+	push	#0x04
+	Skeypad$check_keypad$99 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$100 ==.
+	push	#0x50
+	Skeypad$check_keypad$101 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$102 ==.
+; genIfx
+	tnz	a
+	jreq	00191$
+	jp	00110$
+00191$:
+	Skeypad$check_keypad$103 ==.
+	Skeypad$check_keypad$104 ==.
+;	./src/keypad.c: 49: bagr = 5;
+; genAssign
+	ld	a, #0x05
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$105 ==.
+; genLabel
+00110$:
+	Skeypad$check_keypad$106 ==.
+;	./src/keypad.c: 51: if (COLUMN_GET(C3)) {
+; genIPush
+	push	#0x08
+	Skeypad$check_keypad$107 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$108 ==.
+	push	#0x50
+	Skeypad$check_keypad$109 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$110 ==.
+; genIfx
+	tnz	a
+	jreq	00192$
+	jp	00112$
+00192$:
+	Skeypad$check_keypad$111 ==.
+	Skeypad$check_keypad$112 ==.
+;	./src/keypad.c: 52: bagr = 6;
+; genAssign
+	ld	a, #0x06
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$113 ==.
+; genLabel
+00112$:
+	Skeypad$check_keypad$114 ==.
+;	./src/keypad.c: 54: ROW_OFF(R2);
+; genIPush
+	push	#0x01
+	Skeypad$check_keypad$115 ==.
+; genIPush
+	push	#0x14
+	Skeypad$check_keypad$116 ==.
+	push	#0x50
+	Skeypad$check_keypad$117 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Skeypad$check_keypad$118 ==.
+	Skeypad$check_keypad$119 ==.
+;	./src/keypad.c: 56: ROW_ON(R3);
+; genIPush
+	push	#0x20
+	Skeypad$check_keypad$120 ==.
+; genIPush
+	push	#0x0f
+	Skeypad$check_keypad$121 ==.
+	push	#0x50
+	Skeypad$check_keypad$122 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Skeypad$check_keypad$123 ==.
+	Skeypad$check_keypad$124 ==.
+;	./src/keypad.c: 57: if (COLUMN_GET(C1)) {
+; genIPush
+	push	#0x01
+	Skeypad$check_keypad$125 ==.
+; genIPush
+	push	#0x1e
+	Skeypad$check_keypad$126 ==.
+	push	#0x50
+	Skeypad$check_keypad$127 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$128 ==.
+; genIfx
+	tnz	a
+	jreq	00193$
+	jp	00114$
+00193$:
+	Skeypad$check_keypad$129 ==.
+	Skeypad$check_keypad$130 ==.
+;	./src/keypad.c: 58: bagr = 7;
+; genAssign
+	ld	a, #0x07
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$131 ==.
+; genLabel
+00114$:
+	Skeypad$check_keypad$132 ==.
+;	./src/keypad.c: 60: if (COLUMN_GET(C2)) {
+; genIPush
+	push	#0x04
+	Skeypad$check_keypad$133 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$134 ==.
+	push	#0x50
+	Skeypad$check_keypad$135 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$136 ==.
+; genIfx
+	tnz	a
+	jreq	00194$
+	jp	00116$
+00194$:
+	Skeypad$check_keypad$137 ==.
+	Skeypad$check_keypad$138 ==.
+;	./src/keypad.c: 61: bagr = 8;
+; genAssign
+	ld	a, #0x08
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$139 ==.
+; genLabel
+00116$:
+	Skeypad$check_keypad$140 ==.
+;	./src/keypad.c: 63: if (COLUMN_GET(C3)) {
+; genIPush
+	push	#0x08
+	Skeypad$check_keypad$141 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$142 ==.
+	push	#0x50
+	Skeypad$check_keypad$143 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$144 ==.
+; genIfx
+	tnz	a
+	jreq	00195$
+	jp	00118$
+00195$:
+	Skeypad$check_keypad$145 ==.
+	Skeypad$check_keypad$146 ==.
+;	./src/keypad.c: 64: bagr = 9;
+; genAssign
+	ld	a, #0x09
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$147 ==.
+; genLabel
+00118$:
+	Skeypad$check_keypad$148 ==.
+;	./src/keypad.c: 66: ROW_OFF(R3);
+; genIPush
+	push	#0x20
+	Skeypad$check_keypad$149 ==.
+; genIPush
+	push	#0x0f
+	Skeypad$check_keypad$150 ==.
+	push	#0x50
+	Skeypad$check_keypad$151 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Skeypad$check_keypad$152 ==.
+	Skeypad$check_keypad$153 ==.
+;	./src/keypad.c: 68: ROW_ON(R4);
+; genIPush
+	push	#0x40
+	Skeypad$check_keypad$154 ==.
+; genIPush
+	push	#0x0f
+	Skeypad$check_keypad$155 ==.
+	push	#0x50
+	Skeypad$check_keypad$156 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Skeypad$check_keypad$157 ==.
+	Skeypad$check_keypad$158 ==.
+;	./src/keypad.c: 70: if (COLUMN_GET(C1)) {
+; genIPush
+	push	#0x01
+	Skeypad$check_keypad$159 ==.
+; genIPush
+	push	#0x1e
+	Skeypad$check_keypad$160 ==.
+	push	#0x50
+	Skeypad$check_keypad$161 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$162 ==.
+; genIfx
+	tnz	a
+	jreq	00196$
+	jp	00120$
+00196$:
+	Skeypad$check_keypad$163 ==.
+	Skeypad$check_keypad$164 ==.
+;	./src/keypad.c: 71: bagr = 10;
+; genAssign
+	ld	a, #0x0a
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$165 ==.
+; genLabel
+00120$:
+	Skeypad$check_keypad$166 ==.
+;	./src/keypad.c: 73: if (COLUMN_GET(C2)) {
+; genIPush
+	push	#0x04
+	Skeypad$check_keypad$167 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$168 ==.
+	push	#0x50
+	Skeypad$check_keypad$169 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$170 ==.
+; genIfx
+	tnz	a
+	jreq	00197$
+	jp	00122$
+00197$:
+	Skeypad$check_keypad$171 ==.
+	Skeypad$check_keypad$172 ==.
+;	./src/keypad.c: 74: bagr = 0;
+; genAssign
+	clr	(0x01, sp)
+	Skeypad$check_keypad$173 ==.
+; genLabel
+00122$:
+	Skeypad$check_keypad$174 ==.
+;	./src/keypad.c: 76: if (COLUMN_GET(C3)) {
+; genIPush
+	push	#0x08
+	Skeypad$check_keypad$175 ==.
+; genIPush
+	push	#0x0a
+	Skeypad$check_keypad$176 ==.
+	push	#0x50
+	Skeypad$check_keypad$177 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Skeypad$check_keypad$178 ==.
+; genIfx
+	tnz	a
+	jreq	00198$
+	jp	00124$
+00198$:
+	Skeypad$check_keypad$179 ==.
+	Skeypad$check_keypad$180 ==.
+;	./src/keypad.c: 77: bagr = 11;
+; genAssign
+	ld	a, #0x0b
+	ld	(0x01, sp), a
+	Skeypad$check_keypad$181 ==.
+; genLabel
+00124$:
+	Skeypad$check_keypad$182 ==.
+;	./src/keypad.c: 80: ROW_OFF(R4);
+; genIPush
+	push	#0x40
+	Skeypad$check_keypad$183 ==.
+; genIPush
+	push	#0x0f
+	Skeypad$check_keypad$184 ==.
+	push	#0x50
+	Skeypad$check_keypad$185 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Skeypad$check_keypad$186 ==.
+	Skeypad$check_keypad$187 ==.
+;	./src/keypad.c: 82: return bagr;
+; genReturn
+	ld	a, (0x01, sp)
+; genLabel
+00125$:
+	Skeypad$check_keypad$188 ==.
+;	./src/keypad.c: 83: }
+; genEndFunction
+	addw	sp, #1
+	Skeypad$check_keypad$189 ==.
+	Skeypad$check_keypad$190 ==.
+	XG$check_keypad$0$0 ==.
+	ret
+	Skeypad$check_keypad$191 ==.
+	.area CODE
+	.area CONST
+	.area INITIALIZER
+	.area CABS (ABS)
+
+	.area .debug_line (NOLOAD)
+	.dw	0,Ldebug_line_end-Ldebug_line_start
+Ldebug_line_start:
+	.dw	2
+	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+	.db	1
+	.db	1
+	.db	-5
+	.db	15
+	.db	10
+	.db	0
+	.db	1
+	.db	1
+	.db	1
+	.db	1
+	.db	0
+	.db	0
+	.db	0
+	.db	1
+	.ascii "C:\Program Files\SDCC\bin\..\include\stm8"
+	.db	0
+	.ascii "C:\Program Files\SDCC\bin\..\include"
+	.db	0
+	.db	0
+	.ascii "./src/keypad.c"
+	.db	0
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+	.db	0
+Ldebug_line_stmt:
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Skeypad$init_keypad$0)
+	.db	3
+	.sleb128	11
+	.db	1
+	.db	9
+	.dw	Skeypad$init_keypad$2-Skeypad$init_keypad$0
+	.db	3
+	.sleb128	3
+	.db	1
+	.db	9
+	.dw	Skeypad$init_keypad$8-Skeypad$init_keypad$2
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$init_keypad$14-Skeypad$init_keypad$8
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$init_keypad$20-Skeypad$init_keypad$14
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$init_keypad$26-Skeypad$init_keypad$20
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$init_keypad$32-Skeypad$init_keypad$26
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$init_keypad$38-Skeypad$init_keypad$32
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$init_keypad$44-Skeypad$init_keypad$38
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Skeypad$init_keypad$45-Skeypad$init_keypad$44
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Skeypad$check_keypad$47)
+	.db	3
+	.sleb128	24
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$50-Skeypad$check_keypad$47
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$51-Skeypad$check_keypad$50
+	.db	3
+	.sleb128	3
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$56-Skeypad$check_keypad$51
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$62-Skeypad$check_keypad$56
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$64-Skeypad$check_keypad$62
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$70-Skeypad$check_keypad$64
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$72-Skeypad$check_keypad$70
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$78-Skeypad$check_keypad$72
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$80-Skeypad$check_keypad$78
+	.db	3
+	.sleb128	3
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$85-Skeypad$check_keypad$80
+	.db	3
+	.sleb128	3
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$90-Skeypad$check_keypad$85
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$96-Skeypad$check_keypad$90
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$98-Skeypad$check_keypad$96
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$104-Skeypad$check_keypad$98
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$106-Skeypad$check_keypad$104
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$112-Skeypad$check_keypad$106
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$114-Skeypad$check_keypad$112
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$119-Skeypad$check_keypad$114
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$124-Skeypad$check_keypad$119
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$130-Skeypad$check_keypad$124
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$132-Skeypad$check_keypad$130
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$138-Skeypad$check_keypad$132
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$140-Skeypad$check_keypad$138
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$146-Skeypad$check_keypad$140
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$148-Skeypad$check_keypad$146
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$153-Skeypad$check_keypad$148
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$158-Skeypad$check_keypad$153
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$164-Skeypad$check_keypad$158
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$166-Skeypad$check_keypad$164
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$172-Skeypad$check_keypad$166
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$174-Skeypad$check_keypad$172
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$180-Skeypad$check_keypad$174
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$182-Skeypad$check_keypad$180
+	.db	3
+	.sleb128	3
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$187-Skeypad$check_keypad$182
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Skeypad$check_keypad$188-Skeypad$check_keypad$187
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Skeypad$check_keypad$190-Skeypad$check_keypad$188
+	.db	0
+	.uleb128	1
+	.db	1
+Ldebug_line_end:
+
+	.area .debug_loc (NOLOAD)
+Ldebug_loc_start:
+	.dw	0,(Skeypad$check_keypad$189)
+	.dw	0,(Skeypad$check_keypad$191)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Skeypad$check_keypad$186)
+	.dw	0,(Skeypad$check_keypad$189)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$185)
+	.dw	0,(Skeypad$check_keypad$186)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$184)
+	.dw	0,(Skeypad$check_keypad$185)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$183)
+	.dw	0,(Skeypad$check_keypad$184)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$178)
+	.dw	0,(Skeypad$check_keypad$183)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$177)
+	.dw	0,(Skeypad$check_keypad$178)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$176)
+	.dw	0,(Skeypad$check_keypad$177)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$175)
+	.dw	0,(Skeypad$check_keypad$176)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$170)
+	.dw	0,(Skeypad$check_keypad$175)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$169)
+	.dw	0,(Skeypad$check_keypad$170)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$168)
+	.dw	0,(Skeypad$check_keypad$169)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$167)
+	.dw	0,(Skeypad$check_keypad$168)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$162)
+	.dw	0,(Skeypad$check_keypad$167)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$161)
+	.dw	0,(Skeypad$check_keypad$162)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$160)
+	.dw	0,(Skeypad$check_keypad$161)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$159)
+	.dw	0,(Skeypad$check_keypad$160)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$157)
+	.dw	0,(Skeypad$check_keypad$159)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$156)
+	.dw	0,(Skeypad$check_keypad$157)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$155)
+	.dw	0,(Skeypad$check_keypad$156)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$154)
+	.dw	0,(Skeypad$check_keypad$155)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$152)
+	.dw	0,(Skeypad$check_keypad$154)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$151)
+	.dw	0,(Skeypad$check_keypad$152)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$150)
+	.dw	0,(Skeypad$check_keypad$151)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$149)
+	.dw	0,(Skeypad$check_keypad$150)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$144)
+	.dw	0,(Skeypad$check_keypad$149)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$143)
+	.dw	0,(Skeypad$check_keypad$144)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$142)
+	.dw	0,(Skeypad$check_keypad$143)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$141)
+	.dw	0,(Skeypad$check_keypad$142)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$136)
+	.dw	0,(Skeypad$check_keypad$141)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$135)
+	.dw	0,(Skeypad$check_keypad$136)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$134)
+	.dw	0,(Skeypad$check_keypad$135)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$133)
+	.dw	0,(Skeypad$check_keypad$134)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$128)
+	.dw	0,(Skeypad$check_keypad$133)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$127)
+	.dw	0,(Skeypad$check_keypad$128)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$126)
+	.dw	0,(Skeypad$check_keypad$127)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$125)
+	.dw	0,(Skeypad$check_keypad$126)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$123)
+	.dw	0,(Skeypad$check_keypad$125)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$122)
+	.dw	0,(Skeypad$check_keypad$123)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$121)
+	.dw	0,(Skeypad$check_keypad$122)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$120)
+	.dw	0,(Skeypad$check_keypad$121)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$118)
+	.dw	0,(Skeypad$check_keypad$120)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$117)
+	.dw	0,(Skeypad$check_keypad$118)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$116)
+	.dw	0,(Skeypad$check_keypad$117)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$115)
+	.dw	0,(Skeypad$check_keypad$116)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$110)
+	.dw	0,(Skeypad$check_keypad$115)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$109)
+	.dw	0,(Skeypad$check_keypad$110)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$108)
+	.dw	0,(Skeypad$check_keypad$109)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$107)
+	.dw	0,(Skeypad$check_keypad$108)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$102)
+	.dw	0,(Skeypad$check_keypad$107)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$101)
+	.dw	0,(Skeypad$check_keypad$102)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$100)
+	.dw	0,(Skeypad$check_keypad$101)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$99)
+	.dw	0,(Skeypad$check_keypad$100)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$94)
+	.dw	0,(Skeypad$check_keypad$99)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$93)
+	.dw	0,(Skeypad$check_keypad$94)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$92)
+	.dw	0,(Skeypad$check_keypad$93)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$91)
+	.dw	0,(Skeypad$check_keypad$92)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$89)
+	.dw	0,(Skeypad$check_keypad$91)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$88)
+	.dw	0,(Skeypad$check_keypad$89)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$87)
+	.dw	0,(Skeypad$check_keypad$88)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$86)
+	.dw	0,(Skeypad$check_keypad$87)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$84)
+	.dw	0,(Skeypad$check_keypad$86)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$83)
+	.dw	0,(Skeypad$check_keypad$84)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$82)
+	.dw	0,(Skeypad$check_keypad$83)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$81)
+	.dw	0,(Skeypad$check_keypad$82)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$76)
+	.dw	0,(Skeypad$check_keypad$81)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$75)
+	.dw	0,(Skeypad$check_keypad$76)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$74)
+	.dw	0,(Skeypad$check_keypad$75)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$73)
+	.dw	0,(Skeypad$check_keypad$74)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$68)
+	.dw	0,(Skeypad$check_keypad$73)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$67)
+	.dw	0,(Skeypad$check_keypad$68)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$66)
+	.dw	0,(Skeypad$check_keypad$67)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$65)
+	.dw	0,(Skeypad$check_keypad$66)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$60)
+	.dw	0,(Skeypad$check_keypad$65)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$59)
+	.dw	0,(Skeypad$check_keypad$60)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$58)
+	.dw	0,(Skeypad$check_keypad$59)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$57)
+	.dw	0,(Skeypad$check_keypad$58)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$55)
+	.dw	0,(Skeypad$check_keypad$57)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$54)
+	.dw	0,(Skeypad$check_keypad$55)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$check_keypad$53)
+	.dw	0,(Skeypad$check_keypad$54)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$check_keypad$52)
+	.dw	0,(Skeypad$check_keypad$53)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$check_keypad$49)
+	.dw	0,(Skeypad$check_keypad$52)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$check_keypad$48)
+	.dw	0,(Skeypad$check_keypad$49)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Skeypad$init_keypad$43)
+	.dw	0,(Skeypad$init_keypad$46)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Skeypad$init_keypad$42)
+	.dw	0,(Skeypad$init_keypad$43)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$init_keypad$41)
+	.dw	0,(Skeypad$init_keypad$42)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$init_keypad$40)
+	.dw	0,(Skeypad$init_keypad$41)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$init_keypad$39)
+	.dw	0,(Skeypad$init_keypad$40)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$init_keypad$37)
+	.dw	0,(Skeypad$init_keypad$39)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Skeypad$init_keypad$36)
+	.dw	0,(Skeypad$init_keypad$37)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$init_keypad$35)
+	.dw	0,(Skeypad$init_keypad$36)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$init_keypad$34)
+	.dw	0,(Skeypad$init_keypad$35)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$init_keypad$33)
+	.dw	0,(Skeypad$init_keypad$34)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$init_keypad$31)
+	.dw	0,(Skeypad$init_keypad$33)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Skeypad$init_keypad$30)
+	.dw	0,(Skeypad$init_keypad$31)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$init_keypad$29)
+	.dw	0,(Skeypad$init_keypad$30)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$init_keypad$28)
+	.dw	0,(Skeypad$init_keypad$29)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$init_keypad$27)
+	.dw	0,(Skeypad$init_keypad$28)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$init_keypad$25)
+	.dw	0,(Skeypad$init_keypad$27)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Skeypad$init_keypad$24)
+	.dw	0,(Skeypad$init_keypad$25)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$init_keypad$23)
+	.dw	0,(Skeypad$init_keypad$24)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$init_keypad$22)
+	.dw	0,(Skeypad$init_keypad$23)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$init_keypad$21)
+	.dw	0,(Skeypad$init_keypad$22)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$init_keypad$19)
+	.dw	0,(Skeypad$init_keypad$21)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Skeypad$init_keypad$18)
+	.dw	0,(Skeypad$init_keypad$19)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$init_keypad$17)
+	.dw	0,(Skeypad$init_keypad$18)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$init_keypad$16)
+	.dw	0,(Skeypad$init_keypad$17)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$init_keypad$15)
+	.dw	0,(Skeypad$init_keypad$16)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$init_keypad$13)
+	.dw	0,(Skeypad$init_keypad$15)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Skeypad$init_keypad$12)
+	.dw	0,(Skeypad$init_keypad$13)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$init_keypad$11)
+	.dw	0,(Skeypad$init_keypad$12)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$init_keypad$10)
+	.dw	0,(Skeypad$init_keypad$11)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$init_keypad$9)
+	.dw	0,(Skeypad$init_keypad$10)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$init_keypad$7)
+	.dw	0,(Skeypad$init_keypad$9)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Skeypad$init_keypad$6)
+	.dw	0,(Skeypad$init_keypad$7)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Skeypad$init_keypad$5)
+	.dw	0,(Skeypad$init_keypad$6)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Skeypad$init_keypad$4)
+	.dw	0,(Skeypad$init_keypad$5)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Skeypad$init_keypad$3)
+	.dw	0,(Skeypad$init_keypad$4)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Skeypad$init_keypad$1)
+	.dw	0,(Skeypad$init_keypad$3)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+
+	.area .debug_abbrev (NOLOAD)
+Ldebug_abbrev:
+	.uleb128	4
+	.uleb128	46
+	.db	1
+	.uleb128	3
+	.uleb128	8
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	63
+	.uleb128	12
+	.uleb128	64
+	.uleb128	6
+	.uleb128	73
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	6
+	.uleb128	52
+	.db	0
+	.uleb128	2
+	.uleb128	10
+	.uleb128	3
+	.uleb128	8
+	.uleb128	73
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	1
+	.uleb128	17
+	.db	1
+	.uleb128	3
+	.uleb128	8
+	.uleb128	16
+	.uleb128	6
+	.uleb128	19
+	.uleb128	11
+	.uleb128	37
+	.uleb128	8
+	.uleb128	0
+	.uleb128	0
+	.uleb128	5
+	.uleb128	11
+	.db	0
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	0
+	.uleb128	0
+	.uleb128	2
+	.uleb128	46
+	.db	0
+	.uleb128	3
+	.uleb128	8
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	63
+	.uleb128	12
+	.uleb128	64
+	.uleb128	6
+	.uleb128	0
+	.uleb128	0
+	.uleb128	3
+	.uleb128	36
+	.db	0
+	.uleb128	3
+	.uleb128	8
+	.uleb128	11
+	.uleb128	11
+	.uleb128	62
+	.uleb128	11
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+
+	.area .debug_info (NOLOAD)
+	.dw	0,Ldebug_info_end-Ldebug_info_start
+Ldebug_info_start:
+	.dw	2
+	.dw	0,(Ldebug_abbrev)
+	.db	4
+	.uleb128	1
+	.ascii "./src/keypad.c"
+	.db	0
+	.dw	0,(Ldebug_line_start+-4)
+	.db	1
+	.ascii "SDCC version 4.1.0 #12072"
+	.db	0
+	.uleb128	2
+	.ascii "init_keypad"
+	.db	0
+	.dw	0,(_init_keypad)
+	.dw	0,(XG$init_keypad$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+1004)
+	.uleb128	3
+	.ascii "unsigned char"
+	.db	0
+	.db	1
+	.db	8
+	.uleb128	4
+	.ascii "check_keypad"
+	.db	0
+	.dw	0,(_check_keypad)
+	.dw	0,(XG$check_keypad$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start)
+	.dw	0,84
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$61)
+	.dw	0,(Skeypad$check_keypad$63)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$69)
+	.dw	0,(Skeypad$check_keypad$71)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$77)
+	.dw	0,(Skeypad$check_keypad$79)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$95)
+	.dw	0,(Skeypad$check_keypad$97)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$103)
+	.dw	0,(Skeypad$check_keypad$105)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$111)
+	.dw	0,(Skeypad$check_keypad$113)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$129)
+	.dw	0,(Skeypad$check_keypad$131)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$137)
+	.dw	0,(Skeypad$check_keypad$139)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$145)
+	.dw	0,(Skeypad$check_keypad$147)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$163)
+	.dw	0,(Skeypad$check_keypad$165)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$171)
+	.dw	0,(Skeypad$check_keypad$173)
+	.uleb128	5
+	.dw	0,(Skeypad$check_keypad$179)
+	.dw	0,(Skeypad$check_keypad$181)
+	.uleb128	6
+	.db	2
+	.db	145
+	.sleb128	-1
+	.ascii "bagr"
+	.db	0
+	.dw	0,84
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+Ldebug_info_end:
+
+	.area .debug_pubnames (NOLOAD)
+	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+Ldebug_pubnames_start:
+	.dw	2
+	.dw	0,(Ldebug_info_start-4)
+	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+	.dw	0,58
+	.ascii "init_keypad"
+	.db	0
+	.dw	0,101
+	.ascii "check_keypad"
+	.db	0
+	.dw	0,0
+Ldebug_pubnames_end:
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+Ldebug_CIE0_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE0_end:
+	.dw	0,593
+	.dw	0,(Ldebug_CIE0_start-4)
+	.dw	0,(Skeypad$check_keypad$48)	;initial loc
+	.dw	0,Skeypad$check_keypad$191-Skeypad$check_keypad$48
+	.db	1
+	.dw	0,(Skeypad$check_keypad$48)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Skeypad$check_keypad$49)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$52)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$53)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$54)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$55)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$57)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$58)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$59)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$60)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$65)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$66)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$67)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$68)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$73)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$74)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$75)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$76)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$81)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$82)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$83)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$84)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$86)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$87)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$88)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$89)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$91)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$92)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$93)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$94)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$99)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$100)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$101)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$102)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$107)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$108)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$109)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$110)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$115)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$116)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$117)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$118)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$120)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$121)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$122)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$123)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$125)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$126)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$127)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$128)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$133)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$134)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$135)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$136)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$141)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$142)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$143)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$144)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$149)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$150)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$151)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$152)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$154)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$155)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$156)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$157)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$159)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$160)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$161)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$162)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$167)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$168)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$169)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$170)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$175)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$176)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$177)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$178)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$183)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$check_keypad$184)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$check_keypad$185)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$check_keypad$186)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$check_keypad$189)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+Ldebug_CIE1_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE1_end:
+	.dw	0,264
+	.dw	0,(Ldebug_CIE1_start-4)
+	.dw	0,(Skeypad$init_keypad$1)	;initial loc
+	.dw	0,Skeypad$init_keypad$46-Skeypad$init_keypad$1
+	.db	1
+	.dw	0,(Skeypad$init_keypad$1)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Skeypad$init_keypad$3)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$init_keypad$4)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$init_keypad$5)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$init_keypad$6)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$init_keypad$7)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Skeypad$init_keypad$9)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$init_keypad$10)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$init_keypad$11)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$init_keypad$12)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$init_keypad$13)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Skeypad$init_keypad$15)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$init_keypad$16)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$init_keypad$17)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$init_keypad$18)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$init_keypad$19)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Skeypad$init_keypad$21)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$init_keypad$22)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$init_keypad$23)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$init_keypad$24)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$init_keypad$25)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Skeypad$init_keypad$27)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$init_keypad$28)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$init_keypad$29)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$init_keypad$30)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$init_keypad$31)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Skeypad$init_keypad$33)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$init_keypad$34)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$init_keypad$35)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$init_keypad$36)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$init_keypad$37)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Skeypad$init_keypad$39)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Skeypad$init_keypad$40)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Skeypad$init_keypad$41)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Skeypad$init_keypad$42)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Skeypad$init_keypad$43)
+	.db	14
+	.uleb128	2

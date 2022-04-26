@@ -1,0 +1,490 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+  9 A$keypad$101                                                   00001A GR
+  9 A$keypad$104                                                   00001C GR
+  9 A$keypad$107                                                   00001E GR
+  9 A$keypad$109                                                   000020 GR
+  9 A$keypad$112                                                   000022 GR
+  9 A$keypad$113                                                   000025 GR
+  9 A$keypad$118                                                   000027 GR
+  9 A$keypad$121                                                   000029 GR
+  9 A$keypad$124                                                   00002B GR
+  9 A$keypad$126                                                   00002D GR
+  9 A$keypad$129                                                   00002F GR
+  9 A$keypad$130                                                   000032 GR
+  9 A$keypad$135                                                   000034 GR
+  9 A$keypad$138                                                   000036 GR
+  9 A$keypad$141                                                   000038 GR
+  9 A$keypad$143                                                   00003A GR
+  9 A$keypad$146                                                   00003C GR
+  9 A$keypad$147                                                   00003F GR
+  9 A$keypad$152                                                   000041 GR
+  9 A$keypad$155                                                   000043 GR
+  9 A$keypad$158                                                   000045 GR
+  9 A$keypad$160                                                   000047 GR
+  9 A$keypad$163                                                   000049 GR
+  9 A$keypad$164                                                   00004C GR
+  9 A$keypad$169                                                   00004E GR
+  9 A$keypad$172                                                   000050 GR
+  9 A$keypad$175                                                   000052 GR
+  9 A$keypad$177                                                   000054 GR
+  9 A$keypad$180                                                   000056 GR
+  9 A$keypad$181                                                   000059 GR
+  9 A$keypad$190                                                   00005B GR
+  9 A$keypad$202                                                   00005C GR
+  9 A$keypad$207                                                   00005D GR
+  9 A$keypad$208                                                   00005F GR
+  9 A$keypad$212                                                   000061 GR
+  9 A$keypad$215                                                   000063 GR
+  9 A$keypad$217                                                   000065 GR
+  9 A$keypad$220                                                   000067 GR
+  9 A$keypad$221                                                   00006A GR
+  9 A$keypad$226                                                   00006C GR
+  9 A$keypad$229                                                   00006E GR
+  9 A$keypad$231                                                   000070 GR
+  9 A$keypad$234                                                   000072 GR
+  9 A$keypad$235                                                   000075 GR
+  9 A$keypad$238                                                   000077 GR
+  9 A$keypad$239                                                   000078 GR
+  9 A$keypad$240                                                   00007A GR
+  9 A$keypad$246                                                   00007D GR
+  9 A$keypad$247                                                   00007F GR
+  9 A$keypad$254                                                   000081 GR
+  9 A$keypad$257                                                   000083 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$keypad$259                                                   000085 GR
+  9 A$keypad$262                                                   000087 GR
+  9 A$keypad$263                                                   00008A GR
+  9 A$keypad$266                                                   00008C GR
+  9 A$keypad$267                                                   00008D GR
+  9 A$keypad$268                                                   00008F GR
+  9 A$keypad$274                                                   000092 GR
+  9 A$keypad$275                                                   000094 GR
+  9 A$keypad$282                                                   000096 GR
+  9 A$keypad$285                                                   000098 GR
+  9 A$keypad$287                                                   00009A GR
+  9 A$keypad$290                                                   00009C GR
+  9 A$keypad$291                                                   00009F GR
+  9 A$keypad$294                                                   0000A1 GR
+  9 A$keypad$295                                                   0000A2 GR
+  9 A$keypad$296                                                   0000A4 GR
+  9 A$keypad$302                                                   0000A7 GR
+  9 A$keypad$303                                                   0000A9 GR
+  9 A$keypad$310                                                   0000AB GR
+  9 A$keypad$313                                                   0000AD GR
+  9 A$keypad$315                                                   0000AF GR
+  9 A$keypad$318                                                   0000B1 GR
+  9 A$keypad$319                                                   0000B4 GR
+  9 A$keypad$324                                                   0000B6 GR
+  9 A$keypad$327                                                   0000B8 GR
+  9 A$keypad$329                                                   0000BA GR
+  9 A$keypad$332                                                   0000BC GR
+  9 A$keypad$333                                                   0000BF GR
+  9 A$keypad$338                                                   0000C1 GR
+  9 A$keypad$341                                                   0000C3 GR
+  9 A$keypad$343                                                   0000C5 GR
+  9 A$keypad$346                                                   0000C7 GR
+  9 A$keypad$347                                                   0000CA GR
+  9 A$keypad$350                                                   0000CC GR
+  9 A$keypad$351                                                   0000CD GR
+  9 A$keypad$352                                                   0000CF GR
+  9 A$keypad$358                                                   0000D2 GR
+  9 A$keypad$359                                                   0000D4 GR
+  9 A$keypad$366                                                   0000D6 GR
+  9 A$keypad$369                                                   0000D8 GR
+  9 A$keypad$371                                                   0000DA GR
+  9 A$keypad$374                                                   0000DC GR
+  9 A$keypad$375                                                   0000DF GR
+  9 A$keypad$378                                                   0000E1 GR
+  9 A$keypad$379                                                   0000E2 GR
+  9 A$keypad$380                                                   0000E4 GR
+  9 A$keypad$386                                                   0000E7 GR
+  9 A$keypad$387                                                   0000E9 GR
+  9 A$keypad$394                                                   0000EB GR
+  9 A$keypad$397                                                   0000ED GR
+  9 A$keypad$399                                                   0000EF GR
+  9 A$keypad$402                                                   0000F1 GR
+  9 A$keypad$403                                                   0000F4 GR
+  9 A$keypad$406                                                   0000F6 GR
+  9 A$keypad$407                                                   0000F7 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$keypad$408                                                   0000F9 GR
+  9 A$keypad$414                                                   0000FC GR
+  9 A$keypad$415                                                   0000FE GR
+  9 A$keypad$422                                                   000100 GR
+  9 A$keypad$425                                                   000102 GR
+  9 A$keypad$427                                                   000104 GR
+  9 A$keypad$430                                                   000106 GR
+  9 A$keypad$431                                                   000109 GR
+  9 A$keypad$436                                                   00010B GR
+  9 A$keypad$439                                                   00010D GR
+  9 A$keypad$441                                                   00010F GR
+  9 A$keypad$444                                                   000111 GR
+  9 A$keypad$445                                                   000114 GR
+  9 A$keypad$450                                                   000116 GR
+  9 A$keypad$453                                                   000118 GR
+  9 A$keypad$455                                                   00011A GR
+  9 A$keypad$458                                                   00011C GR
+  9 A$keypad$459                                                   00011F GR
+  9 A$keypad$462                                                   000121 GR
+  9 A$keypad$463                                                   000122 GR
+  9 A$keypad$464                                                   000124 GR
+  9 A$keypad$470                                                   000127 GR
+  9 A$keypad$471                                                   000129 GR
+  9 A$keypad$478                                                   00012B GR
+  9 A$keypad$481                                                   00012D GR
+  9 A$keypad$483                                                   00012F GR
+  9 A$keypad$486                                                   000131 GR
+  9 A$keypad$487                                                   000134 GR
+  9 A$keypad$490                                                   000136 GR
+  9 A$keypad$491                                                   000137 GR
+  9 A$keypad$492                                                   000139 GR
+  9 A$keypad$498                                                   00013C GR
+  9 A$keypad$499                                                   00013E GR
+  9 A$keypad$506                                                   000140 GR
+  9 A$keypad$509                                                   000142 GR
+  9 A$keypad$511                                                   000144 GR
+  9 A$keypad$514                                                   000146 GR
+  9 A$keypad$515                                                   000149 GR
+  9 A$keypad$518                                                   00014B GR
+  9 A$keypad$519                                                   00014C GR
+  9 A$keypad$520                                                   00014E GR
+  9 A$keypad$526                                                   000151 GR
+  9 A$keypad$527                                                   000153 GR
+  9 A$keypad$534                                                   000155 GR
+  9 A$keypad$537                                                   000157 GR
+  9 A$keypad$539                                                   000159 GR
+  9 A$keypad$542                                                   00015B GR
+  9 A$keypad$543                                                   00015E GR
+  9 A$keypad$548                                                   000160 GR
+  9 A$keypad$551                                                   000162 GR
+  9 A$keypad$553                                                   000164 GR
+  9 A$keypad$556                                                   000166 GR
+  9 A$keypad$557                                                   000169 GR
+  9 A$keypad$562                                                   00016B GR
+  9 A$keypad$565                                                   00016D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$keypad$567                                                   00016F GR
+  9 A$keypad$570                                                   000171 GR
+  9 A$keypad$571                                                   000174 GR
+  9 A$keypad$574                                                   000176 GR
+  9 A$keypad$575                                                   000177 GR
+  9 A$keypad$576                                                   000179 GR
+  9 A$keypad$582                                                   00017C GR
+  9 A$keypad$583                                                   00017E GR
+  9 A$keypad$590                                                   000180 GR
+  9 A$keypad$593                                                   000182 GR
+  9 A$keypad$595                                                   000184 GR
+  9 A$keypad$598                                                   000186 GR
+  9 A$keypad$599                                                   000189 GR
+  9 A$keypad$602                                                   00018B GR
+  9 A$keypad$603                                                   00018C GR
+  9 A$keypad$604                                                   00018E GR
+  9 A$keypad$610                                                   000191 GR
+  9 A$keypad$617                                                   000193 GR
+  9 A$keypad$620                                                   000195 GR
+  9 A$keypad$622                                                   000197 GR
+  9 A$keypad$625                                                   000199 GR
+  9 A$keypad$626                                                   00019C GR
+  9 A$keypad$629                                                   00019E GR
+  9 A$keypad$630                                                   00019F GR
+  9 A$keypad$631                                                   0001A1 GR
+  9 A$keypad$637                                                   0001A4 GR
+  9 A$keypad$638                                                   0001A6 GR
+  9 A$keypad$645                                                   0001A8 GR
+  9 A$keypad$648                                                   0001AA GR
+  9 A$keypad$650                                                   0001AC GR
+  9 A$keypad$653                                                   0001AE GR
+  9 A$keypad$654                                                   0001B1 GR
+  9 A$keypad$659                                                   0001B3 GR
+  9 A$keypad$665                                                   0001B5 GR
+  9 A$keypad$669                                                   0001B7 GR
+  9 A$keypad$67                                                    000000 GR
+  9 A$keypad$70                                                    000002 GR
+  9 A$keypad$73                                                    000004 GR
+  9 A$keypad$75                                                    000006 GR
+  9 A$keypad$78                                                    000008 GR
+  9 A$keypad$79                                                    00000B GR
+  9 A$keypad$84                                                    00000D GR
+  9 A$keypad$87                                                    00000F GR
+  9 A$keypad$90                                                    000011 GR
+  9 A$keypad$92                                                    000013 GR
+  9 A$keypad$95                                                    000015 GR
+  9 A$keypad$96                                                    000018 GR
+ 10 Ldebug_CIE0_end                                                000012 R
+ 10 Ldebug_CIE0_start                                              000004 R
+ 10 Ldebug_CIE1_end                                                000279 R
+ 10 Ldebug_CIE1_start                                              00026B R
+  D Ldebug_abbrev                                                  000000 R
+  E Ldebug_info_end                                                000101 R
+  E Ldebug_info_start                                              000004 R
+  B Ldebug_line_end                                                00019B R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  B Ldebug_line_start                                              000004 R
+  B Ldebug_line_stmt                                               000079 R
+  C Ldebug_loc_start                                               000000 R
+  F Ldebug_pubnames_end                                            000033 R
+  F Ldebug_pubnames_start                                          000004 R
+  9 Skeypad$check_keypad$100                                    =  0000DA GR
+  9 Skeypad$check_keypad$101                                    =  0000DC GR
+  9 Skeypad$check_keypad$102                                    =  0000E1 GR
+  9 Skeypad$check_keypad$103                                    =  0000E7 GR
+  9 Skeypad$check_keypad$104                                    =  0000E7 GR
+  9 Skeypad$check_keypad$105                                    =  0000EB GR
+  9 Skeypad$check_keypad$106                                    =  0000EB GR
+  9 Skeypad$check_keypad$107                                    =  0000ED GR
+  9 Skeypad$check_keypad$108                                    =  0000EF GR
+  9 Skeypad$check_keypad$109                                    =  0000F1 GR
+  9 Skeypad$check_keypad$110                                    =  0000F6 GR
+  9 Skeypad$check_keypad$111                                    =  0000FC GR
+  9 Skeypad$check_keypad$112                                    =  0000FC GR
+  9 Skeypad$check_keypad$113                                    =  000100 GR
+  9 Skeypad$check_keypad$114                                    =  000100 GR
+  9 Skeypad$check_keypad$115                                    =  000102 GR
+  9 Skeypad$check_keypad$116                                    =  000104 GR
+  9 Skeypad$check_keypad$117                                    =  000106 GR
+  9 Skeypad$check_keypad$118                                    =  00010B GR
+  9 Skeypad$check_keypad$119                                    =  00010B GR
+  9 Skeypad$check_keypad$120                                    =  00010D GR
+  9 Skeypad$check_keypad$121                                    =  00010F GR
+  9 Skeypad$check_keypad$122                                    =  000111 GR
+  9 Skeypad$check_keypad$123                                    =  000116 GR
+  9 Skeypad$check_keypad$124                                    =  000116 GR
+  9 Skeypad$check_keypad$125                                    =  000118 GR
+  9 Skeypad$check_keypad$126                                    =  00011A GR
+  9 Skeypad$check_keypad$127                                    =  00011C GR
+  9 Skeypad$check_keypad$128                                    =  000121 GR
+  9 Skeypad$check_keypad$129                                    =  000127 GR
+  9 Skeypad$check_keypad$130                                    =  000127 GR
+  9 Skeypad$check_keypad$131                                    =  00012B GR
+  9 Skeypad$check_keypad$132                                    =  00012B GR
+  9 Skeypad$check_keypad$133                                    =  00012D GR
+  9 Skeypad$check_keypad$134                                    =  00012F GR
+  9 Skeypad$check_keypad$135                                    =  000131 GR
+  9 Skeypad$check_keypad$136                                    =  000136 GR
+  9 Skeypad$check_keypad$137                                    =  00013C GR
+  9 Skeypad$check_keypad$138                                    =  00013C GR
+  9 Skeypad$check_keypad$139                                    =  000140 GR
+  9 Skeypad$check_keypad$140                                    =  000140 GR
+  9 Skeypad$check_keypad$141                                    =  000142 GR
+  9 Skeypad$check_keypad$142                                    =  000144 GR
+  9 Skeypad$check_keypad$143                                    =  000146 GR
+  9 Skeypad$check_keypad$144                                    =  00014B GR
+  9 Skeypad$check_keypad$145                                    =  000151 GR
+  9 Skeypad$check_keypad$146                                    =  000151 GR
+  9 Skeypad$check_keypad$147                                    =  000155 GR
+  9 Skeypad$check_keypad$148                                    =  000155 GR
+  9 Skeypad$check_keypad$149                                    =  000157 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 6.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Skeypad$check_keypad$150                                    =  000159 GR
+  9 Skeypad$check_keypad$151                                    =  00015B GR
+  9 Skeypad$check_keypad$152                                    =  000160 GR
+  9 Skeypad$check_keypad$153                                    =  000160 GR
+  9 Skeypad$check_keypad$154                                    =  000162 GR
+  9 Skeypad$check_keypad$155                                    =  000164 GR
+  9 Skeypad$check_keypad$156                                    =  000166 GR
+  9 Skeypad$check_keypad$157                                    =  00016B GR
+  9 Skeypad$check_keypad$158                                    =  00016B GR
+  9 Skeypad$check_keypad$159                                    =  00016D GR
+  9 Skeypad$check_keypad$160                                    =  00016F GR
+  9 Skeypad$check_keypad$161                                    =  000171 GR
+  9 Skeypad$check_keypad$162                                    =  000176 GR
+  9 Skeypad$check_keypad$163                                    =  00017C GR
+  9 Skeypad$check_keypad$164                                    =  00017C GR
+  9 Skeypad$check_keypad$165                                    =  000180 GR
+  9 Skeypad$check_keypad$166                                    =  000180 GR
+  9 Skeypad$check_keypad$167                                    =  000182 GR
+  9 Skeypad$check_keypad$168                                    =  000184 GR
+  9 Skeypad$check_keypad$169                                    =  000186 GR
+  9 Skeypad$check_keypad$170                                    =  00018B GR
+  9 Skeypad$check_keypad$171                                    =  000191 GR
+  9 Skeypad$check_keypad$172                                    =  000191 GR
+  9 Skeypad$check_keypad$173                                    =  000193 GR
+  9 Skeypad$check_keypad$174                                    =  000193 GR
+  9 Skeypad$check_keypad$175                                    =  000195 GR
+  9 Skeypad$check_keypad$176                                    =  000197 GR
+  9 Skeypad$check_keypad$177                                    =  000199 GR
+  9 Skeypad$check_keypad$178                                    =  00019E GR
+  9 Skeypad$check_keypad$179                                    =  0001A4 GR
+  9 Skeypad$check_keypad$180                                    =  0001A4 GR
+  9 Skeypad$check_keypad$181                                    =  0001A8 GR
+  9 Skeypad$check_keypad$182                                    =  0001A8 GR
+  9 Skeypad$check_keypad$183                                    =  0001AA GR
+  9 Skeypad$check_keypad$184                                    =  0001AC GR
+  9 Skeypad$check_keypad$185                                    =  0001AE GR
+  9 Skeypad$check_keypad$186                                    =  0001B3 GR
+  9 Skeypad$check_keypad$187                                    =  0001B3 GR
+  9 Skeypad$check_keypad$188                                    =  0001B5 GR
+  9 Skeypad$check_keypad$189                                    =  0001B7 GR
+  9 Skeypad$check_keypad$190                                    =  0001B7 GR
+  9 Skeypad$check_keypad$191                                    =  0001B8 GR
+  9 Skeypad$check_keypad$47                                     =  00005C GR
+  9 Skeypad$check_keypad$48                                     =  00005C GR
+  9 Skeypad$check_keypad$49                                     =  00005D GR
+  9 Skeypad$check_keypad$50                                     =  00005D GR
+  9 Skeypad$check_keypad$51                                     =  000061 GR
+  9 Skeypad$check_keypad$52                                     =  000063 GR
+  9 Skeypad$check_keypad$53                                     =  000065 GR
+  9 Skeypad$check_keypad$54                                     =  000067 GR
+  9 Skeypad$check_keypad$55                                     =  00006C GR
+  9 Skeypad$check_keypad$56                                     =  00006C GR
+  9 Skeypad$check_keypad$57                                     =  00006E GR
+  9 Skeypad$check_keypad$58                                     =  000070 GR
+  9 Skeypad$check_keypad$59                                     =  000072 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 7.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Skeypad$check_keypad$60                                     =  000077 GR
+  9 Skeypad$check_keypad$61                                     =  00007D GR
+  9 Skeypad$check_keypad$62                                     =  00007D GR
+  9 Skeypad$check_keypad$63                                     =  000081 GR
+  9 Skeypad$check_keypad$64                                     =  000081 GR
+  9 Skeypad$check_keypad$65                                     =  000083 GR
+  9 Skeypad$check_keypad$66                                     =  000085 GR
+  9 Skeypad$check_keypad$67                                     =  000087 GR
+  9 Skeypad$check_keypad$68                                     =  00008C GR
+  9 Skeypad$check_keypad$69                                     =  000092 GR
+  9 Skeypad$check_keypad$70                                     =  000092 GR
+  9 Skeypad$check_keypad$71                                     =  000096 GR
+  9 Skeypad$check_keypad$72                                     =  000096 GR
+  9 Skeypad$check_keypad$73                                     =  000098 GR
+  9 Skeypad$check_keypad$74                                     =  00009A GR
+  9 Skeypad$check_keypad$75                                     =  00009C GR
+  9 Skeypad$check_keypad$76                                     =  0000A1 GR
+  9 Skeypad$check_keypad$77                                     =  0000A7 GR
+  9 Skeypad$check_keypad$78                                     =  0000A7 GR
+  9 Skeypad$check_keypad$79                                     =  0000AB GR
+  9 Skeypad$check_keypad$80                                     =  0000AB GR
+  9 Skeypad$check_keypad$81                                     =  0000AD GR
+  9 Skeypad$check_keypad$82                                     =  0000AF GR
+  9 Skeypad$check_keypad$83                                     =  0000B1 GR
+  9 Skeypad$check_keypad$84                                     =  0000B6 GR
+  9 Skeypad$check_keypad$85                                     =  0000B6 GR
+  9 Skeypad$check_keypad$86                                     =  0000B8 GR
+  9 Skeypad$check_keypad$87                                     =  0000BA GR
+  9 Skeypad$check_keypad$88                                     =  0000BC GR
+  9 Skeypad$check_keypad$89                                     =  0000C1 GR
+  9 Skeypad$check_keypad$90                                     =  0000C1 GR
+  9 Skeypad$check_keypad$91                                     =  0000C3 GR
+  9 Skeypad$check_keypad$92                                     =  0000C5 GR
+  9 Skeypad$check_keypad$93                                     =  0000C7 GR
+  9 Skeypad$check_keypad$94                                     =  0000CC GR
+  9 Skeypad$check_keypad$95                                     =  0000D2 GR
+  9 Skeypad$check_keypad$96                                     =  0000D2 GR
+  9 Skeypad$check_keypad$97                                     =  0000D6 GR
+  9 Skeypad$check_keypad$98                                     =  0000D6 GR
+  9 Skeypad$check_keypad$99                                     =  0000D8 GR
+  9 Skeypad$init_keypad$0                                       =  000000 GR
+  9 Skeypad$init_keypad$1                                       =  000000 GR
+  9 Skeypad$init_keypad$10                                      =  000011 GR
+  9 Skeypad$init_keypad$11                                      =  000013 GR
+  9 Skeypad$init_keypad$12                                      =  000015 GR
+  9 Skeypad$init_keypad$13                                      =  00001A GR
+  9 Skeypad$init_keypad$14                                      =  00001A GR
+  9 Skeypad$init_keypad$15                                      =  00001C GR
+  9 Skeypad$init_keypad$16                                      =  00001E GR
+  9 Skeypad$init_keypad$17                                      =  000020 GR
+  9 Skeypad$init_keypad$18                                      =  000022 GR
+  9 Skeypad$init_keypad$19                                      =  000027 GR
+  9 Skeypad$init_keypad$2                                       =  000000 GR
+  9 Skeypad$init_keypad$20                                      =  000027 GR
+  9 Skeypad$init_keypad$21                                      =  000029 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Skeypad$init_keypad$22                                      =  00002B GR
+  9 Skeypad$init_keypad$23                                      =  00002D GR
+  9 Skeypad$init_keypad$24                                      =  00002F GR
+  9 Skeypad$init_keypad$25                                      =  000034 GR
+  9 Skeypad$init_keypad$26                                      =  000034 GR
+  9 Skeypad$init_keypad$27                                      =  000036 GR
+  9 Skeypad$init_keypad$28                                      =  000038 GR
+  9 Skeypad$init_keypad$29                                      =  00003A GR
+  9 Skeypad$init_keypad$3                                       =  000002 GR
+  9 Skeypad$init_keypad$30                                      =  00003C GR
+  9 Skeypad$init_keypad$31                                      =  000041 GR
+  9 Skeypad$init_keypad$32                                      =  000041 GR
+  9 Skeypad$init_keypad$33                                      =  000043 GR
+  9 Skeypad$init_keypad$34                                      =  000045 GR
+  9 Skeypad$init_keypad$35                                      =  000047 GR
+  9 Skeypad$init_keypad$36                                      =  000049 GR
+  9 Skeypad$init_keypad$37                                      =  00004E GR
+  9 Skeypad$init_keypad$38                                      =  00004E GR
+  9 Skeypad$init_keypad$39                                      =  000050 GR
+  9 Skeypad$init_keypad$4                                       =  000004 GR
+  9 Skeypad$init_keypad$40                                      =  000052 GR
+  9 Skeypad$init_keypad$41                                      =  000054 GR
+  9 Skeypad$init_keypad$42                                      =  000056 GR
+  9 Skeypad$init_keypad$43                                      =  00005B GR
+  9 Skeypad$init_keypad$44                                      =  00005B GR
+  9 Skeypad$init_keypad$45                                      =  00005B GR
+  9 Skeypad$init_keypad$46                                      =  00005C GR
+  9 Skeypad$init_keypad$5                                       =  000006 GR
+  9 Skeypad$init_keypad$6                                       =  000008 GR
+  9 Skeypad$init_keypad$7                                       =  00000D GR
+  9 Skeypad$init_keypad$8                                       =  00000D GR
+  9 Skeypad$init_keypad$9                                       =  00000F GR
+  9 XG$check_keypad$0$0                                         =  0001B7 GR
+  9 XG$init_keypad$0$0                                          =  00005B GR
+    _GPIO_Init                                                     ****** GX
+    _GPIO_ReadInputPin                                             ****** GX
+    _GPIO_WriteHigh                                                ****** GX
+    _GPIO_WriteLow                                                 ****** GX
+  9 _check_keypad                                                  00005C GR
+  9 _init_keypad                                                   000000 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 9.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 DATA                                       size      0   flags    0
+   2 INITIALIZED                                size      0   flags    0
+   3 DABS                                       size      0   flags    8
+   4 HOME                                       size      0   flags    0
+   5 GSINIT                                     size      0   flags    0
+   6 GSFINAL                                    size      0   flags    0
+   7 CONST                                      size      0   flags    0
+   8 INITIALIZER                                size      0   flags    0
+   9 CODE                                       size    1B8   flags    0
+   A CABS                                       size      0   flags    8
+   B .debug_line                                size    19B   flags  100
+   C .debug_loc                                 size    5A4   flags  100
+   D .debug_abbrev                              size     4D   flags  100
+   E .debug_info                                size    101   flags  100
+   F .debug_pubnames                            size     33   flags  100
+  10 .debug_frame                               size    385   flags  100
+
