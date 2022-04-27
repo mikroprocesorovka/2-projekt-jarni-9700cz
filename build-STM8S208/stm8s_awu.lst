@@ -1,0 +1,1893 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.1.0 #12072 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_awu
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TBR_Array
+                                     12 	.globl _APR_Array
+                                     13 	.globl _assert_failed
+                                     14 	.globl _AWU_DeInit
+                                     15 	.globl _AWU_Init
+                                     16 	.globl _AWU_Cmd
+                                     17 	.globl _AWU_LSICalibrationConfig
+                                     18 	.globl _AWU_IdleModeEnable
+                                     19 	.globl _AWU_GetFlagStatus
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DATA
+                                     24 ;--------------------------------------------------------
+                                     25 ; ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area INITIALIZED
+                                     28 ;--------------------------------------------------------
+                                     29 ; absolute external ram data
+                                     30 ;--------------------------------------------------------
+                                     31 	.area DABS (ABS)
+                                     32 
+                                     33 ; default segment ordering for linker
+                                     34 	.area HOME
+                                     35 	.area GSINIT
+                                     36 	.area GSFINAL
+                                     37 	.area CONST
+                                     38 	.area INITIALIZER
+                                     39 	.area CODE
+                                     40 
+                                     41 ;--------------------------------------------------------
+                                     42 ; global & static initialisations
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area GSINIT
+                                     46 	.area GSFINAL
+                                     47 	.area GSINIT
+                                     48 ;--------------------------------------------------------
+                                     49 ; Home
+                                     50 ;--------------------------------------------------------
+                                     51 	.area HOME
+                                     52 	.area HOME
+                                     53 ;--------------------------------------------------------
+                                     54 ; code
+                                     55 ;--------------------------------------------------------
+                                     56 	.area CODE
+                           000000    57 	Sstm8s_awu$AWU_DeInit$0 ==.
+                                     58 ;	../SPL/src/stm8s_awu.c: 73: void AWU_DeInit(void)
+                                     59 ; genLabel
+                                     60 ;	-----------------------------------------
+                                     61 ;	 function AWU_DeInit
+                                     62 ;	-----------------------------------------
+                                     63 ;	Register assignment is optimal.
+                                     64 ;	Stack space usage: 0 bytes.
+      000000                         65 _AWU_DeInit:
+                           000000    66 	Sstm8s_awu$AWU_DeInit$1 ==.
+                           000000    67 	Sstm8s_awu$AWU_DeInit$2 ==.
+                                     68 ;	../SPL/src/stm8s_awu.c: 75: AWU->CSR = AWU_CSR_RESET_VALUE;
+                                     69 ; genPointerSet
+      000000 35 00 50 F0      [ 1]   70 	mov	0x50f0+0, #0x00
+                           000004    71 	Sstm8s_awu$AWU_DeInit$3 ==.
+                                     72 ;	../SPL/src/stm8s_awu.c: 76: AWU->APR = AWU_APR_RESET_VALUE;
+                                     73 ; genPointerSet
+      000004 35 3F 50 F1      [ 1]   74 	mov	0x50f1+0, #0x3f
+                           000008    75 	Sstm8s_awu$AWU_DeInit$4 ==.
+                                     76 ;	../SPL/src/stm8s_awu.c: 77: AWU->TBR = AWU_TBR_RESET_VALUE;
+                                     77 ; genPointerSet
+      000008 35 00 50 F2      [ 1]   78 	mov	0x50f2+0, #0x00
+                                     79 ; genLabel
+      00000C                         80 00101$:
+                           00000C    81 	Sstm8s_awu$AWU_DeInit$5 ==.
+                                     82 ;	../SPL/src/stm8s_awu.c: 78: }
+                                     83 ; genEndFunction
+                           00000C    84 	Sstm8s_awu$AWU_DeInit$6 ==.
+                           00000C    85 	XG$AWU_DeInit$0$0 ==.
+      00000C 81               [ 4]   86 	ret
+                           00000D    87 	Sstm8s_awu$AWU_DeInit$7 ==.
+                           00000D    88 	Sstm8s_awu$AWU_Init$8 ==.
+                                     89 ;	../SPL/src/stm8s_awu.c: 88: void AWU_Init(AWU_Timebase_TypeDef AWU_TimeBase)
+                                     90 ; genLabel
+                                     91 ;	-----------------------------------------
+                                     92 ;	 function AWU_Init
+                                     93 ;	-----------------------------------------
+                                     94 ;	Register assignment might be sub-optimal.
+                                     95 ;	Stack space usage: 1 bytes.
+      00000D                         96 _AWU_Init:
+                           00000D    97 	Sstm8s_awu$AWU_Init$9 ==.
+      00000D 88               [ 1]   98 	push	a
+                           00000E    99 	Sstm8s_awu$AWU_Init$10 ==.
+                           00000E   100 	Sstm8s_awu$AWU_Init$11 ==.
+                                    101 ;	../SPL/src/stm8s_awu.c: 91: assert_param(IS_AWU_TIMEBASE_OK(AWU_TimeBase));
+                                    102 ; genIfx
+      00000E 0D 04            [ 1]  103 	tnz	(0x04, sp)
+      000010 26 03            [ 1]  104 	jrne	00238$
+      000012 CCr00rB3         [ 2]  105 	jp	00104$
+      000015                        106 00238$:
+                                    107 ; genCmpEQorNE
+      000015 7B 04            [ 1]  108 	ld	a, (0x04, sp)
+      000017 4A               [ 1]  109 	dec	a
+      000018 26 03            [ 1]  110 	jrne	00240$
+      00001A CCr00rB3         [ 2]  111 	jp	00104$
+      00001D                        112 00240$:
+                           00001D   113 	Sstm8s_awu$AWU_Init$12 ==.
+                                    114 ; skipping generated iCode
+                                    115 ; genCmpEQorNE
+      00001D 7B 04            [ 1]  116 	ld	a, (0x04, sp)
+      00001F A1 02            [ 1]  117 	cp	a, #0x02
+      000021 26 03            [ 1]  118 	jrne	00243$
+      000023 CCr00rB3         [ 2]  119 	jp	00104$
+      000026                        120 00243$:
+                           000026   121 	Sstm8s_awu$AWU_Init$13 ==.
+                                    122 ; skipping generated iCode
+                                    123 ; genCmpEQorNE
+      000026 7B 04            [ 1]  124 	ld	a, (0x04, sp)
+      000028 A1 03            [ 1]  125 	cp	a, #0x03
+      00002A 26 03            [ 1]  126 	jrne	00246$
+      00002C CCr00rB3         [ 2]  127 	jp	00104$
+      00002F                        128 00246$:
+                           00002F   129 	Sstm8s_awu$AWU_Init$14 ==.
+                                    130 ; skipping generated iCode
+                                    131 ; genCmpEQorNE
+      00002F 7B 04            [ 1]  132 	ld	a, (0x04, sp)
+      000031 A1 04            [ 1]  133 	cp	a, #0x04
+      000033 26 03            [ 1]  134 	jrne	00249$
+      000035 CCr00rB3         [ 2]  135 	jp	00104$
+      000038                        136 00249$:
+                           000038   137 	Sstm8s_awu$AWU_Init$15 ==.
+                                    138 ; skipping generated iCode
+                                    139 ; genCmpEQorNE
+      000038 7B 04            [ 1]  140 	ld	a, (0x04, sp)
+      00003A A1 05            [ 1]  141 	cp	a, #0x05
+      00003C 26 03            [ 1]  142 	jrne	00252$
+      00003E CCr00rB3         [ 2]  143 	jp	00104$
+      000041                        144 00252$:
+                           000041   145 	Sstm8s_awu$AWU_Init$16 ==.
+                                    146 ; skipping generated iCode
+                                    147 ; genCmpEQorNE
+      000041 7B 04            [ 1]  148 	ld	a, (0x04, sp)
+      000043 A1 06            [ 1]  149 	cp	a, #0x06
+      000045 26 03            [ 1]  150 	jrne	00255$
+      000047 CCr00rB3         [ 2]  151 	jp	00104$
+      00004A                        152 00255$:
+                           00004A   153 	Sstm8s_awu$AWU_Init$17 ==.
+                                    154 ; skipping generated iCode
+                                    155 ; genCmpEQorNE
+      00004A 7B 04            [ 1]  156 	ld	a, (0x04, sp)
+      00004C A1 07            [ 1]  157 	cp	a, #0x07
+      00004E 26 03            [ 1]  158 	jrne	00258$
+      000050 CCr00rB3         [ 2]  159 	jp	00104$
+      000053                        160 00258$:
+                           000053   161 	Sstm8s_awu$AWU_Init$18 ==.
+                                    162 ; skipping generated iCode
+                                    163 ; genCmpEQorNE
+      000053 7B 04            [ 1]  164 	ld	a, (0x04, sp)
+      000055 A1 08            [ 1]  165 	cp	a, #0x08
+      000057 26 03            [ 1]  166 	jrne	00261$
+      000059 CCr00rB3         [ 2]  167 	jp	00104$
+      00005C                        168 00261$:
+                           00005C   169 	Sstm8s_awu$AWU_Init$19 ==.
+                                    170 ; skipping generated iCode
+                                    171 ; genCmpEQorNE
+      00005C 7B 04            [ 1]  172 	ld	a, (0x04, sp)
+      00005E A1 09            [ 1]  173 	cp	a, #0x09
+      000060 26 03            [ 1]  174 	jrne	00264$
+      000062 CCr00rB3         [ 2]  175 	jp	00104$
+      000065                        176 00264$:
+                           000065   177 	Sstm8s_awu$AWU_Init$20 ==.
+                                    178 ; skipping generated iCode
+                                    179 ; genCmpEQorNE
+      000065 7B 04            [ 1]  180 	ld	a, (0x04, sp)
+      000067 A1 0A            [ 1]  181 	cp	a, #0x0a
+      000069 26 03            [ 1]  182 	jrne	00267$
+      00006B CCr00rB3         [ 2]  183 	jp	00104$
+      00006E                        184 00267$:
+                           00006E   185 	Sstm8s_awu$AWU_Init$21 ==.
+                                    186 ; skipping generated iCode
+                                    187 ; genCmpEQorNE
+      00006E 7B 04            [ 1]  188 	ld	a, (0x04, sp)
+      000070 A1 0B            [ 1]  189 	cp	a, #0x0b
+      000072 26 03            [ 1]  190 	jrne	00270$
+      000074 CCr00rB3         [ 2]  191 	jp	00104$
+      000077                        192 00270$:
+                           000077   193 	Sstm8s_awu$AWU_Init$22 ==.
+                                    194 ; skipping generated iCode
+                                    195 ; genCmpEQorNE
+      000077 7B 04            [ 1]  196 	ld	a, (0x04, sp)
+      000079 A1 0C            [ 1]  197 	cp	a, #0x0c
+      00007B 26 03            [ 1]  198 	jrne	00273$
+      00007D CCr00rB3         [ 2]  199 	jp	00104$
+      000080                        200 00273$:
+                           000080   201 	Sstm8s_awu$AWU_Init$23 ==.
+                                    202 ; skipping generated iCode
+                                    203 ; genCmpEQorNE
+      000080 7B 04            [ 1]  204 	ld	a, (0x04, sp)
+      000082 A1 0D            [ 1]  205 	cp	a, #0x0d
+      000084 26 03            [ 1]  206 	jrne	00276$
+      000086 CCr00rB3         [ 2]  207 	jp	00104$
+      000089                        208 00276$:
+                           000089   209 	Sstm8s_awu$AWU_Init$24 ==.
+                                    210 ; skipping generated iCode
+                                    211 ; genCmpEQorNE
+      000089 7B 04            [ 1]  212 	ld	a, (0x04, sp)
+      00008B A1 0E            [ 1]  213 	cp	a, #0x0e
+      00008D 26 03            [ 1]  214 	jrne	00279$
+      00008F CCr00rB3         [ 2]  215 	jp	00104$
+      000092                        216 00279$:
+                           000092   217 	Sstm8s_awu$AWU_Init$25 ==.
+                                    218 ; skipping generated iCode
+                                    219 ; genCmpEQorNE
+      000092 7B 04            [ 1]  220 	ld	a, (0x04, sp)
+      000094 A1 0F            [ 1]  221 	cp	a, #0x0f
+      000096 26 03            [ 1]  222 	jrne	00282$
+      000098 CCr00rB3         [ 2]  223 	jp	00104$
+      00009B                        224 00282$:
+                           00009B   225 	Sstm8s_awu$AWU_Init$26 ==.
+                                    226 ; skipping generated iCode
+                                    227 ; genCmpEQorNE
+      00009B 7B 04            [ 1]  228 	ld	a, (0x04, sp)
+      00009D A1 10            [ 1]  229 	cp	a, #0x10
+      00009F 26 03            [ 1]  230 	jrne	00285$
+      0000A1 CCr00rB3         [ 2]  231 	jp	00104$
+      0000A4                        232 00285$:
+                           0000A4   233 	Sstm8s_awu$AWU_Init$27 ==.
+                                    234 ; skipping generated iCode
+                                    235 ; skipping iCode since result will be rematerialized
+                                    236 ; skipping iCode since result will be rematerialized
+                                    237 ; genIPush
+      0000A4 4B 5B            [ 1]  238 	push	#0x5b
+                           0000A6   239 	Sstm8s_awu$AWU_Init$28 ==.
+      0000A6 5F               [ 1]  240 	clrw	x
+      0000A7 89               [ 2]  241 	pushw	x
+                           0000A8   242 	Sstm8s_awu$AWU_Init$29 ==.
+      0000A8 4B 00            [ 1]  243 	push	#0x00
+                           0000AA   244 	Sstm8s_awu$AWU_Init$30 ==.
+                                    245 ; genIPush
+      0000AA 4Br22            [ 1]  246 	push	#<(___str_0+0)
+                           0000AC   247 	Sstm8s_awu$AWU_Init$31 ==.
+      0000AC 4Bs00            [ 1]  248 	push	#((___str_0+0) >> 8)
+                           0000AE   249 	Sstm8s_awu$AWU_Init$32 ==.
+                                    250 ; genCall
+      0000AE CDr00r00         [ 4]  251 	call	_assert_failed
+      0000B1 5B 06            [ 2]  252 	addw	sp, #6
+                           0000B3   253 	Sstm8s_awu$AWU_Init$33 ==.
+                                    254 ; genLabel
+      0000B3                        255 00104$:
+                           0000B3   256 	Sstm8s_awu$AWU_Init$34 ==.
+                                    257 ;	../SPL/src/stm8s_awu.c: 94: AWU->CSR |= AWU_CSR_AWUEN;
+                                    258 ; genPointerGet
+      0000B3 C6 50 F0         [ 1]  259 	ld	a, 0x50f0
+                                    260 ; genOr
+      0000B6 AA 10            [ 1]  261 	or	a, #0x10
+                                    262 ; genPointerSet
+      0000B8 C7 50 F0         [ 1]  263 	ld	0x50f0, a
+                           0000BB   264 	Sstm8s_awu$AWU_Init$35 ==.
+                                    265 ;	../SPL/src/stm8s_awu.c: 97: AWU->TBR &= (uint8_t)(~AWU_TBR_AWUTB);
+                                    266 ; genPointerGet
+      0000BB C6 50 F2         [ 1]  267 	ld	a, 0x50f2
+                                    268 ; genAnd
+      0000BE A4 F0            [ 1]  269 	and	a, #0xf0
+                                    270 ; genPointerSet
+      0000C0 C7 50 F2         [ 1]  271 	ld	0x50f2, a
+                           0000C3   272 	Sstm8s_awu$AWU_Init$36 ==.
+                                    273 ;	../SPL/src/stm8s_awu.c: 98: AWU->TBR |= TBR_Array[(uint8_t)AWU_TimeBase];
+                                    274 ; genPointerGet
+      0000C3 C6 50 F2         [ 1]  275 	ld	a, 0x50f2
+      0000C6 6B 01            [ 1]  276 	ld	(0x01, sp), a
+                                    277 ; skipping iCode since result will be rematerialized
+                                    278 ; genPlus
+      0000C8 5F               [ 1]  279 	clrw	x
+      0000C9 7B 04            [ 1]  280 	ld	a, (0x04, sp)
+      0000CB 97               [ 1]  281 	ld	xl, a
+      0000CC 1Cr00r11         [ 2]  282 	addw	x, #(_TBR_Array+0)
+                                    283 ; genPointerGet
+      0000CF F6               [ 1]  284 	ld	a, (x)
+                                    285 ; genOr
+      0000D0 1A 01            [ 1]  286 	or	a, (0x01, sp)
+                                    287 ; genPointerSet
+      0000D2 C7 50 F2         [ 1]  288 	ld	0x50f2, a
+                           0000D5   289 	Sstm8s_awu$AWU_Init$37 ==.
+                                    290 ;	../SPL/src/stm8s_awu.c: 101: AWU->APR &= (uint8_t)(~AWU_APR_APR);
+                                    291 ; genPointerGet
+      0000D5 C6 50 F1         [ 1]  292 	ld	a, 0x50f1
+                                    293 ; genAnd
+      0000D8 A4 C0            [ 1]  294 	and	a, #0xc0
+                                    295 ; genPointerSet
+      0000DA C7 50 F1         [ 1]  296 	ld	0x50f1, a
+                           0000DD   297 	Sstm8s_awu$AWU_Init$38 ==.
+                                    298 ;	../SPL/src/stm8s_awu.c: 102: AWU->APR |= APR_Array[(uint8_t)AWU_TimeBase];
+                                    299 ; genPointerGet
+      0000DD C6 50 F1         [ 1]  300 	ld	a, 0x50f1
+      0000E0 6B 01            [ 1]  301 	ld	(0x01, sp), a
+                                    302 ; skipping iCode since result will be rematerialized
+                                    303 ; genPlus
+      0000E2 5F               [ 1]  304 	clrw	x
+      0000E3 7B 04            [ 1]  305 	ld	a, (0x04, sp)
+      0000E5 97               [ 1]  306 	ld	xl, a
+      0000E6 1Cr00r00         [ 2]  307 	addw	x, #(_APR_Array+0)
+                                    308 ; genPointerGet
+      0000E9 F6               [ 1]  309 	ld	a, (x)
+                                    310 ; genOr
+      0000EA 1A 01            [ 1]  311 	or	a, (0x01, sp)
+                                    312 ; genPointerSet
+      0000EC C7 50 F1         [ 1]  313 	ld	0x50f1, a
+                                    314 ; genLabel
+      0000EF                        315 00101$:
+                           0000EF   316 	Sstm8s_awu$AWU_Init$39 ==.
+                                    317 ;	../SPL/src/stm8s_awu.c: 103: }
+                                    318 ; genEndFunction
+      0000EF 84               [ 1]  319 	pop	a
+                           0000F0   320 	Sstm8s_awu$AWU_Init$40 ==.
+                           0000F0   321 	Sstm8s_awu$AWU_Init$41 ==.
+                           0000F0   322 	XG$AWU_Init$0$0 ==.
+      0000F0 81               [ 4]  323 	ret
+                           0000F1   324 	Sstm8s_awu$AWU_Init$42 ==.
+                           0000F1   325 	Sstm8s_awu$AWU_Cmd$43 ==.
+                                    326 ;	../SPL/src/stm8s_awu.c: 112: void AWU_Cmd(FunctionalState NewState)
+                                    327 ; genLabel
+                                    328 ;	-----------------------------------------
+                                    329 ;	 function AWU_Cmd
+                                    330 ;	-----------------------------------------
+                                    331 ;	Register assignment is optimal.
+                                    332 ;	Stack space usage: 0 bytes.
+      0000F1                        333 _AWU_Cmd:
+                           0000F1   334 	Sstm8s_awu$AWU_Cmd$44 ==.
+                           0000F1   335 	Sstm8s_awu$AWU_Cmd$45 ==.
+                                    336 ;	../SPL/src/stm8s_awu.c: 117: AWU->CSR |= AWU_CSR_AWUEN;
+                                    337 ; genPointerGet
+      0000F1 C6 50 F0         [ 1]  338 	ld	a, 0x50f0
+                           0000F4   339 	Sstm8s_awu$AWU_Cmd$46 ==.
+                                    340 ;	../SPL/src/stm8s_awu.c: 114: if (NewState != DISABLE)
+                                    341 ; genIfx
+      0000F4 0D 03            [ 1]  342 	tnz	(0x03, sp)
+      0000F6 26 03            [ 1]  343 	jrne	00111$
+      0000F8 CCr01r03         [ 2]  344 	jp	00102$
+      0000FB                        345 00111$:
+                           0000FB   346 	Sstm8s_awu$AWU_Cmd$47 ==.
+                           0000FB   347 	Sstm8s_awu$AWU_Cmd$48 ==.
+                                    348 ;	../SPL/src/stm8s_awu.c: 117: AWU->CSR |= AWU_CSR_AWUEN;
+                                    349 ; genOr
+      0000FB AA 10            [ 1]  350 	or	a, #0x10
+                                    351 ; genPointerSet
+      0000FD C7 50 F0         [ 1]  352 	ld	0x50f0, a
+                           000100   353 	Sstm8s_awu$AWU_Cmd$49 ==.
+                                    354 ; genGoto
+      000100 CCr01r08         [ 2]  355 	jp	00104$
+                                    356 ; genLabel
+      000103                        357 00102$:
+                           000103   358 	Sstm8s_awu$AWU_Cmd$50 ==.
+                           000103   359 	Sstm8s_awu$AWU_Cmd$51 ==.
+                                    360 ;	../SPL/src/stm8s_awu.c: 122: AWU->CSR &= (uint8_t)(~AWU_CSR_AWUEN);
+                                    361 ; genAnd
+      000103 A4 EF            [ 1]  362 	and	a, #0xef
+                                    363 ; genPointerSet
+      000105 C7 50 F0         [ 1]  364 	ld	0x50f0, a
+                           000108   365 	Sstm8s_awu$AWU_Cmd$52 ==.
+                                    366 ; genLabel
+      000108                        367 00104$:
+                           000108   368 	Sstm8s_awu$AWU_Cmd$53 ==.
+                                    369 ;	../SPL/src/stm8s_awu.c: 124: }
+                                    370 ; genEndFunction
+                           000108   371 	Sstm8s_awu$AWU_Cmd$54 ==.
+                           000108   372 	XG$AWU_Cmd$0$0 ==.
+      000108 81               [ 4]  373 	ret
+                           000109   374 	Sstm8s_awu$AWU_Cmd$55 ==.
+                           000109   375 	Sstm8s_awu$AWU_LSICalibrationConfig$56 ==.
+                                    376 ;	../SPL/src/stm8s_awu.c: 139: void AWU_LSICalibrationConfig(uint32_t LSIFreqHz)
+                                    377 ; genLabel
+                                    378 ;	-----------------------------------------
+                                    379 ;	 function AWU_LSICalibrationConfig
+                                    380 ;	-----------------------------------------
+                                    381 ;	Register assignment might be sub-optimal.
+                                    382 ;	Stack space usage: 6 bytes.
+      000109                        383 _AWU_LSICalibrationConfig:
+                           000109   384 	Sstm8s_awu$AWU_LSICalibrationConfig$57 ==.
+      000109 52 06            [ 2]  385 	sub	sp, #6
+                           00010B   386 	Sstm8s_awu$AWU_LSICalibrationConfig$58 ==.
+                           00010B   387 	Sstm8s_awu$AWU_LSICalibrationConfig$59 ==.
+                                    388 ;	../SPL/src/stm8s_awu.c: 145: assert_param(IS_LSI_FREQUENCY_OK(LSIFreqHz));
+                                    389 ; genCmp
+                                    390 ; genCmpTop
+      00010B 1E 0B            [ 2]  391 	ldw	x, (0x0b, sp)
+      00010D A3 AD B0         [ 2]  392 	cpw	x, #0xadb0
+      000110 7B 0A            [ 1]  393 	ld	a, (0x0a, sp)
+      000112 A2 01            [ 1]  394 	sbc	a, #0x01
+      000114 7B 09            [ 1]  395 	ld	a, (0x09, sp)
+      000116 A2 00            [ 1]  396 	sbc	a, #0x00
+      000118 24 03            [ 1]  397 	jrnc	00121$
+      00011A CCr01r2E         [ 2]  398 	jp	00106$
+      00011D                        399 00121$:
+                                    400 ; skipping generated iCode
+                                    401 ; genCmp
+                                    402 ; genCmpTop
+      00011D AE 49 F0         [ 2]  403 	ldw	x, #0x49f0
+      000120 13 0B            [ 2]  404 	cpw	x, (0x0b, sp)
+      000122 A6 02            [ 1]  405 	ld	a, #0x02
+      000124 12 0A            [ 1]  406 	sbc	a, (0x0a, sp)
+      000126 4F               [ 1]  407 	clr	a
+      000127 12 09            [ 1]  408 	sbc	a, (0x09, sp)
+      000129 25 03            [ 1]  409 	jrc	00122$
+      00012B CCr01r3D         [ 2]  410 	jp	00107$
+      00012E                        411 00122$:
+                                    412 ; skipping generated iCode
+                                    413 ; genLabel
+      00012E                        414 00106$:
+                                    415 ; skipping iCode since result will be rematerialized
+                                    416 ; skipping iCode since result will be rematerialized
+                                    417 ; genIPush
+      00012E 4B 91            [ 1]  418 	push	#0x91
+                           000130   419 	Sstm8s_awu$AWU_LSICalibrationConfig$60 ==.
+      000130 5F               [ 1]  420 	clrw	x
+      000131 89               [ 2]  421 	pushw	x
+                           000132   422 	Sstm8s_awu$AWU_LSICalibrationConfig$61 ==.
+      000132 4B 00            [ 1]  423 	push	#0x00
+                           000134   424 	Sstm8s_awu$AWU_LSICalibrationConfig$62 ==.
+                                    425 ; genIPush
+      000134 4Br22            [ 1]  426 	push	#<(___str_0+0)
+                           000136   427 	Sstm8s_awu$AWU_LSICalibrationConfig$63 ==.
+      000136 4Bs00            [ 1]  428 	push	#((___str_0+0) >> 8)
+                           000138   429 	Sstm8s_awu$AWU_LSICalibrationConfig$64 ==.
+                                    430 ; genCall
+      000138 CDr00r00         [ 4]  431 	call	_assert_failed
+      00013B 5B 06            [ 2]  432 	addw	sp, #6
+                           00013D   433 	Sstm8s_awu$AWU_LSICalibrationConfig$65 ==.
+                                    434 ; genLabel
+      00013D                        435 00107$:
+                           00013D   436 	Sstm8s_awu$AWU_LSICalibrationConfig$66 ==.
+                                    437 ;	../SPL/src/stm8s_awu.c: 147: lsifreqkhz = (uint16_t)(LSIFreqHz / 1000); /* Converts value in kHz */
+                                    438 ; genIPush
+      00013D 4B E8            [ 1]  439 	push	#0xe8
+                           00013F   440 	Sstm8s_awu$AWU_LSICalibrationConfig$67 ==.
+      00013F 4B 03            [ 1]  441 	push	#0x03
+                           000141   442 	Sstm8s_awu$AWU_LSICalibrationConfig$68 ==.
+      000141 5F               [ 1]  443 	clrw	x
+      000142 89               [ 2]  444 	pushw	x
+                           000143   445 	Sstm8s_awu$AWU_LSICalibrationConfig$69 ==.
+                                    446 ; genIPush
+      000143 1E 0F            [ 2]  447 	ldw	x, (0x0f, sp)
+      000145 89               [ 2]  448 	pushw	x
+                           000146   449 	Sstm8s_awu$AWU_LSICalibrationConfig$70 ==.
+      000146 1E 0F            [ 2]  450 	ldw	x, (0x0f, sp)
+      000148 89               [ 2]  451 	pushw	x
+                           000149   452 	Sstm8s_awu$AWU_LSICalibrationConfig$71 ==.
+                                    453 ; genCall
+      000149 CDr00r00         [ 4]  454 	call	__divulong
+      00014C 5B 08            [ 2]  455 	addw	sp, #8
+                           00014E   456 	Sstm8s_awu$AWU_LSICalibrationConfig$72 ==.
+                                    457 ; genCast
+                                    458 ; genAssign
+                                    459 ; genAssign
+      00014E 51               [ 1]  460 	exgw	x, y
+                           00014F   461 	Sstm8s_awu$AWU_LSICalibrationConfig$73 ==.
+                                    462 ;	../SPL/src/stm8s_awu.c: 151: A = (uint16_t)(lsifreqkhz >> 2U); /* Division by 4, keep integer part only */
+                                    463 ; genRightShiftLiteral
+      00014F 93               [ 1]  464 	ldw	x, y
+      000150 54               [ 2]  465 	srlw	x
+      000151 54               [ 2]  466 	srlw	x
+                                    467 ; genAssign
+      000152 1F 01            [ 2]  468 	ldw	(0x01, sp), x
+                           000154   469 	Sstm8s_awu$AWU_LSICalibrationConfig$74 ==.
+                                    470 ;	../SPL/src/stm8s_awu.c: 153: if ((4U * A) >= ((lsifreqkhz - (4U * A)) * (1U + (2U * A))))
+                                    471 ; genCast
+                                    472 ; genAssign
+      000154 1E 01            [ 2]  473 	ldw	x, (0x01, sp)
+                                    474 ; genLeftShiftLiteral
+      000156 1F 03            [ 2]  475 	ldw	(0x03, sp), x
+      000158 08 04            [ 1]  476 	sll	(0x04, sp)
+      00015A 09 03            [ 1]  477 	rlc	(0x03, sp)
+      00015C 08 04            [ 1]  478 	sll	(0x04, sp)
+      00015E 09 03            [ 1]  479 	rlc	(0x03, sp)
+                                    480 ; genCast
+                                    481 ; genAssign
+                                    482 ; genMinus
+      000160 72 F2 03         [ 2]  483 	subw	y, (0x03, sp)
+                                    484 ; genLeftShiftLiteral
+      000163 58               [ 2]  485 	sllw	x
+                                    486 ; genPlus
+      000164 5C               [ 1]  487 	incw	x
+                                    488 ; genIPush
+      000165 89               [ 2]  489 	pushw	x
+                           000166   490 	Sstm8s_awu$AWU_LSICalibrationConfig$75 ==.
+                                    491 ; genIPush
+      000166 90 89            [ 2]  492 	pushw	y
+                           000168   493 	Sstm8s_awu$AWU_LSICalibrationConfig$76 ==.
+                           000168   494 	Sstm8s_awu$AWU_LSICalibrationConfig$77 ==.
+                                    495 ;	../SPL/src/stm8s_awu.c: 155: AWU->APR = (uint8_t)(A - 2U);
+                                    496 ; genCall
+      000168 CDr00r00         [ 4]  497 	call	__mulint
+      00016B 5B 04            [ 2]  498 	addw	sp, #4
+                           00016D   499 	Sstm8s_awu$AWU_LSICalibrationConfig$78 ==.
+      00016D 1F 05            [ 2]  500 	ldw	(0x05, sp), x
+                                    501 ; genCast
+                                    502 ; genAssign
+      00016F 7B 02            [ 1]  503 	ld	a, (0x02, sp)
+                           000171   504 	Sstm8s_awu$AWU_LSICalibrationConfig$79 ==.
+                                    505 ;	../SPL/src/stm8s_awu.c: 153: if ((4U * A) >= ((lsifreqkhz - (4U * A)) * (1U + (2U * A))))
+                                    506 ; genCmp
+                                    507 ; genCmpTop
+      000171 1E 03            [ 2]  508 	ldw	x, (0x03, sp)
+      000173 13 05            [ 2]  509 	cpw	x, (0x05, sp)
+      000175 24 03            [ 1]  510 	jrnc	00123$
+      000177 CCr01r82         [ 2]  511 	jp	00102$
+      00017A                        512 00123$:
+                                    513 ; skipping generated iCode
+                           00017A   514 	Sstm8s_awu$AWU_LSICalibrationConfig$80 ==.
+                           00017A   515 	Sstm8s_awu$AWU_LSICalibrationConfig$81 ==.
+                                    516 ;	../SPL/src/stm8s_awu.c: 155: AWU->APR = (uint8_t)(A - 2U);
+                                    517 ; genMinus
+      00017A A0 02            [ 1]  518 	sub	a, #0x02
+                                    519 ; genPointerSet
+      00017C C7 50 F1         [ 1]  520 	ld	0x50f1, a
+                           00017F   521 	Sstm8s_awu$AWU_LSICalibrationConfig$82 ==.
+                                    522 ; genGoto
+      00017F CCr01r86         [ 2]  523 	jp	00104$
+                                    524 ; genLabel
+      000182                        525 00102$:
+                           000182   526 	Sstm8s_awu$AWU_LSICalibrationConfig$83 ==.
+                           000182   527 	Sstm8s_awu$AWU_LSICalibrationConfig$84 ==.
+                                    528 ;	../SPL/src/stm8s_awu.c: 159: AWU->APR = (uint8_t)(A - 1U);
+                                    529 ; genMinus
+      000182 4A               [ 1]  530 	dec	a
+                                    531 ; genPointerSet
+      000183 C7 50 F1         [ 1]  532 	ld	0x50f1, a
+                           000186   533 	Sstm8s_awu$AWU_LSICalibrationConfig$85 ==.
+                                    534 ; genLabel
+      000186                        535 00104$:
+                           000186   536 	Sstm8s_awu$AWU_LSICalibrationConfig$86 ==.
+                                    537 ;	../SPL/src/stm8s_awu.c: 161: }
+                                    538 ; genEndFunction
+      000186 5B 06            [ 2]  539 	addw	sp, #6
+                           000188   540 	Sstm8s_awu$AWU_LSICalibrationConfig$87 ==.
+                           000188   541 	Sstm8s_awu$AWU_LSICalibrationConfig$88 ==.
+                           000188   542 	XG$AWU_LSICalibrationConfig$0$0 ==.
+      000188 81               [ 4]  543 	ret
+                           000189   544 	Sstm8s_awu$AWU_LSICalibrationConfig$89 ==.
+                           000189   545 	Sstm8s_awu$AWU_IdleModeEnable$90 ==.
+                                    546 ;	../SPL/src/stm8s_awu.c: 168: void AWU_IdleModeEnable(void)
+                                    547 ; genLabel
+                                    548 ;	-----------------------------------------
+                                    549 ;	 function AWU_IdleModeEnable
+                                    550 ;	-----------------------------------------
+                                    551 ;	Register assignment is optimal.
+                                    552 ;	Stack space usage: 0 bytes.
+      000189                        553 _AWU_IdleModeEnable:
+                           000189   554 	Sstm8s_awu$AWU_IdleModeEnable$91 ==.
+                           000189   555 	Sstm8s_awu$AWU_IdleModeEnable$92 ==.
+                                    556 ;	../SPL/src/stm8s_awu.c: 171: AWU->CSR &= (uint8_t)(~AWU_CSR_AWUEN);
+                                    557 ; genPointerGet
+      000189 C6 50 F0         [ 1]  558 	ld	a, 0x50f0
+                                    559 ; genAnd
+      00018C A4 EF            [ 1]  560 	and	a, #0xef
+                                    561 ; genPointerSet
+      00018E C7 50 F0         [ 1]  562 	ld	0x50f0, a
+                           000191   563 	Sstm8s_awu$AWU_IdleModeEnable$93 ==.
+                                    564 ;	../SPL/src/stm8s_awu.c: 174: AWU->TBR = (uint8_t)(~AWU_TBR_AWUTB);
+                                    565 ; genPointerSet
+      000191 35 F0 50 F2      [ 1]  566 	mov	0x50f2+0, #0xf0
+                                    567 ; genLabel
+      000195                        568 00101$:
+                           000195   569 	Sstm8s_awu$AWU_IdleModeEnable$94 ==.
+                                    570 ;	../SPL/src/stm8s_awu.c: 175: }
+                                    571 ; genEndFunction
+                           000195   572 	Sstm8s_awu$AWU_IdleModeEnable$95 ==.
+                           000195   573 	XG$AWU_IdleModeEnable$0$0 ==.
+      000195 81               [ 4]  574 	ret
+                           000196   575 	Sstm8s_awu$AWU_IdleModeEnable$96 ==.
+                           000196   576 	Sstm8s_awu$AWU_GetFlagStatus$97 ==.
+                                    577 ;	../SPL/src/stm8s_awu.c: 183: FlagStatus AWU_GetFlagStatus(void)
+                                    578 ; genLabel
+                                    579 ;	-----------------------------------------
+                                    580 ;	 function AWU_GetFlagStatus
+                                    581 ;	-----------------------------------------
+                                    582 ;	Register assignment is optimal.
+                                    583 ;	Stack space usage: 0 bytes.
+      000196                        584 _AWU_GetFlagStatus:
+                           000196   585 	Sstm8s_awu$AWU_GetFlagStatus$98 ==.
+                           000196   586 	Sstm8s_awu$AWU_GetFlagStatus$99 ==.
+                                    587 ;	../SPL/src/stm8s_awu.c: 185: return((FlagStatus)(((uint8_t)(AWU->CSR & AWU_CSR_AWUF) == (uint8_t)0x00) ? RESET : SET));
+                                    588 ; genPointerGet
+      000196 C6 50 F0         [ 1]  589 	ld	a, 0x50f0
+                                    590 ; genAnd
+      000199 A5 20            [ 1]  591 	bcp	a, #0x20
+      00019B 27 03            [ 1]  592 	jreq	00110$
+      00019D CCr01rA4         [ 2]  593 	jp	00103$
+      0001A0                        594 00110$:
+                                    595 ; skipping generated iCode
+                                    596 ; genAssign
+      0001A0 5F               [ 1]  597 	clrw	x
+                                    598 ; genGoto
+      0001A1 CCr01rA6         [ 2]  599 	jp	00104$
+                                    600 ; genLabel
+      0001A4                        601 00103$:
+                                    602 ; genAssign
+      0001A4 5F               [ 1]  603 	clrw	x
+      0001A5 5C               [ 1]  604 	incw	x
+                                    605 ; genLabel
+      0001A6                        606 00104$:
+                                    607 ; genCast
+                                    608 ; genAssign
+      0001A6 9F               [ 1]  609 	ld	a, xl
+                                    610 ; genReturn
+                                    611 ; genLabel
+      0001A7                        612 00101$:
+                           0001A7   613 	Sstm8s_awu$AWU_GetFlagStatus$100 ==.
+                                    614 ;	../SPL/src/stm8s_awu.c: 186: }
+                                    615 ; genEndFunction
+                           0001A7   616 	Sstm8s_awu$AWU_GetFlagStatus$101 ==.
+                           0001A7   617 	XG$AWU_GetFlagStatus$0$0 ==.
+      0001A7 81               [ 4]  618 	ret
+                           0001A8   619 	Sstm8s_awu$AWU_GetFlagStatus$102 ==.
+                                    620 	.area CODE
+                                    621 	.area CONST
+                           000000   622 G$APR_Array$0_0$0 == .
+      000000                        623 _APR_Array:
+      000000 00                     624 	.db #0x00	; 0
+      000001 1E                     625 	.db #0x1e	; 30
+      000002 1E                     626 	.db #0x1e	; 30
+      000003 1E                     627 	.db #0x1e	; 30
+      000004 1E                     628 	.db #0x1e	; 30
+      000005 1E                     629 	.db #0x1e	; 30
+      000006 1E                     630 	.db #0x1e	; 30
+      000007 1E                     631 	.db #0x1e	; 30
+      000008 1E                     632 	.db #0x1e	; 30
+      000009 1E                     633 	.db #0x1e	; 30
+      00000A 1E                     634 	.db #0x1e	; 30
+      00000B 1E                     635 	.db #0x1e	; 30
+      00000C 1E                     636 	.db #0x1e	; 30
+      00000D 3D                     637 	.db #0x3d	; 61
+      00000E 17                     638 	.db #0x17	; 23
+      00000F 17                     639 	.db #0x17	; 23
+      000010 3E                     640 	.db #0x3e	; 62
+                           000011   641 G$TBR_Array$0_0$0 == .
+      000011                        642 _TBR_Array:
+      000011 00                     643 	.db #0x00	; 0
+      000012 01                     644 	.db #0x01	; 1
+      000013 02                     645 	.db #0x02	; 2
+      000014 03                     646 	.db #0x03	; 3
+      000015 04                     647 	.db #0x04	; 4
+      000016 05                     648 	.db #0x05	; 5
+      000017 06                     649 	.db #0x06	; 6
+      000018 07                     650 	.db #0x07	; 7
+      000019 08                     651 	.db #0x08	; 8
+      00001A 09                     652 	.db #0x09	; 9
+      00001B 0A                     653 	.db #0x0a	; 10
+      00001C 0B                     654 	.db #0x0b	; 11
+      00001D 0C                     655 	.db #0x0c	; 12
+      00001E 0C                     656 	.db #0x0c	; 12
+      00001F 0E                     657 	.db #0x0e	; 14
+      000020 0F                     658 	.db #0x0f	; 15
+      000021 0F                     659 	.db #0x0f	; 15
+                           000022   660 Fstm8s_awu$__str_0$0_0$0 == .
+                                    661 	.area CONST
+      000022                        662 ___str_0:
+      000022 2E 2E 2F 53 50 4C 2F   663 	.ascii "../SPL/src/stm8s_awu.c"
+             73 72 63 2F 73 74 6D
+             38 73 5F 61 77 75 2E
+             63
+      000038 00                     664 	.db 0x00
+                                    665 	.area CODE
+                                    666 	.area INITIALIZER
+                                    667 	.area CABS (ABS)
+                                    668 
+                                    669 	.area .debug_line (NOLOAD)
+      000000 00 00 01 97            670 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      000004                        671 Ldebug_line_start:
+      000004 00 02                  672 	.dw	2
+      000006 00 00 00 77            673 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      00000A 01                     674 	.db	1
+      00000B 01                     675 	.db	1
+      00000C FB                     676 	.db	-5
+      00000D 0F                     677 	.db	15
+      00000E 0A                     678 	.db	10
+      00000F 00                     679 	.db	0
+      000010 01                     680 	.db	1
+      000011 01                     681 	.db	1
+      000012 01                     682 	.db	1
+      000013 01                     683 	.db	1
+      000014 00                     684 	.db	0
+      000015 00                     685 	.db	0
+      000016 00                     686 	.db	0
+      000017 01                     687 	.db	1
+      000018 43 3A 5C 50 72 6F 67   688 	.ascii "C:\Program Files\SDCC\bin\..\include\stm8"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+             5C 73 74 6D 38
+      000040 00                     689 	.db	0
+      000041 43 3A 5C 50 72 6F 67   690 	.ascii "C:\Program Files\SDCC\bin\..\include"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+      000064 00                     691 	.db	0
+      000065 00                     692 	.db	0
+      000066 2E 2E 2F 53 50 4C 2F   693 	.ascii "../SPL/src/stm8s_awu.c"
+             73 72 63 2F 73 74 6D
+             38 73 5F 61 77 75 2E
+             63
+      00007C 00                     694 	.db	0
+      00007D 00                     695 	.uleb128	0
+      00007E 00                     696 	.uleb128	0
+      00007F 00                     697 	.uleb128	0
+      000080 00                     698 	.db	0
+      000081                        699 Ldebug_line_stmt:
+      000081 00                     700 	.db	0
+      000082 05                     701 	.uleb128	5
+      000083 02                     702 	.db	2
+      000084 00 00r00r00            703 	.dw	0,(Sstm8s_awu$AWU_DeInit$0)
+      000088 03                     704 	.db	3
+      000089 C8 00                  705 	.sleb128	72
+      00008B 01                     706 	.db	1
+      00008C 09                     707 	.db	9
+      00008D 00 00                  708 	.dw	Sstm8s_awu$AWU_DeInit$2-Sstm8s_awu$AWU_DeInit$0
+      00008F 03                     709 	.db	3
+      000090 02                     710 	.sleb128	2
+      000091 01                     711 	.db	1
+      000092 09                     712 	.db	9
+      000093 00 04                  713 	.dw	Sstm8s_awu$AWU_DeInit$3-Sstm8s_awu$AWU_DeInit$2
+      000095 03                     714 	.db	3
+      000096 01                     715 	.sleb128	1
+      000097 01                     716 	.db	1
+      000098 09                     717 	.db	9
+      000099 00 04                  718 	.dw	Sstm8s_awu$AWU_DeInit$4-Sstm8s_awu$AWU_DeInit$3
+      00009B 03                     719 	.db	3
+      00009C 01                     720 	.sleb128	1
+      00009D 01                     721 	.db	1
+      00009E 09                     722 	.db	9
+      00009F 00 04                  723 	.dw	Sstm8s_awu$AWU_DeInit$5-Sstm8s_awu$AWU_DeInit$4
+      0000A1 03                     724 	.db	3
+      0000A2 01                     725 	.sleb128	1
+      0000A3 01                     726 	.db	1
+      0000A4 09                     727 	.db	9
+      0000A5 00 01                  728 	.dw	1+Sstm8s_awu$AWU_DeInit$6-Sstm8s_awu$AWU_DeInit$5
+      0000A7 00                     729 	.db	0
+      0000A8 01                     730 	.uleb128	1
+      0000A9 01                     731 	.db	1
+      0000AA 00                     732 	.db	0
+      0000AB 05                     733 	.uleb128	5
+      0000AC 02                     734 	.db	2
+      0000AD 00 00r00r0D            735 	.dw	0,(Sstm8s_awu$AWU_Init$8)
+      0000B1 03                     736 	.db	3
+      0000B2 D7 00                  737 	.sleb128	87
+      0000B4 01                     738 	.db	1
+      0000B5 09                     739 	.db	9
+      0000B6 00 01                  740 	.dw	Sstm8s_awu$AWU_Init$11-Sstm8s_awu$AWU_Init$8
+      0000B8 03                     741 	.db	3
+      0000B9 03                     742 	.sleb128	3
+      0000BA 01                     743 	.db	1
+      0000BB 09                     744 	.db	9
+      0000BC 00 A5                  745 	.dw	Sstm8s_awu$AWU_Init$34-Sstm8s_awu$AWU_Init$11
+      0000BE 03                     746 	.db	3
+      0000BF 03                     747 	.sleb128	3
+      0000C0 01                     748 	.db	1
+      0000C1 09                     749 	.db	9
+      0000C2 00 08                  750 	.dw	Sstm8s_awu$AWU_Init$35-Sstm8s_awu$AWU_Init$34
+      0000C4 03                     751 	.db	3
+      0000C5 03                     752 	.sleb128	3
+      0000C6 01                     753 	.db	1
+      0000C7 09                     754 	.db	9
+      0000C8 00 08                  755 	.dw	Sstm8s_awu$AWU_Init$36-Sstm8s_awu$AWU_Init$35
+      0000CA 03                     756 	.db	3
+      0000CB 01                     757 	.sleb128	1
+      0000CC 01                     758 	.db	1
+      0000CD 09                     759 	.db	9
+      0000CE 00 12                  760 	.dw	Sstm8s_awu$AWU_Init$37-Sstm8s_awu$AWU_Init$36
+      0000D0 03                     761 	.db	3
+      0000D1 03                     762 	.sleb128	3
+      0000D2 01                     763 	.db	1
+      0000D3 09                     764 	.db	9
+      0000D4 00 08                  765 	.dw	Sstm8s_awu$AWU_Init$38-Sstm8s_awu$AWU_Init$37
+      0000D6 03                     766 	.db	3
+      0000D7 01                     767 	.sleb128	1
+      0000D8 01                     768 	.db	1
+      0000D9 09                     769 	.db	9
+      0000DA 00 12                  770 	.dw	Sstm8s_awu$AWU_Init$39-Sstm8s_awu$AWU_Init$38
+      0000DC 03                     771 	.db	3
+      0000DD 01                     772 	.sleb128	1
+      0000DE 01                     773 	.db	1
+      0000DF 09                     774 	.db	9
+      0000E0 00 02                  775 	.dw	1+Sstm8s_awu$AWU_Init$41-Sstm8s_awu$AWU_Init$39
+      0000E2 00                     776 	.db	0
+      0000E3 01                     777 	.uleb128	1
+      0000E4 01                     778 	.db	1
+      0000E5 00                     779 	.db	0
+      0000E6 05                     780 	.uleb128	5
+      0000E7 02                     781 	.db	2
+      0000E8 00 00r00rF1            782 	.dw	0,(Sstm8s_awu$AWU_Cmd$43)
+      0000EC 03                     783 	.db	3
+      0000ED EF 00                  784 	.sleb128	111
+      0000EF 01                     785 	.db	1
+      0000F0 09                     786 	.db	9
+      0000F1 00 00                  787 	.dw	Sstm8s_awu$AWU_Cmd$45-Sstm8s_awu$AWU_Cmd$43
+      0000F3 03                     788 	.db	3
+      0000F4 05                     789 	.sleb128	5
+      0000F5 01                     790 	.db	1
+      0000F6 09                     791 	.db	9
+      0000F7 00 03                  792 	.dw	Sstm8s_awu$AWU_Cmd$46-Sstm8s_awu$AWU_Cmd$45
+      0000F9 03                     793 	.db	3
+      0000FA 7D                     794 	.sleb128	-3
+      0000FB 01                     795 	.db	1
+      0000FC 09                     796 	.db	9
+      0000FD 00 07                  797 	.dw	Sstm8s_awu$AWU_Cmd$48-Sstm8s_awu$AWU_Cmd$46
+      0000FF 03                     798 	.db	3
+      000100 03                     799 	.sleb128	3
+      000101 01                     800 	.db	1
+      000102 09                     801 	.db	9
+      000103 00 08                  802 	.dw	Sstm8s_awu$AWU_Cmd$51-Sstm8s_awu$AWU_Cmd$48
+      000105 03                     803 	.db	3
+      000106 05                     804 	.sleb128	5
+      000107 01                     805 	.db	1
+      000108 09                     806 	.db	9
+      000109 00 05                  807 	.dw	Sstm8s_awu$AWU_Cmd$53-Sstm8s_awu$AWU_Cmd$51
+      00010B 03                     808 	.db	3
+      00010C 02                     809 	.sleb128	2
+      00010D 01                     810 	.db	1
+      00010E 09                     811 	.db	9
+      00010F 00 01                  812 	.dw	1+Sstm8s_awu$AWU_Cmd$54-Sstm8s_awu$AWU_Cmd$53
+      000111 00                     813 	.db	0
+      000112 01                     814 	.uleb128	1
+      000113 01                     815 	.db	1
+      000114 00                     816 	.db	0
+      000115 05                     817 	.uleb128	5
+      000116 02                     818 	.db	2
+      000117 00 00r01r09            819 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$56)
+      00011B 03                     820 	.db	3
+      00011C 8A 01                  821 	.sleb128	138
+      00011E 01                     822 	.db	1
+      00011F 09                     823 	.db	9
+      000120 00 02                  824 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$59-Sstm8s_awu$AWU_LSICalibrationConfig$56
+      000122 03                     825 	.db	3
+      000123 06                     826 	.sleb128	6
+      000124 01                     827 	.db	1
+      000125 09                     828 	.db	9
+      000126 00 32                  829 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$66-Sstm8s_awu$AWU_LSICalibrationConfig$59
+      000128 03                     830 	.db	3
+      000129 02                     831 	.sleb128	2
+      00012A 01                     832 	.db	1
+      00012B 09                     833 	.db	9
+      00012C 00 12                  834 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$73-Sstm8s_awu$AWU_LSICalibrationConfig$66
+      00012E 03                     835 	.db	3
+      00012F 04                     836 	.sleb128	4
+      000130 01                     837 	.db	1
+      000131 09                     838 	.db	9
+      000132 00 05                  839 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$74-Sstm8s_awu$AWU_LSICalibrationConfig$73
+      000134 03                     840 	.db	3
+      000135 02                     841 	.sleb128	2
+      000136 01                     842 	.db	1
+      000137 09                     843 	.db	9
+      000138 00 14                  844 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$77-Sstm8s_awu$AWU_LSICalibrationConfig$74
+      00013A 03                     845 	.db	3
+      00013B 02                     846 	.sleb128	2
+      00013C 01                     847 	.db	1
+      00013D 09                     848 	.db	9
+      00013E 00 09                  849 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$79-Sstm8s_awu$AWU_LSICalibrationConfig$77
+      000140 03                     850 	.db	3
+      000141 7E                     851 	.sleb128	-2
+      000142 01                     852 	.db	1
+      000143 09                     853 	.db	9
+      000144 00 09                  854 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$81-Sstm8s_awu$AWU_LSICalibrationConfig$79
+      000146 03                     855 	.db	3
+      000147 02                     856 	.sleb128	2
+      000148 01                     857 	.db	1
+      000149 09                     858 	.db	9
+      00014A 00 08                  859 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$84-Sstm8s_awu$AWU_LSICalibrationConfig$81
+      00014C 03                     860 	.db	3
+      00014D 04                     861 	.sleb128	4
+      00014E 01                     862 	.db	1
+      00014F 09                     863 	.db	9
+      000150 00 04                  864 	.dw	Sstm8s_awu$AWU_LSICalibrationConfig$86-Sstm8s_awu$AWU_LSICalibrationConfig$84
+      000152 03                     865 	.db	3
+      000153 02                     866 	.sleb128	2
+      000154 01                     867 	.db	1
+      000155 09                     868 	.db	9
+      000156 00 03                  869 	.dw	1+Sstm8s_awu$AWU_LSICalibrationConfig$88-Sstm8s_awu$AWU_LSICalibrationConfig$86
+      000158 00                     870 	.db	0
+      000159 01                     871 	.uleb128	1
+      00015A 01                     872 	.db	1
+      00015B 00                     873 	.db	0
+      00015C 05                     874 	.uleb128	5
+      00015D 02                     875 	.db	2
+      00015E 00 00r01r89            876 	.dw	0,(Sstm8s_awu$AWU_IdleModeEnable$90)
+      000162 03                     877 	.db	3
+      000163 A7 01                  878 	.sleb128	167
+      000165 01                     879 	.db	1
+      000166 09                     880 	.db	9
+      000167 00 00                  881 	.dw	Sstm8s_awu$AWU_IdleModeEnable$92-Sstm8s_awu$AWU_IdleModeEnable$90
+      000169 03                     882 	.db	3
+      00016A 03                     883 	.sleb128	3
+      00016B 01                     884 	.db	1
+      00016C 09                     885 	.db	9
+      00016D 00 08                  886 	.dw	Sstm8s_awu$AWU_IdleModeEnable$93-Sstm8s_awu$AWU_IdleModeEnable$92
+      00016F 03                     887 	.db	3
+      000170 03                     888 	.sleb128	3
+      000171 01                     889 	.db	1
+      000172 09                     890 	.db	9
+      000173 00 04                  891 	.dw	Sstm8s_awu$AWU_IdleModeEnable$94-Sstm8s_awu$AWU_IdleModeEnable$93
+      000175 03                     892 	.db	3
+      000176 01                     893 	.sleb128	1
+      000177 01                     894 	.db	1
+      000178 09                     895 	.db	9
+      000179 00 01                  896 	.dw	1+Sstm8s_awu$AWU_IdleModeEnable$95-Sstm8s_awu$AWU_IdleModeEnable$94
+      00017B 00                     897 	.db	0
+      00017C 01                     898 	.uleb128	1
+      00017D 01                     899 	.db	1
+      00017E 00                     900 	.db	0
+      00017F 05                     901 	.uleb128	5
+      000180 02                     902 	.db	2
+      000181 00 00r01r96            903 	.dw	0,(Sstm8s_awu$AWU_GetFlagStatus$97)
+      000185 03                     904 	.db	3
+      000186 B6 01                  905 	.sleb128	182
+      000188 01                     906 	.db	1
+      000189 09                     907 	.db	9
+      00018A 00 00                  908 	.dw	Sstm8s_awu$AWU_GetFlagStatus$99-Sstm8s_awu$AWU_GetFlagStatus$97
+      00018C 03                     909 	.db	3
+      00018D 02                     910 	.sleb128	2
+      00018E 01                     911 	.db	1
+      00018F 09                     912 	.db	9
+      000190 00 11                  913 	.dw	Sstm8s_awu$AWU_GetFlagStatus$100-Sstm8s_awu$AWU_GetFlagStatus$99
+      000192 03                     914 	.db	3
+      000193 01                     915 	.sleb128	1
+      000194 01                     916 	.db	1
+      000195 09                     917 	.db	9
+      000196 00 01                  918 	.dw	1+Sstm8s_awu$AWU_GetFlagStatus$101-Sstm8s_awu$AWU_GetFlagStatus$100
+      000198 00                     919 	.db	0
+      000199 01                     920 	.uleb128	1
+      00019A 01                     921 	.db	1
+      00019B                        922 Ldebug_line_end:
+                                    923 
+                                    924 	.area .debug_loc (NOLOAD)
+      000000                        925 Ldebug_loc_start:
+      000000 00 00r01r96            926 	.dw	0,(Sstm8s_awu$AWU_GetFlagStatus$98)
+      000004 00 00r01rA8            927 	.dw	0,(Sstm8s_awu$AWU_GetFlagStatus$102)
+      000008 00 02                  928 	.dw	2
+      00000A 78                     929 	.db	120
+      00000B 01                     930 	.sleb128	1
+      00000C 00 00 00 00            931 	.dw	0,0
+      000010 00 00 00 00            932 	.dw	0,0
+      000014 00 00r01r89            933 	.dw	0,(Sstm8s_awu$AWU_IdleModeEnable$91)
+      000018 00 00r01r96            934 	.dw	0,(Sstm8s_awu$AWU_IdleModeEnable$96)
+      00001C 00 02                  935 	.dw	2
+      00001E 78                     936 	.db	120
+      00001F 01                     937 	.sleb128	1
+      000020 00 00 00 00            938 	.dw	0,0
+      000024 00 00 00 00            939 	.dw	0,0
+      000028 00 00r01r88            940 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$87)
+      00002C 00 00r01r89            941 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$89)
+      000030 00 02                  942 	.dw	2
+      000032 78                     943 	.db	120
+      000033 01                     944 	.sleb128	1
+      000034 00 00r01r6D            945 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$78)
+      000038 00 00r01r88            946 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$87)
+      00003C 00 02                  947 	.dw	2
+      00003E 78                     948 	.db	120
+      00003F 07                     949 	.sleb128	7
+      000040 00 00r01r68            950 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$76)
+      000044 00 00r01r6D            951 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$78)
+      000048 00 02                  952 	.dw	2
+      00004A 78                     953 	.db	120
+      00004B 0B                     954 	.sleb128	11
+      00004C 00 00r01r66            955 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$75)
+      000050 00 00r01r68            956 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$76)
+      000054 00 02                  957 	.dw	2
+      000056 78                     958 	.db	120
+      000057 09                     959 	.sleb128	9
+      000058 00 00r01r4E            960 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$72)
+      00005C 00 00r01r66            961 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$75)
+      000060 00 02                  962 	.dw	2
+      000062 78                     963 	.db	120
+      000063 07                     964 	.sleb128	7
+      000064 00 00r01r49            965 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$71)
+      000068 00 00r01r4E            966 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$72)
+      00006C 00 02                  967 	.dw	2
+      00006E 78                     968 	.db	120
+      00006F 0F                     969 	.sleb128	15
+      000070 00 00r01r46            970 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$70)
+      000074 00 00r01r49            971 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$71)
+      000078 00 02                  972 	.dw	2
+      00007A 78                     973 	.db	120
+      00007B 0D                     974 	.sleb128	13
+      00007C 00 00r01r43            975 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$69)
+      000080 00 00r01r46            976 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$70)
+      000084 00 02                  977 	.dw	2
+      000086 78                     978 	.db	120
+      000087 0B                     979 	.sleb128	11
+      000088 00 00r01r41            980 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$68)
+      00008C 00 00r01r43            981 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$69)
+      000090 00 02                  982 	.dw	2
+      000092 78                     983 	.db	120
+      000093 09                     984 	.sleb128	9
+      000094 00 00r01r3F            985 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$67)
+      000098 00 00r01r41            986 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$68)
+      00009C 00 02                  987 	.dw	2
+      00009E 78                     988 	.db	120
+      00009F 08                     989 	.sleb128	8
+      0000A0 00 00r01r3D            990 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$65)
+      0000A4 00 00r01r3F            991 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$67)
+      0000A8 00 02                  992 	.dw	2
+      0000AA 78                     993 	.db	120
+      0000AB 07                     994 	.sleb128	7
+      0000AC 00 00r01r38            995 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$64)
+      0000B0 00 00r01r3D            996 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$65)
+      0000B4 00 02                  997 	.dw	2
+      0000B6 78                     998 	.db	120
+      0000B7 0D                     999 	.sleb128	13
+      0000B8 00 00r01r36           1000 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$63)
+      0000BC 00 00r01r38           1001 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$64)
+      0000C0 00 02                 1002 	.dw	2
+      0000C2 78                    1003 	.db	120
+      0000C3 0C                    1004 	.sleb128	12
+      0000C4 00 00r01r34           1005 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$62)
+      0000C8 00 00r01r36           1006 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$63)
+      0000CC 00 02                 1007 	.dw	2
+      0000CE 78                    1008 	.db	120
+      0000CF 0B                    1009 	.sleb128	11
+      0000D0 00 00r01r32           1010 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$61)
+      0000D4 00 00r01r34           1011 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$62)
+      0000D8 00 02                 1012 	.dw	2
+      0000DA 78                    1013 	.db	120
+      0000DB 0A                    1014 	.sleb128	10
+      0000DC 00 00r01r30           1015 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$60)
+      0000E0 00 00r01r32           1016 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$61)
+      0000E4 00 02                 1017 	.dw	2
+      0000E6 78                    1018 	.db	120
+      0000E7 08                    1019 	.sleb128	8
+      0000E8 00 00r01r0B           1020 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$58)
+      0000EC 00 00r01r30           1021 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$60)
+      0000F0 00 02                 1022 	.dw	2
+      0000F2 78                    1023 	.db	120
+      0000F3 07                    1024 	.sleb128	7
+      0000F4 00 00r01r09           1025 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$57)
+      0000F8 00 00r01r0B           1026 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$58)
+      0000FC 00 02                 1027 	.dw	2
+      0000FE 78                    1028 	.db	120
+      0000FF 01                    1029 	.sleb128	1
+      000100 00 00 00 00           1030 	.dw	0,0
+      000104 00 00 00 00           1031 	.dw	0,0
+      000108 00 00r00rF1           1032 	.dw	0,(Sstm8s_awu$AWU_Cmd$44)
+      00010C 00 00r01r09           1033 	.dw	0,(Sstm8s_awu$AWU_Cmd$55)
+      000110 00 02                 1034 	.dw	2
+      000112 78                    1035 	.db	120
+      000113 01                    1036 	.sleb128	1
+      000114 00 00 00 00           1037 	.dw	0,0
+      000118 00 00 00 00           1038 	.dw	0,0
+      00011C 00 00r00rF0           1039 	.dw	0,(Sstm8s_awu$AWU_Init$40)
+      000120 00 00r00rF1           1040 	.dw	0,(Sstm8s_awu$AWU_Init$42)
+      000124 00 02                 1041 	.dw	2
+      000126 78                    1042 	.db	120
+      000127 01                    1043 	.sleb128	1
+      000128 00 00r00rB3           1044 	.dw	0,(Sstm8s_awu$AWU_Init$33)
+      00012C 00 00r00rF0           1045 	.dw	0,(Sstm8s_awu$AWU_Init$40)
+      000130 00 02                 1046 	.dw	2
+      000132 78                    1047 	.db	120
+      000133 02                    1048 	.sleb128	2
+      000134 00 00r00rAE           1049 	.dw	0,(Sstm8s_awu$AWU_Init$32)
+      000138 00 00r00rB3           1050 	.dw	0,(Sstm8s_awu$AWU_Init$33)
+      00013C 00 02                 1051 	.dw	2
+      00013E 78                    1052 	.db	120
+      00013F 08                    1053 	.sleb128	8
+      000140 00 00r00rAC           1054 	.dw	0,(Sstm8s_awu$AWU_Init$31)
+      000144 00 00r00rAE           1055 	.dw	0,(Sstm8s_awu$AWU_Init$32)
+      000148 00 02                 1056 	.dw	2
+      00014A 78                    1057 	.db	120
+      00014B 07                    1058 	.sleb128	7
+      00014C 00 00r00rAA           1059 	.dw	0,(Sstm8s_awu$AWU_Init$30)
+      000150 00 00r00rAC           1060 	.dw	0,(Sstm8s_awu$AWU_Init$31)
+      000154 00 02                 1061 	.dw	2
+      000156 78                    1062 	.db	120
+      000157 06                    1063 	.sleb128	6
+      000158 00 00r00rA8           1064 	.dw	0,(Sstm8s_awu$AWU_Init$29)
+      00015C 00 00r00rAA           1065 	.dw	0,(Sstm8s_awu$AWU_Init$30)
+      000160 00 02                 1066 	.dw	2
+      000162 78                    1067 	.db	120
+      000163 05                    1068 	.sleb128	5
+      000164 00 00r00rA6           1069 	.dw	0,(Sstm8s_awu$AWU_Init$28)
+      000168 00 00r00rA8           1070 	.dw	0,(Sstm8s_awu$AWU_Init$29)
+      00016C 00 02                 1071 	.dw	2
+      00016E 78                    1072 	.db	120
+      00016F 03                    1073 	.sleb128	3
+      000170 00 00r00rA4           1074 	.dw	0,(Sstm8s_awu$AWU_Init$27)
+      000174 00 00r00rA6           1075 	.dw	0,(Sstm8s_awu$AWU_Init$28)
+      000178 00 02                 1076 	.dw	2
+      00017A 78                    1077 	.db	120
+      00017B 02                    1078 	.sleb128	2
+      00017C 00 00r00r9B           1079 	.dw	0,(Sstm8s_awu$AWU_Init$26)
+      000180 00 00r00rA4           1080 	.dw	0,(Sstm8s_awu$AWU_Init$27)
+      000184 00 02                 1081 	.dw	2
+      000186 78                    1082 	.db	120
+      000187 02                    1083 	.sleb128	2
+      000188 00 00r00r92           1084 	.dw	0,(Sstm8s_awu$AWU_Init$25)
+      00018C 00 00r00r9B           1085 	.dw	0,(Sstm8s_awu$AWU_Init$26)
+      000190 00 02                 1086 	.dw	2
+      000192 78                    1087 	.db	120
+      000193 02                    1088 	.sleb128	2
+      000194 00 00r00r89           1089 	.dw	0,(Sstm8s_awu$AWU_Init$24)
+      000198 00 00r00r92           1090 	.dw	0,(Sstm8s_awu$AWU_Init$25)
+      00019C 00 02                 1091 	.dw	2
+      00019E 78                    1092 	.db	120
+      00019F 02                    1093 	.sleb128	2
+      0001A0 00 00r00r80           1094 	.dw	0,(Sstm8s_awu$AWU_Init$23)
+      0001A4 00 00r00r89           1095 	.dw	0,(Sstm8s_awu$AWU_Init$24)
+      0001A8 00 02                 1096 	.dw	2
+      0001AA 78                    1097 	.db	120
+      0001AB 02                    1098 	.sleb128	2
+      0001AC 00 00r00r77           1099 	.dw	0,(Sstm8s_awu$AWU_Init$22)
+      0001B0 00 00r00r80           1100 	.dw	0,(Sstm8s_awu$AWU_Init$23)
+      0001B4 00 02                 1101 	.dw	2
+      0001B6 78                    1102 	.db	120
+      0001B7 02                    1103 	.sleb128	2
+      0001B8 00 00r00r6E           1104 	.dw	0,(Sstm8s_awu$AWU_Init$21)
+      0001BC 00 00r00r77           1105 	.dw	0,(Sstm8s_awu$AWU_Init$22)
+      0001C0 00 02                 1106 	.dw	2
+      0001C2 78                    1107 	.db	120
+      0001C3 02                    1108 	.sleb128	2
+      0001C4 00 00r00r65           1109 	.dw	0,(Sstm8s_awu$AWU_Init$20)
+      0001C8 00 00r00r6E           1110 	.dw	0,(Sstm8s_awu$AWU_Init$21)
+      0001CC 00 02                 1111 	.dw	2
+      0001CE 78                    1112 	.db	120
+      0001CF 02                    1113 	.sleb128	2
+      0001D0 00 00r00r5C           1114 	.dw	0,(Sstm8s_awu$AWU_Init$19)
+      0001D4 00 00r00r65           1115 	.dw	0,(Sstm8s_awu$AWU_Init$20)
+      0001D8 00 02                 1116 	.dw	2
+      0001DA 78                    1117 	.db	120
+      0001DB 02                    1118 	.sleb128	2
+      0001DC 00 00r00r53           1119 	.dw	0,(Sstm8s_awu$AWU_Init$18)
+      0001E0 00 00r00r5C           1120 	.dw	0,(Sstm8s_awu$AWU_Init$19)
+      0001E4 00 02                 1121 	.dw	2
+      0001E6 78                    1122 	.db	120
+      0001E7 02                    1123 	.sleb128	2
+      0001E8 00 00r00r4A           1124 	.dw	0,(Sstm8s_awu$AWU_Init$17)
+      0001EC 00 00r00r53           1125 	.dw	0,(Sstm8s_awu$AWU_Init$18)
+      0001F0 00 02                 1126 	.dw	2
+      0001F2 78                    1127 	.db	120
+      0001F3 02                    1128 	.sleb128	2
+      0001F4 00 00r00r41           1129 	.dw	0,(Sstm8s_awu$AWU_Init$16)
+      0001F8 00 00r00r4A           1130 	.dw	0,(Sstm8s_awu$AWU_Init$17)
+      0001FC 00 02                 1131 	.dw	2
+      0001FE 78                    1132 	.db	120
+      0001FF 02                    1133 	.sleb128	2
+      000200 00 00r00r38           1134 	.dw	0,(Sstm8s_awu$AWU_Init$15)
+      000204 00 00r00r41           1135 	.dw	0,(Sstm8s_awu$AWU_Init$16)
+      000208 00 02                 1136 	.dw	2
+      00020A 78                    1137 	.db	120
+      00020B 02                    1138 	.sleb128	2
+      00020C 00 00r00r2F           1139 	.dw	0,(Sstm8s_awu$AWU_Init$14)
+      000210 00 00r00r38           1140 	.dw	0,(Sstm8s_awu$AWU_Init$15)
+      000214 00 02                 1141 	.dw	2
+      000216 78                    1142 	.db	120
+      000217 02                    1143 	.sleb128	2
+      000218 00 00r00r26           1144 	.dw	0,(Sstm8s_awu$AWU_Init$13)
+      00021C 00 00r00r2F           1145 	.dw	0,(Sstm8s_awu$AWU_Init$14)
+      000220 00 02                 1146 	.dw	2
+      000222 78                    1147 	.db	120
+      000223 02                    1148 	.sleb128	2
+      000224 00 00r00r1D           1149 	.dw	0,(Sstm8s_awu$AWU_Init$12)
+      000228 00 00r00r26           1150 	.dw	0,(Sstm8s_awu$AWU_Init$13)
+      00022C 00 02                 1151 	.dw	2
+      00022E 78                    1152 	.db	120
+      00022F 02                    1153 	.sleb128	2
+      000230 00 00r00r0E           1154 	.dw	0,(Sstm8s_awu$AWU_Init$10)
+      000234 00 00r00r1D           1155 	.dw	0,(Sstm8s_awu$AWU_Init$12)
+      000238 00 02                 1156 	.dw	2
+      00023A 78                    1157 	.db	120
+      00023B 02                    1158 	.sleb128	2
+      00023C 00 00r00r0D           1159 	.dw	0,(Sstm8s_awu$AWU_Init$9)
+      000240 00 00r00r0E           1160 	.dw	0,(Sstm8s_awu$AWU_Init$10)
+      000244 00 02                 1161 	.dw	2
+      000246 78                    1162 	.db	120
+      000247 01                    1163 	.sleb128	1
+      000248 00 00 00 00           1164 	.dw	0,0
+      00024C 00 00 00 00           1165 	.dw	0,0
+      000250 00 00r00r00           1166 	.dw	0,(Sstm8s_awu$AWU_DeInit$1)
+      000254 00 00r00r0D           1167 	.dw	0,(Sstm8s_awu$AWU_DeInit$7)
+      000258 00 02                 1168 	.dw	2
+      00025A 78                    1169 	.db	120
+      00025B 01                    1170 	.sleb128	1
+      00025C 00 00 00 00           1171 	.dw	0,0
+      000260 00 00 00 00           1172 	.dw	0,0
+                                   1173 
+                                   1174 	.area .debug_abbrev (NOLOAD)
+      000000                       1175 Ldebug_abbrev:
+      000000 08                    1176 	.uleb128	8
+      000001 2E                    1177 	.uleb128	46
+      000002 00                    1178 	.db	0
+      000003 03                    1179 	.uleb128	3
+      000004 08                    1180 	.uleb128	8
+      000005 11                    1181 	.uleb128	17
+      000006 01                    1182 	.uleb128	1
+      000007 12                    1183 	.uleb128	18
+      000008 01                    1184 	.uleb128	1
+      000009 3F                    1185 	.uleb128	63
+      00000A 0C                    1186 	.uleb128	12
+      00000B 40                    1187 	.uleb128	64
+      00000C 06                    1188 	.uleb128	6
+      00000D 49                    1189 	.uleb128	73
+      00000E 13                    1190 	.uleb128	19
+      00000F 00                    1191 	.uleb128	0
+      000010 00                    1192 	.uleb128	0
+      000011 0C                    1193 	.uleb128	12
+      000012 34                    1194 	.uleb128	52
+      000013 00                    1195 	.db	0
+      000014 02                    1196 	.uleb128	2
+      000015 0A                    1197 	.uleb128	10
+      000016 03                    1198 	.uleb128	3
+      000017 08                    1199 	.uleb128	8
+      000018 3F                    1200 	.uleb128	63
+      000019 0C                    1201 	.uleb128	12
+      00001A 49                    1202 	.uleb128	73
+      00001B 13                    1203 	.uleb128	19
+      00001C 00                    1204 	.uleb128	0
+      00001D 00                    1205 	.uleb128	0
+      00001E 04                    1206 	.uleb128	4
+      00001F 05                    1207 	.uleb128	5
+      000020 00                    1208 	.db	0
+      000021 02                    1209 	.uleb128	2
+      000022 0A                    1210 	.uleb128	10
+      000023 03                    1211 	.uleb128	3
+      000024 08                    1212 	.uleb128	8
+      000025 49                    1213 	.uleb128	73
+      000026 13                    1214 	.uleb128	19
+      000027 00                    1215 	.uleb128	0
+      000028 00                    1216 	.uleb128	0
+      000029 0A                    1217 	.uleb128	10
+      00002A 01                    1218 	.uleb128	1
+      00002B 01                    1219 	.db	1
+      00002C 01                    1220 	.uleb128	1
+      00002D 13                    1221 	.uleb128	19
+      00002E 0B                    1222 	.uleb128	11
+      00002F 0B                    1223 	.uleb128	11
+      000030 49                    1224 	.uleb128	73
+      000031 13                    1225 	.uleb128	19
+      000032 00                    1226 	.uleb128	0
+      000033 00                    1227 	.uleb128	0
+      000034 03                    1228 	.uleb128	3
+      000035 2E                    1229 	.uleb128	46
+      000036 01                    1230 	.db	1
+      000037 01                    1231 	.uleb128	1
+      000038 13                    1232 	.uleb128	19
+      000039 03                    1233 	.uleb128	3
+      00003A 08                    1234 	.uleb128	8
+      00003B 11                    1235 	.uleb128	17
+      00003C 01                    1236 	.uleb128	1
+      00003D 12                    1237 	.uleb128	18
+      00003E 01                    1238 	.uleb128	1
+      00003F 3F                    1239 	.uleb128	63
+      000040 0C                    1240 	.uleb128	12
+      000041 40                    1241 	.uleb128	64
+      000042 06                    1242 	.uleb128	6
+      000043 00                    1243 	.uleb128	0
+      000044 00                    1244 	.uleb128	0
+      000045 07                    1245 	.uleb128	7
+      000046 34                    1246 	.uleb128	52
+      000047 00                    1247 	.db	0
+      000048 02                    1248 	.uleb128	2
+      000049 0A                    1249 	.uleb128	10
+      00004A 03                    1250 	.uleb128	3
+      00004B 08                    1251 	.uleb128	8
+      00004C 49                    1252 	.uleb128	73
+      00004D 13                    1253 	.uleb128	19
+      00004E 00                    1254 	.uleb128	0
+      00004F 00                    1255 	.uleb128	0
+      000050 09                    1256 	.uleb128	9
+      000051 26                    1257 	.uleb128	38
+      000052 00                    1258 	.db	0
+      000053 49                    1259 	.uleb128	73
+      000054 13                    1260 	.uleb128	19
+      000055 00                    1261 	.uleb128	0
+      000056 00                    1262 	.uleb128	0
+      000057 01                    1263 	.uleb128	1
+      000058 11                    1264 	.uleb128	17
+      000059 01                    1265 	.db	1
+      00005A 03                    1266 	.uleb128	3
+      00005B 08                    1267 	.uleb128	8
+      00005C 10                    1268 	.uleb128	16
+      00005D 06                    1269 	.uleb128	6
+      00005E 13                    1270 	.uleb128	19
+      00005F 0B                    1271 	.uleb128	11
+      000060 25                    1272 	.uleb128	37
+      000061 08                    1273 	.uleb128	8
+      000062 00                    1274 	.uleb128	0
+      000063 00                    1275 	.uleb128	0
+      000064 06                    1276 	.uleb128	6
+      000065 0B                    1277 	.uleb128	11
+      000066 00                    1278 	.db	0
+      000067 11                    1279 	.uleb128	17
+      000068 01                    1280 	.uleb128	1
+      000069 12                    1281 	.uleb128	18
+      00006A 01                    1282 	.uleb128	1
+      00006B 00                    1283 	.uleb128	0
+      00006C 00                    1284 	.uleb128	0
+      00006D 02                    1285 	.uleb128	2
+      00006E 2E                    1286 	.uleb128	46
+      00006F 00                    1287 	.db	0
+      000070 03                    1288 	.uleb128	3
+      000071 08                    1289 	.uleb128	8
+      000072 11                    1290 	.uleb128	17
+      000073 01                    1291 	.uleb128	1
+      000074 12                    1292 	.uleb128	18
+      000075 01                    1293 	.uleb128	1
+      000076 3F                    1294 	.uleb128	63
+      000077 0C                    1295 	.uleb128	12
+      000078 40                    1296 	.uleb128	64
+      000079 06                    1297 	.uleb128	6
+      00007A 00                    1298 	.uleb128	0
+      00007B 00                    1299 	.uleb128	0
+      00007C 0B                    1300 	.uleb128	11
+      00007D 21                    1301 	.uleb128	33
+      00007E 00                    1302 	.db	0
+      00007F 2F                    1303 	.uleb128	47
+      000080 0B                    1304 	.uleb128	11
+      000081 00                    1305 	.uleb128	0
+      000082 00                    1306 	.uleb128	0
+      000083 05                    1307 	.uleb128	5
+      000084 24                    1308 	.uleb128	36
+      000085 00                    1309 	.db	0
+      000086 03                    1310 	.uleb128	3
+      000087 08                    1311 	.uleb128	8
+      000088 0B                    1312 	.uleb128	11
+      000089 0B                    1313 	.uleb128	11
+      00008A 3E                    1314 	.uleb128	62
+      00008B 0B                    1315 	.uleb128	11
+      00008C 00                    1316 	.uleb128	0
+      00008D 00                    1317 	.uleb128	0
+      00008E 00                    1318 	.uleb128	0
+                                   1319 
+                                   1320 	.area .debug_info (NOLOAD)
+      000000 00 00 02 0F           1321 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000004                       1322 Ldebug_info_start:
+      000004 00 02                 1323 	.dw	2
+      000006 00 00r00r00           1324 	.dw	0,(Ldebug_abbrev)
+      00000A 04                    1325 	.db	4
+      00000B 01                    1326 	.uleb128	1
+      00000C 2E 2E 2F 53 50 4C 2F  1327 	.ascii "../SPL/src/stm8s_awu.c"
+             73 72 63 2F 73 74 6D
+             38 73 5F 61 77 75 2E
+             63
+      000022 00                    1328 	.db	0
+      000023 00 00r00r00           1329 	.dw	0,(Ldebug_line_start+-4)
+      000027 01                    1330 	.db	1
+      000028 53 44 43 43 20 76 65  1331 	.ascii "SDCC version 4.1.0 #12072"
+             72 73 69 6F 6E 20 34
+             2E 31 2E 30 20 23 31
+             32 30 37 32
+      000041 00                    1332 	.db	0
+      000042 02                    1333 	.uleb128	2
+      000043 41 57 55 5F 44 65 49  1334 	.ascii "AWU_DeInit"
+             6E 69 74
+      00004D 00                    1335 	.db	0
+      00004E 00 00r00r00           1336 	.dw	0,(_AWU_DeInit)
+      000052 00 00r00r0D           1337 	.dw	0,(XG$AWU_DeInit$0$0+1)
+      000056 01                    1338 	.db	1
+      000057 00 00r02r50           1339 	.dw	0,(Ldebug_loc_start+592)
+      00005B 03                    1340 	.uleb128	3
+      00005C 00 00 00 8C           1341 	.dw	0,140
+      000060 41 57 55 5F 49 6E 69  1342 	.ascii "AWU_Init"
+             74
+      000068 00                    1343 	.db	0
+      000069 00 00r00r0D           1344 	.dw	0,(_AWU_Init)
+      00006D 00 00r00rF1           1345 	.dw	0,(XG$AWU_Init$0$0+1)
+      000071 01                    1346 	.db	1
+      000072 00 00r01r1C           1347 	.dw	0,(Ldebug_loc_start+284)
+      000076 04                    1348 	.uleb128	4
+      000077 02                    1349 	.db	2
+      000078 91                    1350 	.db	145
+      000079 02                    1351 	.sleb128	2
+      00007A 41 57 55 5F 54 69 6D  1352 	.ascii "AWU_TimeBase"
+             65 42 61 73 65
+      000086 00                    1353 	.db	0
+      000087 00 00 00 8C           1354 	.dw	0,140
+      00008B 00                    1355 	.uleb128	0
+      00008C 05                    1356 	.uleb128	5
+      00008D 75 6E 73 69 67 6E 65  1357 	.ascii "unsigned char"
+             64 20 63 68 61 72
+      00009A 00                    1358 	.db	0
+      00009B 01                    1359 	.db	1
+      00009C 08                    1360 	.db	8
+      00009D 03                    1361 	.uleb128	3
+      00009E 00 00 00 DB           1362 	.dw	0,219
+      0000A2 41 57 55 5F 43 6D 64  1363 	.ascii "AWU_Cmd"
+      0000A9 00                    1364 	.db	0
+      0000AA 00 00r00rF1           1365 	.dw	0,(_AWU_Cmd)
+      0000AE 00 00r01r09           1366 	.dw	0,(XG$AWU_Cmd$0$0+1)
+      0000B2 01                    1367 	.db	1
+      0000B3 00 00r01r08           1368 	.dw	0,(Ldebug_loc_start+264)
+      0000B7 04                    1369 	.uleb128	4
+      0000B8 02                    1370 	.db	2
+      0000B9 91                    1371 	.db	145
+      0000BA 02                    1372 	.sleb128	2
+      0000BB 4E 65 77 53 74 61 74  1373 	.ascii "NewState"
+             65
+      0000C3 00                    1374 	.db	0
+      0000C4 00 00 00 8C           1375 	.dw	0,140
+      0000C8 06                    1376 	.uleb128	6
+      0000C9 00 00r00rFB           1377 	.dw	0,(Sstm8s_awu$AWU_Cmd$47)
+      0000CD 00 00r01r00           1378 	.dw	0,(Sstm8s_awu$AWU_Cmd$49)
+      0000D1 06                    1379 	.uleb128	6
+      0000D2 00 00r01r03           1380 	.dw	0,(Sstm8s_awu$AWU_Cmd$50)
+      0000D6 00 00r01r08           1381 	.dw	0,(Sstm8s_awu$AWU_Cmd$52)
+      0000DA 00                    1382 	.uleb128	0
+      0000DB 03                    1383 	.uleb128	3
+      0000DC 00 00 01 4C           1384 	.dw	0,332
+      0000E0 41 57 55 5F 4C 53 49  1385 	.ascii "AWU_LSICalibrationConfig"
+             43 61 6C 69 62 72 61
+             74 69 6F 6E 43 6F 6E
+             66 69 67
+      0000F8 00                    1386 	.db	0
+      0000F9 00 00r01r09           1387 	.dw	0,(_AWU_LSICalibrationConfig)
+      0000FD 00 00r01r89           1388 	.dw	0,(XG$AWU_LSICalibrationConfig$0$0+1)
+      000101 01                    1389 	.db	1
+      000102 00 00r00r28           1390 	.dw	0,(Ldebug_loc_start+40)
+      000106 04                    1391 	.uleb128	4
+      000107 02                    1392 	.db	2
+      000108 91                    1393 	.db	145
+      000109 02                    1394 	.sleb128	2
+      00010A 4C 53 49 46 72 65 71  1395 	.ascii "LSIFreqHz"
+             48 7A
+      000113 00                    1396 	.db	0
+      000114 00 00 01 4C           1397 	.dw	0,332
+      000118 06                    1398 	.uleb128	6
+      000119 00 00r01r7A           1399 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$80)
+      00011D 00 00r01r7F           1400 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$82)
+      000121 06                    1401 	.uleb128	6
+      000122 00 00r01r82           1402 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$83)
+      000126 00 00r01r86           1403 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$85)
+      00012A 07                    1404 	.uleb128	7
+      00012B 06                    1405 	.db	6
+      00012C 54                    1406 	.db	84
+      00012D 93                    1407 	.db	147
+      00012E 01                    1408 	.uleb128	1
+      00012F 53                    1409 	.db	83
+      000130 93                    1410 	.db	147
+      000131 01                    1411 	.uleb128	1
+      000132 6C 73 69 66 72 65 71  1412 	.ascii "lsifreqkhz"
+             6B 68 7A
+      00013C 00                    1413 	.db	0
+      00013D 00 00 01 5D           1414 	.dw	0,349
+      000141 07                    1415 	.uleb128	7
+      000142 02                    1416 	.db	2
+      000143 91                    1417 	.db	145
+      000144 7A                    1418 	.sleb128	-6
+      000145 41                    1419 	.ascii "A"
+      000146 00                    1420 	.db	0
+      000147 00 00 01 5D           1421 	.dw	0,349
+      00014B 00                    1422 	.uleb128	0
+      00014C 05                    1423 	.uleb128	5
+      00014D 75 6E 73 69 67 6E 65  1424 	.ascii "unsigned long"
+             64 20 6C 6F 6E 67
+      00015A 00                    1425 	.db	0
+      00015B 04                    1426 	.db	4
+      00015C 07                    1427 	.db	7
+      00015D 05                    1428 	.uleb128	5
+      00015E 75 6E 73 69 67 6E 65  1429 	.ascii "unsigned int"
+             64 20 69 6E 74
+      00016A 00                    1430 	.db	0
+      00016B 02                    1431 	.db	2
+      00016C 07                    1432 	.db	7
+      00016D 02                    1433 	.uleb128	2
+      00016E 41 57 55 5F 49 64 6C  1434 	.ascii "AWU_IdleModeEnable"
+             65 4D 6F 64 65 45 6E
+             61 62 6C 65
+      000180 00                    1435 	.db	0
+      000181 00 00r01r89           1436 	.dw	0,(_AWU_IdleModeEnable)
+      000185 00 00r01r96           1437 	.dw	0,(XG$AWU_IdleModeEnable$0$0+1)
+      000189 01                    1438 	.db	1
+      00018A 00 00r00r14           1439 	.dw	0,(Ldebug_loc_start+20)
+      00018E 08                    1440 	.uleb128	8
+      00018F 41 57 55 5F 47 65 74  1441 	.ascii "AWU_GetFlagStatus"
+             46 6C 61 67 53 74 61
+             74 75 73
+      0001A0 00                    1442 	.db	0
+      0001A1 00 00r01r96           1443 	.dw	0,(_AWU_GetFlagStatus)
+      0001A5 00 00r01rA8           1444 	.dw	0,(XG$AWU_GetFlagStatus$0$0+1)
+      0001A9 01                    1445 	.db	1
+      0001AA 00 00r00r00           1446 	.dw	0,(Ldebug_loc_start)
+      0001AE 00 00 00 8C           1447 	.dw	0,140
+      0001B2 09                    1448 	.uleb128	9
+      0001B3 00 00 00 8C           1449 	.dw	0,140
+      0001B7 0A                    1450 	.uleb128	10
+      0001B8 00 00 01 C4           1451 	.dw	0,452
+      0001BC 11                    1452 	.db	17
+      0001BD 00 00 01 B2           1453 	.dw	0,434
+      0001C1 0B                    1454 	.uleb128	11
+      0001C2 10                    1455 	.db	16
+      0001C3 00                    1456 	.uleb128	0
+      0001C4 0C                    1457 	.uleb128	12
+      0001C5 05                    1458 	.db	5
+      0001C6 03                    1459 	.db	3
+      0001C7 00 00r00r00           1460 	.dw	0,(_APR_Array)
+      0001CB 41 50 52 5F 41 72 72  1461 	.ascii "APR_Array"
+             61 79
+      0001D4 00                    1462 	.db	0
+      0001D5 01                    1463 	.db	1
+      0001D6 00 00 01 B7           1464 	.dw	0,439
+      0001DA 0C                    1465 	.uleb128	12
+      0001DB 05                    1466 	.db	5
+      0001DC 03                    1467 	.db	3
+      0001DD 00 00r00r11           1468 	.dw	0,(_TBR_Array)
+      0001E1 54 42 52 5F 41 72 72  1469 	.ascii "TBR_Array"
+             61 79
+      0001EA 00                    1470 	.db	0
+      0001EB 01                    1471 	.db	1
+      0001EC 00 00 01 B7           1472 	.dw	0,439
+      0001F0 0A                    1473 	.uleb128	10
+      0001F1 00 00 01 FD           1474 	.dw	0,509
+      0001F5 17                    1475 	.db	23
+      0001F6 00 00 01 B2           1476 	.dw	0,434
+      0001FA 0B                    1477 	.uleb128	11
+      0001FB 16                    1478 	.db	22
+      0001FC 00                    1479 	.uleb128	0
+      0001FD 07                    1480 	.uleb128	7
+      0001FE 05                    1481 	.db	5
+      0001FF 03                    1482 	.db	3
+      000200 00 00r00r22           1483 	.dw	0,(___str_0)
+      000204 5F 5F 73 74 72 5F 30  1484 	.ascii "__str_0"
+      00020B 00                    1485 	.db	0
+      00020C 00 00 01 F0           1486 	.dw	0,496
+      000210 00                    1487 	.uleb128	0
+      000211 00                    1488 	.uleb128	0
+      000212 00                    1489 	.uleb128	0
+      000213                       1490 Ldebug_info_end:
+                                   1491 
+                                   1492 	.area .debug_pubnames (NOLOAD)
+      000000 00 00 00 9C           1493 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      000004                       1494 Ldebug_pubnames_start:
+      000004 00 02                 1495 	.dw	2
+      000006 00 00r00r00           1496 	.dw	0,(Ldebug_info_start-4)
+      00000A 00 00 02 13           1497 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      00000E 00 00 00 42           1498 	.dw	0,66
+      000012 41 57 55 5F 44 65 49  1499 	.ascii "AWU_DeInit"
+             6E 69 74
+      00001C 00                    1500 	.db	0
+      00001D 00 00 00 5B           1501 	.dw	0,91
+      000021 41 57 55 5F 49 6E 69  1502 	.ascii "AWU_Init"
+             74
+      000029 00                    1503 	.db	0
+      00002A 00 00 00 9D           1504 	.dw	0,157
+      00002E 41 57 55 5F 43 6D 64  1505 	.ascii "AWU_Cmd"
+      000035 00                    1506 	.db	0
+      000036 00 00 00 DB           1507 	.dw	0,219
+      00003A 41 57 55 5F 4C 53 49  1508 	.ascii "AWU_LSICalibrationConfig"
+             43 61 6C 69 62 72 61
+             74 69 6F 6E 43 6F 6E
+             66 69 67
+      000052 00                    1509 	.db	0
+      000053 00 00 01 6D           1510 	.dw	0,365
+      000057 41 57 55 5F 49 64 6C  1511 	.ascii "AWU_IdleModeEnable"
+             65 4D 6F 64 65 45 6E
+             61 62 6C 65
+      000069 00                    1512 	.db	0
+      00006A 00 00 01 8E           1513 	.dw	0,398
+      00006E 41 57 55 5F 47 65 74  1514 	.ascii "AWU_GetFlagStatus"
+             46 6C 61 67 53 74 61
+             74 75 73
+      00007F 00                    1515 	.db	0
+      000080 00 00 01 C4           1516 	.dw	0,452
+      000084 41 50 52 5F 41 72 72  1517 	.ascii "APR_Array"
+             61 79
+      00008D 00                    1518 	.db	0
+      00008E 00 00 01 DA           1519 	.dw	0,474
+      000092 54 42 52 5F 41 72 72  1520 	.ascii "TBR_Array"
+             61 79
+      00009B 00                    1521 	.db	0
+      00009C 00 00 00 00           1522 	.dw	0,0
+      0000A0                       1523 Ldebug_pubnames_end:
+                                   1524 
+                                   1525 	.area .debug_frame (NOLOAD)
+      000000 00 00                 1526 	.dw	0
+      000002 00 0E                 1527 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      000004                       1528 Ldebug_CIE0_start:
+      000004 FF FF                 1529 	.dw	0xffff
+      000006 FF FF                 1530 	.dw	0xffff
+      000008 01                    1531 	.db	1
+      000009 00                    1532 	.db	0
+      00000A 01                    1533 	.uleb128	1
+      00000B 7F                    1534 	.sleb128	-1
+      00000C 09                    1535 	.db	9
+      00000D 0C                    1536 	.db	12
+      00000E 08                    1537 	.uleb128	8
+      00000F 02                    1538 	.uleb128	2
+      000010 89                    1539 	.db	137
+      000011 01                    1540 	.uleb128	1
+      000012                       1541 Ldebug_CIE0_end:
+      000012 00 00 00 13           1542 	.dw	0,19
+      000016 00 00r00r00           1543 	.dw	0,(Ldebug_CIE0_start-4)
+      00001A 00 00r01r96           1544 	.dw	0,(Sstm8s_awu$AWU_GetFlagStatus$98)	;initial loc
+      00001E 00 00 00 12           1545 	.dw	0,Sstm8s_awu$AWU_GetFlagStatus$102-Sstm8s_awu$AWU_GetFlagStatus$98
+      000022 01                    1546 	.db	1
+      000023 00 00r01r96           1547 	.dw	0,(Sstm8s_awu$AWU_GetFlagStatus$98)
+      000027 0E                    1548 	.db	14
+      000028 02                    1549 	.uleb128	2
+                                   1550 
+                                   1551 	.area .debug_frame (NOLOAD)
+      000029 00 00                 1552 	.dw	0
+      00002B 00 0E                 1553 	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+      00002D                       1554 Ldebug_CIE1_start:
+      00002D FF FF                 1555 	.dw	0xffff
+      00002F FF FF                 1556 	.dw	0xffff
+      000031 01                    1557 	.db	1
+      000032 00                    1558 	.db	0
+      000033 01                    1559 	.uleb128	1
+      000034 7F                    1560 	.sleb128	-1
+      000035 09                    1561 	.db	9
+      000036 0C                    1562 	.db	12
+      000037 08                    1563 	.uleb128	8
+      000038 02                    1564 	.uleb128	2
+      000039 89                    1565 	.db	137
+      00003A 01                    1566 	.uleb128	1
+      00003B                       1567 Ldebug_CIE1_end:
+      00003B 00 00 00 13           1568 	.dw	0,19
+      00003F 00 00r00r29           1569 	.dw	0,(Ldebug_CIE1_start-4)
+      000043 00 00r01r89           1570 	.dw	0,(Sstm8s_awu$AWU_IdleModeEnable$91)	;initial loc
+      000047 00 00 00 0D           1571 	.dw	0,Sstm8s_awu$AWU_IdleModeEnable$96-Sstm8s_awu$AWU_IdleModeEnable$91
+      00004B 01                    1572 	.db	1
+      00004C 00 00r01r89           1573 	.dw	0,(Sstm8s_awu$AWU_IdleModeEnable$91)
+      000050 0E                    1574 	.db	14
+      000051 02                    1575 	.uleb128	2
+                                   1576 
+                                   1577 	.area .debug_frame (NOLOAD)
+      000052 00 00                 1578 	.dw	0
+      000054 00 0E                 1579 	.dw	Ldebug_CIE2_end-Ldebug_CIE2_start
+      000056                       1580 Ldebug_CIE2_start:
+      000056 FF FF                 1581 	.dw	0xffff
+      000058 FF FF                 1582 	.dw	0xffff
+      00005A 01                    1583 	.db	1
+      00005B 00                    1584 	.db	0
+      00005C 01                    1585 	.uleb128	1
+      00005D 7F                    1586 	.sleb128	-1
+      00005E 09                    1587 	.db	9
+      00005F 0C                    1588 	.db	12
+      000060 08                    1589 	.uleb128	8
+      000061 02                    1590 	.uleb128	2
+      000062 89                    1591 	.db	137
+      000063 01                    1592 	.uleb128	1
+      000064                       1593 Ldebug_CIE2_end:
+      000064 00 00 00 8A           1594 	.dw	0,138
+      000068 00 00r00r52           1595 	.dw	0,(Ldebug_CIE2_start-4)
+      00006C 00 00r01r09           1596 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$57)	;initial loc
+      000070 00 00 00 80           1597 	.dw	0,Sstm8s_awu$AWU_LSICalibrationConfig$89-Sstm8s_awu$AWU_LSICalibrationConfig$57
+      000074 01                    1598 	.db	1
+      000075 00 00r01r09           1599 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$57)
+      000079 0E                    1600 	.db	14
+      00007A 02                    1601 	.uleb128	2
+      00007B 01                    1602 	.db	1
+      00007C 00 00r01r0B           1603 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$58)
+      000080 0E                    1604 	.db	14
+      000081 08                    1605 	.uleb128	8
+      000082 01                    1606 	.db	1
+      000083 00 00r01r30           1607 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$60)
+      000087 0E                    1608 	.db	14
+      000088 09                    1609 	.uleb128	9
+      000089 01                    1610 	.db	1
+      00008A 00 00r01r32           1611 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$61)
+      00008E 0E                    1612 	.db	14
+      00008F 0B                    1613 	.uleb128	11
+      000090 01                    1614 	.db	1
+      000091 00 00r01r34           1615 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$62)
+      000095 0E                    1616 	.db	14
+      000096 0C                    1617 	.uleb128	12
+      000097 01                    1618 	.db	1
+      000098 00 00r01r36           1619 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$63)
+      00009C 0E                    1620 	.db	14
+      00009D 0D                    1621 	.uleb128	13
+      00009E 01                    1622 	.db	1
+      00009F 00 00r01r38           1623 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$64)
+      0000A3 0E                    1624 	.db	14
+      0000A4 0E                    1625 	.uleb128	14
+      0000A5 01                    1626 	.db	1
+      0000A6 00 00r01r3D           1627 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$65)
+      0000AA 0E                    1628 	.db	14
+      0000AB 08                    1629 	.uleb128	8
+      0000AC 01                    1630 	.db	1
+      0000AD 00 00r01r3F           1631 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$67)
+      0000B1 0E                    1632 	.db	14
+      0000B2 09                    1633 	.uleb128	9
+      0000B3 01                    1634 	.db	1
+      0000B4 00 00r01r41           1635 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$68)
+      0000B8 0E                    1636 	.db	14
+      0000B9 0A                    1637 	.uleb128	10
+      0000BA 01                    1638 	.db	1
+      0000BB 00 00r01r43           1639 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$69)
+      0000BF 0E                    1640 	.db	14
+      0000C0 0C                    1641 	.uleb128	12
+      0000C1 01                    1642 	.db	1
+      0000C2 00 00r01r46           1643 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$70)
+      0000C6 0E                    1644 	.db	14
+      0000C7 0E                    1645 	.uleb128	14
+      0000C8 01                    1646 	.db	1
+      0000C9 00 00r01r49           1647 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$71)
+      0000CD 0E                    1648 	.db	14
+      0000CE 10                    1649 	.uleb128	16
+      0000CF 01                    1650 	.db	1
+      0000D0 00 00r01r4E           1651 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$72)
+      0000D4 0E                    1652 	.db	14
+      0000D5 08                    1653 	.uleb128	8
+      0000D6 01                    1654 	.db	1
+      0000D7 00 00r01r66           1655 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$75)
+      0000DB 0E                    1656 	.db	14
+      0000DC 0A                    1657 	.uleb128	10
+      0000DD 01                    1658 	.db	1
+      0000DE 00 00r01r68           1659 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$76)
+      0000E2 0E                    1660 	.db	14
+      0000E3 0C                    1661 	.uleb128	12
+      0000E4 01                    1662 	.db	1
+      0000E5 00 00r01r6D           1663 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$78)
+      0000E9 0E                    1664 	.db	14
+      0000EA 08                    1665 	.uleb128	8
+      0000EB 01                    1666 	.db	1
+      0000EC 00 00r01r88           1667 	.dw	0,(Sstm8s_awu$AWU_LSICalibrationConfig$87)
+      0000F0 0E                    1668 	.db	14
+      0000F1 02                    1669 	.uleb128	2
+                                   1670 
+                                   1671 	.area .debug_frame (NOLOAD)
+      0000F2 00 00                 1672 	.dw	0
+      0000F4 00 0E                 1673 	.dw	Ldebug_CIE3_end-Ldebug_CIE3_start
+      0000F6                       1674 Ldebug_CIE3_start:
+      0000F6 FF FF                 1675 	.dw	0xffff
+      0000F8 FF FF                 1676 	.dw	0xffff
+      0000FA 01                    1677 	.db	1
+      0000FB 00                    1678 	.db	0
+      0000FC 01                    1679 	.uleb128	1
+      0000FD 7F                    1680 	.sleb128	-1
+      0000FE 09                    1681 	.db	9
+      0000FF 0C                    1682 	.db	12
+      000100 08                    1683 	.uleb128	8
+      000101 02                    1684 	.uleb128	2
+      000102 89                    1685 	.db	137
+      000103 01                    1686 	.uleb128	1
+      000104                       1687 Ldebug_CIE3_end:
+      000104 00 00 00 13           1688 	.dw	0,19
+      000108 00 00r00rF2           1689 	.dw	0,(Ldebug_CIE3_start-4)
+      00010C 00 00r00rF1           1690 	.dw	0,(Sstm8s_awu$AWU_Cmd$44)	;initial loc
+      000110 00 00 00 18           1691 	.dw	0,Sstm8s_awu$AWU_Cmd$55-Sstm8s_awu$AWU_Cmd$44
+      000114 01                    1692 	.db	1
+      000115 00 00r00rF1           1693 	.dw	0,(Sstm8s_awu$AWU_Cmd$44)
+      000119 0E                    1694 	.db	14
+      00011A 02                    1695 	.uleb128	2
+                                   1696 
+                                   1697 	.area .debug_frame (NOLOAD)
+      00011B 00 00                 1698 	.dw	0
+      00011D 00 0E                 1699 	.dw	Ldebug_CIE4_end-Ldebug_CIE4_start
+      00011F                       1700 Ldebug_CIE4_start:
+      00011F FF FF                 1701 	.dw	0xffff
+      000121 FF FF                 1702 	.dw	0xffff
+      000123 01                    1703 	.db	1
+      000124 00                    1704 	.db	0
+      000125 01                    1705 	.uleb128	1
+      000126 7F                    1706 	.sleb128	-1
+      000127 09                    1707 	.db	9
+      000128 0C                    1708 	.db	12
+      000129 08                    1709 	.uleb128	8
+      00012A 02                    1710 	.uleb128	2
+      00012B 89                    1711 	.db	137
+      00012C 01                    1712 	.uleb128	1
+      00012D                       1713 Ldebug_CIE4_end:
+      00012D 00 00 00 BB           1714 	.dw	0,187
+      000131 00 00r01r1B           1715 	.dw	0,(Ldebug_CIE4_start-4)
+      000135 00 00r00r0D           1716 	.dw	0,(Sstm8s_awu$AWU_Init$9)	;initial loc
+      000139 00 00 00 E4           1717 	.dw	0,Sstm8s_awu$AWU_Init$42-Sstm8s_awu$AWU_Init$9
+      00013D 01                    1718 	.db	1
+      00013E 00 00r00r0D           1719 	.dw	0,(Sstm8s_awu$AWU_Init$9)
+      000142 0E                    1720 	.db	14
+      000143 02                    1721 	.uleb128	2
+      000144 01                    1722 	.db	1
+      000145 00 00r00r0E           1723 	.dw	0,(Sstm8s_awu$AWU_Init$10)
+      000149 0E                    1724 	.db	14
+      00014A 03                    1725 	.uleb128	3
+      00014B 01                    1726 	.db	1
+      00014C 00 00r00r1D           1727 	.dw	0,(Sstm8s_awu$AWU_Init$12)
+      000150 0E                    1728 	.db	14
+      000151 03                    1729 	.uleb128	3
+      000152 01                    1730 	.db	1
+      000153 00 00r00r26           1731 	.dw	0,(Sstm8s_awu$AWU_Init$13)
+      000157 0E                    1732 	.db	14
+      000158 03                    1733 	.uleb128	3
+      000159 01                    1734 	.db	1
+      00015A 00 00r00r2F           1735 	.dw	0,(Sstm8s_awu$AWU_Init$14)
+      00015E 0E                    1736 	.db	14
+      00015F 03                    1737 	.uleb128	3
+      000160 01                    1738 	.db	1
+      000161 00 00r00r38           1739 	.dw	0,(Sstm8s_awu$AWU_Init$15)
+      000165 0E                    1740 	.db	14
+      000166 03                    1741 	.uleb128	3
+      000167 01                    1742 	.db	1
+      000168 00 00r00r41           1743 	.dw	0,(Sstm8s_awu$AWU_Init$16)
+      00016C 0E                    1744 	.db	14
+      00016D 03                    1745 	.uleb128	3
+      00016E 01                    1746 	.db	1
+      00016F 00 00r00r4A           1747 	.dw	0,(Sstm8s_awu$AWU_Init$17)
+      000173 0E                    1748 	.db	14
+      000174 03                    1749 	.uleb128	3
+      000175 01                    1750 	.db	1
+      000176 00 00r00r53           1751 	.dw	0,(Sstm8s_awu$AWU_Init$18)
+      00017A 0E                    1752 	.db	14
+      00017B 03                    1753 	.uleb128	3
+      00017C 01                    1754 	.db	1
+      00017D 00 00r00r5C           1755 	.dw	0,(Sstm8s_awu$AWU_Init$19)
+      000181 0E                    1756 	.db	14
+      000182 03                    1757 	.uleb128	3
+      000183 01                    1758 	.db	1
+      000184 00 00r00r65           1759 	.dw	0,(Sstm8s_awu$AWU_Init$20)
+      000188 0E                    1760 	.db	14
+      000189 03                    1761 	.uleb128	3
+      00018A 01                    1762 	.db	1
+      00018B 00 00r00r6E           1763 	.dw	0,(Sstm8s_awu$AWU_Init$21)
+      00018F 0E                    1764 	.db	14
+      000190 03                    1765 	.uleb128	3
+      000191 01                    1766 	.db	1
+      000192 00 00r00r77           1767 	.dw	0,(Sstm8s_awu$AWU_Init$22)
+      000196 0E                    1768 	.db	14
+      000197 03                    1769 	.uleb128	3
+      000198 01                    1770 	.db	1
+      000199 00 00r00r80           1771 	.dw	0,(Sstm8s_awu$AWU_Init$23)
+      00019D 0E                    1772 	.db	14
+      00019E 03                    1773 	.uleb128	3
+      00019F 01                    1774 	.db	1
+      0001A0 00 00r00r89           1775 	.dw	0,(Sstm8s_awu$AWU_Init$24)
+      0001A4 0E                    1776 	.db	14
+      0001A5 03                    1777 	.uleb128	3
+      0001A6 01                    1778 	.db	1
+      0001A7 00 00r00r92           1779 	.dw	0,(Sstm8s_awu$AWU_Init$25)
+      0001AB 0E                    1780 	.db	14
+      0001AC 03                    1781 	.uleb128	3
+      0001AD 01                    1782 	.db	1
+      0001AE 00 00r00r9B           1783 	.dw	0,(Sstm8s_awu$AWU_Init$26)
+      0001B2 0E                    1784 	.db	14
+      0001B3 03                    1785 	.uleb128	3
+      0001B4 01                    1786 	.db	1
+      0001B5 00 00r00rA4           1787 	.dw	0,(Sstm8s_awu$AWU_Init$27)
+      0001B9 0E                    1788 	.db	14
+      0001BA 03                    1789 	.uleb128	3
+      0001BB 01                    1790 	.db	1
+      0001BC 00 00r00rA6           1791 	.dw	0,(Sstm8s_awu$AWU_Init$28)
+      0001C0 0E                    1792 	.db	14
+      0001C1 04                    1793 	.uleb128	4
+      0001C2 01                    1794 	.db	1
+      0001C3 00 00r00rA8           1795 	.dw	0,(Sstm8s_awu$AWU_Init$29)
+      0001C7 0E                    1796 	.db	14
+      0001C8 06                    1797 	.uleb128	6
+      0001C9 01                    1798 	.db	1
+      0001CA 00 00r00rAA           1799 	.dw	0,(Sstm8s_awu$AWU_Init$30)
+      0001CE 0E                    1800 	.db	14
+      0001CF 07                    1801 	.uleb128	7
+      0001D0 01                    1802 	.db	1
+      0001D1 00 00r00rAC           1803 	.dw	0,(Sstm8s_awu$AWU_Init$31)
+      0001D5 0E                    1804 	.db	14
+      0001D6 08                    1805 	.uleb128	8
+      0001D7 01                    1806 	.db	1
+      0001D8 00 00r00rAE           1807 	.dw	0,(Sstm8s_awu$AWU_Init$32)
+      0001DC 0E                    1808 	.db	14
+      0001DD 09                    1809 	.uleb128	9
+      0001DE 01                    1810 	.db	1
+      0001DF 00 00r00rB3           1811 	.dw	0,(Sstm8s_awu$AWU_Init$33)
+      0001E3 0E                    1812 	.db	14
+      0001E4 03                    1813 	.uleb128	3
+      0001E5 01                    1814 	.db	1
+      0001E6 00 00r00rF0           1815 	.dw	0,(Sstm8s_awu$AWU_Init$40)
+      0001EA 0E                    1816 	.db	14
+      0001EB 02                    1817 	.uleb128	2
+                                   1818 
+                                   1819 	.area .debug_frame (NOLOAD)
+      0001EC 00 00                 1820 	.dw	0
+      0001EE 00 0E                 1821 	.dw	Ldebug_CIE5_end-Ldebug_CIE5_start
+      0001F0                       1822 Ldebug_CIE5_start:
+      0001F0 FF FF                 1823 	.dw	0xffff
+      0001F2 FF FF                 1824 	.dw	0xffff
+      0001F4 01                    1825 	.db	1
+      0001F5 00                    1826 	.db	0
+      0001F6 01                    1827 	.uleb128	1
+      0001F7 7F                    1828 	.sleb128	-1
+      0001F8 09                    1829 	.db	9
+      0001F9 0C                    1830 	.db	12
+      0001FA 08                    1831 	.uleb128	8
+      0001FB 02                    1832 	.uleb128	2
+      0001FC 89                    1833 	.db	137
+      0001FD 01                    1834 	.uleb128	1
+      0001FE                       1835 Ldebug_CIE5_end:
+      0001FE 00 00 00 13           1836 	.dw	0,19
+      000202 00 00r01rEC           1837 	.dw	0,(Ldebug_CIE5_start-4)
+      000206 00 00r00r00           1838 	.dw	0,(Sstm8s_awu$AWU_DeInit$1)	;initial loc
+      00020A 00 00 00 0D           1839 	.dw	0,Sstm8s_awu$AWU_DeInit$7-Sstm8s_awu$AWU_DeInit$1
+      00020E 01                    1840 	.db	1
+      00020F 00 00r00r00           1841 	.dw	0,(Sstm8s_awu$AWU_DeInit$1)
+      000213 0E                    1842 	.db	14
+      000214 02                    1843 	.uleb128	2

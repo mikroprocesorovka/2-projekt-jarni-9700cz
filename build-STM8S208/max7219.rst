@@ -1,0 +1,1626 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.1.0 #12072 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module max7219
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _GPIO_WriteLow
+                                     12 	.globl _GPIO_WriteHigh
+                                     13 	.globl _GPIO_Init
+                                     14 	.globl _max7219_init
+                                     15 	.globl _max7219_posli
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area DATA
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area INITIALIZED
+                                     24 ;--------------------------------------------------------
+                                     25 ; absolute external ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area DABS (ABS)
+                                     28 
+                                     29 ; default segment ordering for linker
+                                     30 	.area HOME
+                                     31 	.area GSINIT
+                                     32 	.area GSFINAL
+                                     33 	.area CONST
+                                     34 	.area INITIALIZER
+                                     35 	.area CODE
+                                     36 
+                                     37 ;--------------------------------------------------------
+                                     38 ; global & static initialisations
+                                     39 ;--------------------------------------------------------
+                                     40 	.area HOME
+                                     41 	.area GSINIT
+                                     42 	.area GSFINAL
+                                     43 	.area GSINIT
+                                     44 ;--------------------------------------------------------
+                                     45 ; Home
+                                     46 ;--------------------------------------------------------
+                                     47 	.area HOME
+                                     48 	.area HOME
+                                     49 ;--------------------------------------------------------
+                                     50 ; code
+                                     51 ;--------------------------------------------------------
+                                     52 	.area CODE
+                           000000    53 	Smax7219$max7219_init$0 ==.
+                                     54 ;	./src/max7219.c: 4: void max7219_init(void){
+                                     55 ; genLabel
+                                     56 ;	-----------------------------------------
+                                     57 ;	 function max7219_init
+                                     58 ;	-----------------------------------------
+                                     59 ;	Register assignment is optimal.
+                                     60 ;	Stack space usage: 0 bytes.
+      0084DB                         61 _max7219_init:
+                           000000    62 	Smax7219$max7219_init$1 ==.
+                           000000    63 	Smax7219$max7219_init$2 ==.
+                                     64 ;	./src/max7219.c: 5: GPIO_Init(CS_GPIO,CS_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+                                     65 ; genIPush
+      0084DB 4B C0            [ 1]   66 	push	#0xc0
+                           000002    67 	Smax7219$max7219_init$3 ==.
+                                     68 ; genIPush
+      0084DD 4B 10            [ 1]   69 	push	#0x10
+                           000004    70 	Smax7219$max7219_init$4 ==.
+                                     71 ; genIPush
+      0084DF 4B 0A            [ 1]   72 	push	#0x0a
+                           000006    73 	Smax7219$max7219_init$5 ==.
+      0084E1 4B 50            [ 1]   74 	push	#0x50
+                           000008    75 	Smax7219$max7219_init$6 ==.
+                                     76 ; genCall
+      0084E3 CD 8C D7         [ 4]   77 	call	_GPIO_Init
+      0084E6 5B 04            [ 2]   78 	addw	sp, #4
+                           00000D    79 	Smax7219$max7219_init$7 ==.
+                           00000D    80 	Smax7219$max7219_init$8 ==.
+                                     81 ;	./src/max7219.c: 6: GPIO_Init(CLK_GPIO,CLK_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+                                     82 ; genIPush
+      0084E8 4B C0            [ 1]   83 	push	#0xc0
+                           00000F    84 	Smax7219$max7219_init$9 ==.
+                                     85 ; genIPush
+      0084EA 4B 10            [ 1]   86 	push	#0x10
+                           000011    87 	Smax7219$max7219_init$10 ==.
+                                     88 ; genIPush
+      0084EC 4B 0F            [ 1]   89 	push	#0x0f
+                           000013    90 	Smax7219$max7219_init$11 ==.
+      0084EE 4B 50            [ 1]   91 	push	#0x50
+                           000015    92 	Smax7219$max7219_init$12 ==.
+                                     93 ; genCall
+      0084F0 CD 8C D7         [ 4]   94 	call	_GPIO_Init
+      0084F3 5B 04            [ 2]   95 	addw	sp, #4
+                           00001A    96 	Smax7219$max7219_init$13 ==.
+                           00001A    97 	Smax7219$max7219_init$14 ==.
+                                     98 ;	./src/max7219.c: 7: GPIO_Init(DATA_GPIO,DATA_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+                                     99 ; genIPush
+      0084F5 4B C0            [ 1]  100 	push	#0xc0
+                           00001C   101 	Smax7219$max7219_init$15 ==.
+                                    102 ; genIPush
+      0084F7 4B 08            [ 1]  103 	push	#0x08
+                           00001E   104 	Smax7219$max7219_init$16 ==.
+                                    105 ; genIPush
+      0084F9 4B 0F            [ 1]  106 	push	#0x0f
+                           000020   107 	Smax7219$max7219_init$17 ==.
+      0084FB 4B 50            [ 1]  108 	push	#0x50
+                           000022   109 	Smax7219$max7219_init$18 ==.
+                                    110 ; genCall
+      0084FD CD 8C D7         [ 4]  111 	call	_GPIO_Init
+      008500 5B 04            [ 2]  112 	addw	sp, #4
+                           000027   113 	Smax7219$max7219_init$19 ==.
+                           000027   114 	Smax7219$max7219_init$20 ==.
+                                    115 ;	./src/max7219.c: 9: max7219_posli(DECODE_MODE, DECODE_ALL); // zapnout znakovou sadu na všech cifrách
+                                    116 ; genIPush
+      008502 4B FF            [ 1]  117 	push	#0xff
+                           000029   118 	Smax7219$max7219_init$21 ==.
+                                    119 ; genIPush
+      008504 4B 09            [ 1]  120 	push	#0x09
+                           00002B   121 	Smax7219$max7219_init$22 ==.
+                                    122 ; genCall
+      008506 CD 85 2B         [ 4]  123 	call	_max7219_posli
+      008509 85               [ 2]  124 	popw	x
+                           00002F   125 	Smax7219$max7219_init$23 ==.
+                           00002F   126 	Smax7219$max7219_init$24 ==.
+                                    127 ;	./src/max7219.c: 10: max7219_posli(SCAN_LIMIT, 7); // velikost displeje 8 cifer (počítáno od nuly, proto je argument číslo 7)
+                                    128 ; genIPush
+      00850A 4B 07            [ 1]  129 	push	#0x07
+                           000031   130 	Smax7219$max7219_init$25 ==.
+                                    131 ; genIPush
+      00850C 4B 0B            [ 1]  132 	push	#0x0b
+                           000033   133 	Smax7219$max7219_init$26 ==.
+                                    134 ; genCall
+      00850E CD 85 2B         [ 4]  135 	call	_max7219_posli
+      008511 85               [ 2]  136 	popw	x
+                           000037   137 	Smax7219$max7219_init$27 ==.
+                           000037   138 	Smax7219$max7219_init$28 ==.
+                                    139 ;	./src/max7219.c: 11: max7219_posli(INTENSITY, 5); // volíme ze začátku nízký jas (vysoký jas může mít velkou spotřebu - až 0.25A !)
+                                    140 ; genIPush
+      008512 4B 05            [ 1]  141 	push	#0x05
+                           000039   142 	Smax7219$max7219_init$29 ==.
+                                    143 ; genIPush
+      008514 4B 0A            [ 1]  144 	push	#0x0a
+                           00003B   145 	Smax7219$max7219_init$30 ==.
+                                    146 ; genCall
+      008516 CD 85 2B         [ 4]  147 	call	_max7219_posli
+      008519 85               [ 2]  148 	popw	x
+                           00003F   149 	Smax7219$max7219_init$31 ==.
+                           00003F   150 	Smax7219$max7219_init$32 ==.
+                                    151 ;	./src/max7219.c: 12: max7219_posli(DISPLAY_TEST, DISPLAY_TEST_OFF); // 
+                                    152 ; genIPush
+      00851A 4B 00            [ 1]  153 	push	#0x00
+                           000041   154 	Smax7219$max7219_init$33 ==.
+                                    155 ; genIPush
+      00851C 4B 0F            [ 1]  156 	push	#0x0f
+                           000043   157 	Smax7219$max7219_init$34 ==.
+                                    158 ; genCall
+      00851E CD 85 2B         [ 4]  159 	call	_max7219_posli
+      008521 85               [ 2]  160 	popw	x
+                           000047   161 	Smax7219$max7219_init$35 ==.
+                           000047   162 	Smax7219$max7219_init$36 ==.
+                                    163 ;	./src/max7219.c: 13: max7219_posli(SHUTDOWN, DISPLAY_ON); // zapneme displej
+                                    164 ; genIPush
+      008522 4B 01            [ 1]  165 	push	#0x01
+                           000049   166 	Smax7219$max7219_init$37 ==.
+                                    167 ; genIPush
+      008524 4B 0C            [ 1]  168 	push	#0x0c
+                           00004B   169 	Smax7219$max7219_init$38 ==.
+                                    170 ; genCall
+      008526 CD 85 2B         [ 4]  171 	call	_max7219_posli
+      008529 85               [ 2]  172 	popw	x
+                           00004F   173 	Smax7219$max7219_init$39 ==.
+                                    174 ; genLabel
+      00852A                        175 00101$:
+                           00004F   176 	Smax7219$max7219_init$40 ==.
+                                    177 ;	./src/max7219.c: 14: }
+                                    178 ; genEndFunction
+                           00004F   179 	Smax7219$max7219_init$41 ==.
+                           00004F   180 	XG$max7219_init$0$0 ==.
+      00852A 81               [ 4]  181 	ret
+                           000050   182 	Smax7219$max7219_init$42 ==.
+                           000050   183 	Smax7219$max7219_posli$43 ==.
+                                    184 ;	./src/max7219.c: 17: void max7219_posli(uint8_t adresa, uint8_t data){
+                                    185 ; genLabel
+                                    186 ;	-----------------------------------------
+                                    187 ;	 function max7219_posli
+                                    188 ;	-----------------------------------------
+                                    189 ;	Register assignment is optimal.
+                                    190 ;	Stack space usage: 1 bytes.
+      00852B                        191 _max7219_posli:
+                           000050   192 	Smax7219$max7219_posli$44 ==.
+      00852B 88               [ 1]  193 	push	a
+                           000051   194 	Smax7219$max7219_posli$45 ==.
+                           000051   195 	Smax7219$max7219_posli$46 ==.
+                                    196 ;	./src/max7219.c: 19: CS_LOW; // nastavíme linku LOAD/CS do úrovně Low (abychom po zapsání všech 16ti bytů mohli vygenerovat na CS vzestupnou hranu)
+                                    197 ; genIPush
+      00852C 4B 10            [ 1]  198 	push	#0x10
+                           000053   199 	Smax7219$max7219_posli$47 ==.
+                                    200 ; genIPush
+      00852E 4B 0A            [ 1]  201 	push	#0x0a
+                           000055   202 	Smax7219$max7219_posli$48 ==.
+      008530 4B 50            [ 1]  203 	push	#0x50
+                           000057   204 	Smax7219$max7219_posli$49 ==.
+                                    205 ; genCall
+      008532 CD 8D FA         [ 4]  206 	call	_GPIO_WriteLow
+      008535 5B 03            [ 2]  207 	addw	sp, #3
+                           00005C   208 	Smax7219$max7219_posli$50 ==.
+                           00005C   209 	Smax7219$max7219_posli$51 ==.
+                                    210 ;	./src/max7219.c: 22: maska = 0b10000000; // lepší zápis je: maska = 1<<7
+                                    211 ; genAssign
+      008537 A6 80            [ 1]  212 	ld	a, #0x80
+      008539 6B 01            [ 1]  213 	ld	(0x01, sp), a
+                           000060   214 	Smax7219$max7219_posli$52 ==.
+                                    215 ;	./src/max7219.c: 23: CLK_LOW; // připravíme si na CLK vstup budiče úroveň Low
+                                    216 ; genIPush
+      00853B 4B 10            [ 1]  217 	push	#0x10
+                           000062   218 	Smax7219$max7219_posli$53 ==.
+                                    219 ; genIPush
+      00853D 4B 0F            [ 1]  220 	push	#0x0f
+                           000064   221 	Smax7219$max7219_posli$54 ==.
+      00853F 4B 50            [ 1]  222 	push	#0x50
+                           000066   223 	Smax7219$max7219_posli$55 ==.
+                                    224 ; genCall
+      008541 CD 8D FA         [ 4]  225 	call	_GPIO_WriteLow
+      008544 5B 03            [ 2]  226 	addw	sp, #3
+                           00006B   227 	Smax7219$max7219_posli$56 ==.
+                           00006B   228 	Smax7219$max7219_posli$57 ==.
+                                    229 ;	./src/max7219.c: 24: while(maska){ // dokud jsme neposlali všech 8 bitů
+                                    230 ; genLabel
+      008546                        231 00104$:
+                                    232 ; genIfx
+      008546 0D 01            [ 1]  233 	tnz	(0x01, sp)
+      008548 26 03            [ 1]  234 	jrne	00145$
+      00854A CC 85 8B         [ 2]  235 	jp	00106$
+      00854D                        236 00145$:
+                           000072   237 	Smax7219$max7219_posli$58 ==.
+                           000072   238 	Smax7219$max7219_posli$59 ==.
+                                    239 ;	./src/max7219.c: 25: if(maska & adresa){ // pokud má právě vysílaný bit hodnotu 1
+                                    240 ; genAnd
+      00854D 7B 01            [ 1]  241 	ld	a, (0x01, sp)
+      00854F 14 04            [ 1]  242 	and	a, (0x04, sp)
+                                    243 ; genIfx
+      008551 4D               [ 1]  244 	tnz	a
+      008552 26 03            [ 1]  245 	jrne	00146$
+      008554 CC 85 65         [ 2]  246 	jp	00102$
+      008557                        247 00146$:
+                           00007C   248 	Smax7219$max7219_posli$60 ==.
+                           00007C   249 	Smax7219$max7219_posli$61 ==.
+                                    250 ;	./src/max7219.c: 26: DATA_HIGH; // nastavíme budiči vstup DIN do úrovně High
+                                    251 ; genIPush
+      008557 4B 08            [ 1]  252 	push	#0x08
+                           00007E   253 	Smax7219$max7219_posli$62 ==.
+                                    254 ; genIPush
+      008559 4B 0F            [ 1]  255 	push	#0x0f
+                           000080   256 	Smax7219$max7219_posli$63 ==.
+      00855B 4B 50            [ 1]  257 	push	#0x50
+                           000082   258 	Smax7219$max7219_posli$64 ==.
+                                    259 ; genCall
+      00855D CD 8D F3         [ 4]  260 	call	_GPIO_WriteHigh
+      008560 5B 03            [ 2]  261 	addw	sp, #3
+                           000087   262 	Smax7219$max7219_posli$65 ==.
+                           000087   263 	Smax7219$max7219_posli$66 ==.
+                                    264 ; genGoto
+      008562 CC 85 70         [ 2]  265 	jp	00103$
+                                    266 ; genLabel
+      008565                        267 00102$:
+                           00008A   268 	Smax7219$max7219_posli$67 ==.
+                           00008A   269 	Smax7219$max7219_posli$68 ==.
+                                    270 ;	./src/max7219.c: 29: DATA_LOW;	// ... nastavíme budiči vstup DIN do úrovně Low
+                                    271 ; genIPush
+      008565 4B 08            [ 1]  272 	push	#0x08
+                           00008C   273 	Smax7219$max7219_posli$69 ==.
+                                    274 ; genIPush
+      008567 4B 0F            [ 1]  275 	push	#0x0f
+                           00008E   276 	Smax7219$max7219_posli$70 ==.
+      008569 4B 50            [ 1]  277 	push	#0x50
+                           000090   278 	Smax7219$max7219_posli$71 ==.
+                                    279 ; genCall
+      00856B CD 8D FA         [ 4]  280 	call	_GPIO_WriteLow
+      00856E 5B 03            [ 2]  281 	addw	sp, #3
+                           000095   282 	Smax7219$max7219_posli$72 ==.
+                           000095   283 	Smax7219$max7219_posli$73 ==.
+                                    284 ; genLabel
+      008570                        285 00103$:
+                           000095   286 	Smax7219$max7219_posli$74 ==.
+                                    287 ;	./src/max7219.c: 31: CLK_HIGH; // přejdeme na CLK z úrovně Low do úrovně High, a budič si zapíše hodnotu bitu, kterou jsme nastavili na DIN
+                                    288 ; genIPush
+      008570 4B 10            [ 1]  289 	push	#0x10
+                           000097   290 	Smax7219$max7219_posli$75 ==.
+                                    291 ; genIPush
+      008572 4B 0F            [ 1]  292 	push	#0x0f
+                           000099   293 	Smax7219$max7219_posli$76 ==.
+      008574 4B 50            [ 1]  294 	push	#0x50
+                           00009B   295 	Smax7219$max7219_posli$77 ==.
+                                    296 ; genCall
+      008576 CD 8D F3         [ 4]  297 	call	_GPIO_WriteHigh
+      008579 5B 03            [ 2]  298 	addw	sp, #3
+                           0000A0   299 	Smax7219$max7219_posli$78 ==.
+                           0000A0   300 	Smax7219$max7219_posli$79 ==.
+                                    301 ;	./src/max7219.c: 32: maska = maska>>1; // rotujeme masku abychom v příštím kroku vysílali nižší bit
+                                    302 ; genRightShiftLiteral
+      00857B 04 01            [ 1]  303 	srl	(0x01, sp)
+                           0000A2   304 	Smax7219$max7219_posli$80 ==.
+                                    305 ;	./src/max7219.c: 33: CLK_LOW; // vrátíme CLK zpět do Low abychom mohli celý proces vysílání bitu opakovat
+                                    306 ; genIPush
+      00857D 4B 10            [ 1]  307 	push	#0x10
+                           0000A4   308 	Smax7219$max7219_posli$81 ==.
+                                    309 ; genIPush
+      00857F 4B 0F            [ 1]  310 	push	#0x0f
+                           0000A6   311 	Smax7219$max7219_posli$82 ==.
+      008581 4B 50            [ 1]  312 	push	#0x50
+                           0000A8   313 	Smax7219$max7219_posli$83 ==.
+                                    314 ; genCall
+      008583 CD 8D FA         [ 4]  315 	call	_GPIO_WriteLow
+      008586 5B 03            [ 2]  316 	addw	sp, #3
+                           0000AD   317 	Smax7219$max7219_posli$84 ==.
+                           0000AD   318 	Smax7219$max7219_posli$85 ==.
+                                    319 ; genGoto
+      008588 CC 85 46         [ 2]  320 	jp	00104$
+                                    321 ; genLabel
+      00858B                        322 00106$:
+                           0000B0   323 	Smax7219$max7219_posli$86 ==.
+                                    324 ;	./src/max7219.c: 37: maska = 0b10000000;
+                                    325 ; genAssign
+      00858B A6 80            [ 1]  326 	ld	a, #0x80
+      00858D 6B 01            [ 1]  327 	ld	(0x01, sp), a
+                           0000B4   328 	Smax7219$max7219_posli$87 ==.
+                                    329 ;	./src/max7219.c: 38: while(maska){ // dokud jsme neposlali všech 8 bitů
+                                    330 ; genLabel
+      00858F                        331 00110$:
+                                    332 ; genIfx
+      00858F 0D 01            [ 1]  333 	tnz	(0x01, sp)
+      008591 26 03            [ 1]  334 	jrne	00147$
+      008593 CC 85 D4         [ 2]  335 	jp	00112$
+      008596                        336 00147$:
+                           0000BB   337 	Smax7219$max7219_posli$88 ==.
+                           0000BB   338 	Smax7219$max7219_posli$89 ==.
+                                    339 ;	./src/max7219.c: 39: if(maska & data){ // pokud má právě vysílaný bit hodnotu 1
+                                    340 ; genAnd
+      008596 7B 01            [ 1]  341 	ld	a, (0x01, sp)
+      008598 14 05            [ 1]  342 	and	a, (0x05, sp)
+                                    343 ; genIfx
+      00859A 4D               [ 1]  344 	tnz	a
+      00859B 26 03            [ 1]  345 	jrne	00148$
+      00859D CC 85 AE         [ 2]  346 	jp	00108$
+      0085A0                        347 00148$:
+                           0000C5   348 	Smax7219$max7219_posli$90 ==.
+                           0000C5   349 	Smax7219$max7219_posli$91 ==.
+                                    350 ;	./src/max7219.c: 40: DATA_HIGH; // nastavíme budiči vstup DIN do úrovně High
+                                    351 ; genIPush
+      0085A0 4B 08            [ 1]  352 	push	#0x08
+                           0000C7   353 	Smax7219$max7219_posli$92 ==.
+                                    354 ; genIPush
+      0085A2 4B 0F            [ 1]  355 	push	#0x0f
+                           0000C9   356 	Smax7219$max7219_posli$93 ==.
+      0085A4 4B 50            [ 1]  357 	push	#0x50
+                           0000CB   358 	Smax7219$max7219_posli$94 ==.
+                                    359 ; genCall
+      0085A6 CD 8D F3         [ 4]  360 	call	_GPIO_WriteHigh
+      0085A9 5B 03            [ 2]  361 	addw	sp, #3
+                           0000D0   362 	Smax7219$max7219_posli$95 ==.
+                           0000D0   363 	Smax7219$max7219_posli$96 ==.
+                                    364 ; genGoto
+      0085AB CC 85 B9         [ 2]  365 	jp	00109$
+                                    366 ; genLabel
+      0085AE                        367 00108$:
+                           0000D3   368 	Smax7219$max7219_posli$97 ==.
+                           0000D3   369 	Smax7219$max7219_posli$98 ==.
+                                    370 ;	./src/max7219.c: 43: DATA_LOW;	// ... nastavíme budiči vstup DIN do úrovně Low
+                                    371 ; genIPush
+      0085AE 4B 08            [ 1]  372 	push	#0x08
+                           0000D5   373 	Smax7219$max7219_posli$99 ==.
+                                    374 ; genIPush
+      0085B0 4B 0F            [ 1]  375 	push	#0x0f
+                           0000D7   376 	Smax7219$max7219_posli$100 ==.
+      0085B2 4B 50            [ 1]  377 	push	#0x50
+                           0000D9   378 	Smax7219$max7219_posli$101 ==.
+                                    379 ; genCall
+      0085B4 CD 8D FA         [ 4]  380 	call	_GPIO_WriteLow
+      0085B7 5B 03            [ 2]  381 	addw	sp, #3
+                           0000DE   382 	Smax7219$max7219_posli$102 ==.
+                           0000DE   383 	Smax7219$max7219_posli$103 ==.
+                                    384 ; genLabel
+      0085B9                        385 00109$:
+                           0000DE   386 	Smax7219$max7219_posli$104 ==.
+                                    387 ;	./src/max7219.c: 45: CLK_HIGH; // přejdeme na CLK z úrovně Low do úrovně High, a v budič si zapíše hodnotu bitu, kterou jsme nastavili na DIN
+                                    388 ; genIPush
+      0085B9 4B 10            [ 1]  389 	push	#0x10
+                           0000E0   390 	Smax7219$max7219_posli$105 ==.
+                                    391 ; genIPush
+      0085BB 4B 0F            [ 1]  392 	push	#0x0f
+                           0000E2   393 	Smax7219$max7219_posli$106 ==.
+      0085BD 4B 50            [ 1]  394 	push	#0x50
+                           0000E4   395 	Smax7219$max7219_posli$107 ==.
+                                    396 ; genCall
+      0085BF CD 8D F3         [ 4]  397 	call	_GPIO_WriteHigh
+      0085C2 5B 03            [ 2]  398 	addw	sp, #3
+                           0000E9   399 	Smax7219$max7219_posli$108 ==.
+                           0000E9   400 	Smax7219$max7219_posli$109 ==.
+                                    401 ;	./src/max7219.c: 46: maska = maska>>1; // rotujeme masku abychom v příštím kroku vysílali nižší bit
+                                    402 ; genRightShiftLiteral
+      0085C4 04 01            [ 1]  403 	srl	(0x01, sp)
+                           0000EB   404 	Smax7219$max7219_posli$110 ==.
+                                    405 ;	./src/max7219.c: 47: CLK_LOW; // vrátíme CLK zpět do Low abychom mohli celý proces vysílání bitu opakovat
+                                    406 ; genIPush
+      0085C6 4B 10            [ 1]  407 	push	#0x10
+                           0000ED   408 	Smax7219$max7219_posli$111 ==.
+                                    409 ; genIPush
+      0085C8 4B 0F            [ 1]  410 	push	#0x0f
+                           0000EF   411 	Smax7219$max7219_posli$112 ==.
+      0085CA 4B 50            [ 1]  412 	push	#0x50
+                           0000F1   413 	Smax7219$max7219_posli$113 ==.
+                                    414 ; genCall
+      0085CC CD 8D FA         [ 4]  415 	call	_GPIO_WriteLow
+      0085CF 5B 03            [ 2]  416 	addw	sp, #3
+                           0000F6   417 	Smax7219$max7219_posli$114 ==.
+                           0000F6   418 	Smax7219$max7219_posli$115 ==.
+                                    419 ; genGoto
+      0085D1 CC 85 8F         [ 2]  420 	jp	00110$
+                                    421 ; genLabel
+      0085D4                        422 00112$:
+                           0000F9   423 	Smax7219$max7219_posli$116 ==.
+                                    424 ;	./src/max7219.c: 50: CS_HIGH; // nastavíme LOAD/CS z úrovně Low do úrovně High a vygenerujeme tím vzestupnou hranu (pokyn pro MAX7219 aby zpracoval náš příkaz)
+                                    425 ; genIPush
+      0085D4 4B 10            [ 1]  426 	push	#0x10
+                           0000FB   427 	Smax7219$max7219_posli$117 ==.
+                                    428 ; genIPush
+      0085D6 4B 0A            [ 1]  429 	push	#0x0a
+                           0000FD   430 	Smax7219$max7219_posli$118 ==.
+      0085D8 4B 50            [ 1]  431 	push	#0x50
+                           0000FF   432 	Smax7219$max7219_posli$119 ==.
+                                    433 ; genCall
+      0085DA CD 8D F3         [ 4]  434 	call	_GPIO_WriteHigh
+      0085DD 5B 03            [ 2]  435 	addw	sp, #3
+                           000104   436 	Smax7219$max7219_posli$120 ==.
+                                    437 ; genLabel
+      0085DF                        438 00113$:
+                           000104   439 	Smax7219$max7219_posli$121 ==.
+                                    440 ;	./src/max7219.c: 51: }
+                                    441 ; genEndFunction
+      0085DF 84               [ 1]  442 	pop	a
+                           000105   443 	Smax7219$max7219_posli$122 ==.
+                           000105   444 	Smax7219$max7219_posli$123 ==.
+                           000105   445 	XG$max7219_posli$0$0 ==.
+      0085E0 81               [ 4]  446 	ret
+                           000106   447 	Smax7219$max7219_posli$124 ==.
+                                    448 	.area CODE
+                                    449 	.area CONST
+                                    450 	.area INITIALIZER
+                                    451 	.area CABS (ABS)
+                                    452 
+                                    453 	.area .debug_line (NOLOAD)
+      000447 00 00 01 44            454 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      00044B                        455 Ldebug_line_start:
+      00044B 00 02                  456 	.dw	2
+      00044D 00 00 00 70            457 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      000451 01                     458 	.db	1
+      000452 01                     459 	.db	1
+      000453 FB                     460 	.db	-5
+      000454 0F                     461 	.db	15
+      000455 0A                     462 	.db	10
+      000456 00                     463 	.db	0
+      000457 01                     464 	.db	1
+      000458 01                     465 	.db	1
+      000459 01                     466 	.db	1
+      00045A 01                     467 	.db	1
+      00045B 00                     468 	.db	0
+      00045C 00                     469 	.db	0
+      00045D 00                     470 	.db	0
+      00045E 01                     471 	.db	1
+      00045F 43 3A 5C 50 72 6F 67   472 	.ascii "C:\Program Files\SDCC\bin\..\include\stm8"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+             5C 73 74 6D 38
+      000487 00                     473 	.db	0
+      000488 43 3A 5C 50 72 6F 67   474 	.ascii "C:\Program Files\SDCC\bin\..\include"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+      0004AB 00                     475 	.db	0
+      0004AC 00                     476 	.db	0
+      0004AD 2E 2F 73 72 63 2F 6D   477 	.ascii "./src/max7219.c"
+             61 78 37 32 31 39 2E
+             63
+      0004BC 00                     478 	.db	0
+      0004BD 00                     479 	.uleb128	0
+      0004BE 00                     480 	.uleb128	0
+      0004BF 00                     481 	.uleb128	0
+      0004C0 00                     482 	.db	0
+      0004C1                        483 Ldebug_line_stmt:
+      0004C1 00                     484 	.db	0
+      0004C2 05                     485 	.uleb128	5
+      0004C3 02                     486 	.db	2
+      0004C4 00 00 84 DB            487 	.dw	0,(Smax7219$max7219_init$0)
+      0004C8 03                     488 	.db	3
+      0004C9 03                     489 	.sleb128	3
+      0004CA 01                     490 	.db	1
+      0004CB 09                     491 	.db	9
+      0004CC 00 00                  492 	.dw	Smax7219$max7219_init$2-Smax7219$max7219_init$0
+      0004CE 03                     493 	.db	3
+      0004CF 01                     494 	.sleb128	1
+      0004D0 01                     495 	.db	1
+      0004D1 09                     496 	.db	9
+      0004D2 00 0D                  497 	.dw	Smax7219$max7219_init$8-Smax7219$max7219_init$2
+      0004D4 03                     498 	.db	3
+      0004D5 01                     499 	.sleb128	1
+      0004D6 01                     500 	.db	1
+      0004D7 09                     501 	.db	9
+      0004D8 00 0D                  502 	.dw	Smax7219$max7219_init$14-Smax7219$max7219_init$8
+      0004DA 03                     503 	.db	3
+      0004DB 01                     504 	.sleb128	1
+      0004DC 01                     505 	.db	1
+      0004DD 09                     506 	.db	9
+      0004DE 00 0D                  507 	.dw	Smax7219$max7219_init$20-Smax7219$max7219_init$14
+      0004E0 03                     508 	.db	3
+      0004E1 02                     509 	.sleb128	2
+      0004E2 01                     510 	.db	1
+      0004E3 09                     511 	.db	9
+      0004E4 00 08                  512 	.dw	Smax7219$max7219_init$24-Smax7219$max7219_init$20
+      0004E6 03                     513 	.db	3
+      0004E7 01                     514 	.sleb128	1
+      0004E8 01                     515 	.db	1
+      0004E9 09                     516 	.db	9
+      0004EA 00 08                  517 	.dw	Smax7219$max7219_init$28-Smax7219$max7219_init$24
+      0004EC 03                     518 	.db	3
+      0004ED 01                     519 	.sleb128	1
+      0004EE 01                     520 	.db	1
+      0004EF 09                     521 	.db	9
+      0004F0 00 08                  522 	.dw	Smax7219$max7219_init$32-Smax7219$max7219_init$28
+      0004F2 03                     523 	.db	3
+      0004F3 01                     524 	.sleb128	1
+      0004F4 01                     525 	.db	1
+      0004F5 09                     526 	.db	9
+      0004F6 00 08                  527 	.dw	Smax7219$max7219_init$36-Smax7219$max7219_init$32
+      0004F8 03                     528 	.db	3
+      0004F9 01                     529 	.sleb128	1
+      0004FA 01                     530 	.db	1
+      0004FB 09                     531 	.db	9
+      0004FC 00 08                  532 	.dw	Smax7219$max7219_init$40-Smax7219$max7219_init$36
+      0004FE 03                     533 	.db	3
+      0004FF 01                     534 	.sleb128	1
+      000500 01                     535 	.db	1
+      000501 09                     536 	.db	9
+      000502 00 01                  537 	.dw	1+Smax7219$max7219_init$41-Smax7219$max7219_init$40
+      000504 00                     538 	.db	0
+      000505 01                     539 	.uleb128	1
+      000506 01                     540 	.db	1
+      000507 00                     541 	.db	0
+      000508 05                     542 	.uleb128	5
+      000509 02                     543 	.db	2
+      00050A 00 00 85 2B            544 	.dw	0,(Smax7219$max7219_posli$43)
+      00050E 03                     545 	.db	3
+      00050F 10                     546 	.sleb128	16
+      000510 01                     547 	.db	1
+      000511 09                     548 	.db	9
+      000512 00 01                  549 	.dw	Smax7219$max7219_posli$46-Smax7219$max7219_posli$43
+      000514 03                     550 	.db	3
+      000515 02                     551 	.sleb128	2
+      000516 01                     552 	.db	1
+      000517 09                     553 	.db	9
+      000518 00 0B                  554 	.dw	Smax7219$max7219_posli$51-Smax7219$max7219_posli$46
+      00051A 03                     555 	.db	3
+      00051B 03                     556 	.sleb128	3
+      00051C 01                     557 	.db	1
+      00051D 09                     558 	.db	9
+      00051E 00 04                  559 	.dw	Smax7219$max7219_posli$52-Smax7219$max7219_posli$51
+      000520 03                     560 	.db	3
+      000521 01                     561 	.sleb128	1
+      000522 01                     562 	.db	1
+      000523 09                     563 	.db	9
+      000524 00 0B                  564 	.dw	Smax7219$max7219_posli$57-Smax7219$max7219_posli$52
+      000526 03                     565 	.db	3
+      000527 01                     566 	.sleb128	1
+      000528 01                     567 	.db	1
+      000529 09                     568 	.db	9
+      00052A 00 07                  569 	.dw	Smax7219$max7219_posli$59-Smax7219$max7219_posli$57
+      00052C 03                     570 	.db	3
+      00052D 01                     571 	.sleb128	1
+      00052E 01                     572 	.db	1
+      00052F 09                     573 	.db	9
+      000530 00 0A                  574 	.dw	Smax7219$max7219_posli$61-Smax7219$max7219_posli$59
+      000532 03                     575 	.db	3
+      000533 01                     576 	.sleb128	1
+      000534 01                     577 	.db	1
+      000535 09                     578 	.db	9
+      000536 00 0E                  579 	.dw	Smax7219$max7219_posli$68-Smax7219$max7219_posli$61
+      000538 03                     580 	.db	3
+      000539 03                     581 	.sleb128	3
+      00053A 01                     582 	.db	1
+      00053B 09                     583 	.db	9
+      00053C 00 0B                  584 	.dw	Smax7219$max7219_posli$74-Smax7219$max7219_posli$68
+      00053E 03                     585 	.db	3
+      00053F 02                     586 	.sleb128	2
+      000540 01                     587 	.db	1
+      000541 09                     588 	.db	9
+      000542 00 0B                  589 	.dw	Smax7219$max7219_posli$79-Smax7219$max7219_posli$74
+      000544 03                     590 	.db	3
+      000545 01                     591 	.sleb128	1
+      000546 01                     592 	.db	1
+      000547 09                     593 	.db	9
+      000548 00 02                  594 	.dw	Smax7219$max7219_posli$80-Smax7219$max7219_posli$79
+      00054A 03                     595 	.db	3
+      00054B 01                     596 	.sleb128	1
+      00054C 01                     597 	.db	1
+      00054D 09                     598 	.db	9
+      00054E 00 0E                  599 	.dw	Smax7219$max7219_posli$86-Smax7219$max7219_posli$80
+      000550 03                     600 	.db	3
+      000551 04                     601 	.sleb128	4
+      000552 01                     602 	.db	1
+      000553 09                     603 	.db	9
+      000554 00 04                  604 	.dw	Smax7219$max7219_posli$87-Smax7219$max7219_posli$86
+      000556 03                     605 	.db	3
+      000557 01                     606 	.sleb128	1
+      000558 01                     607 	.db	1
+      000559 09                     608 	.db	9
+      00055A 00 07                  609 	.dw	Smax7219$max7219_posli$89-Smax7219$max7219_posli$87
+      00055C 03                     610 	.db	3
+      00055D 01                     611 	.sleb128	1
+      00055E 01                     612 	.db	1
+      00055F 09                     613 	.db	9
+      000560 00 0A                  614 	.dw	Smax7219$max7219_posli$91-Smax7219$max7219_posli$89
+      000562 03                     615 	.db	3
+      000563 01                     616 	.sleb128	1
+      000564 01                     617 	.db	1
+      000565 09                     618 	.db	9
+      000566 00 0E                  619 	.dw	Smax7219$max7219_posli$98-Smax7219$max7219_posli$91
+      000568 03                     620 	.db	3
+      000569 03                     621 	.sleb128	3
+      00056A 01                     622 	.db	1
+      00056B 09                     623 	.db	9
+      00056C 00 0B                  624 	.dw	Smax7219$max7219_posli$104-Smax7219$max7219_posli$98
+      00056E 03                     625 	.db	3
+      00056F 02                     626 	.sleb128	2
+      000570 01                     627 	.db	1
+      000571 09                     628 	.db	9
+      000572 00 0B                  629 	.dw	Smax7219$max7219_posli$109-Smax7219$max7219_posli$104
+      000574 03                     630 	.db	3
+      000575 01                     631 	.sleb128	1
+      000576 01                     632 	.db	1
+      000577 09                     633 	.db	9
+      000578 00 02                  634 	.dw	Smax7219$max7219_posli$110-Smax7219$max7219_posli$109
+      00057A 03                     635 	.db	3
+      00057B 01                     636 	.sleb128	1
+      00057C 01                     637 	.db	1
+      00057D 09                     638 	.db	9
+      00057E 00 0E                  639 	.dw	Smax7219$max7219_posli$116-Smax7219$max7219_posli$110
+      000580 03                     640 	.db	3
+      000581 03                     641 	.sleb128	3
+      000582 01                     642 	.db	1
+      000583 09                     643 	.db	9
+      000584 00 0B                  644 	.dw	Smax7219$max7219_posli$121-Smax7219$max7219_posli$116
+      000586 03                     645 	.db	3
+      000587 01                     646 	.sleb128	1
+      000588 01                     647 	.db	1
+      000589 09                     648 	.db	9
+      00058A 00 02                  649 	.dw	1+Smax7219$max7219_posli$123-Smax7219$max7219_posli$121
+      00058C 00                     650 	.db	0
+      00058D 01                     651 	.uleb128	1
+      00058E 01                     652 	.db	1
+      00058F                        653 Ldebug_line_end:
+                                    654 
+                                    655 	.area .debug_loc (NOLOAD)
+      000A10                        656 Ldebug_loc_start:
+      000A10 00 00 85 E0            657 	.dw	0,(Smax7219$max7219_posli$122)
+      000A14 00 00 85 E1            658 	.dw	0,(Smax7219$max7219_posli$124)
+      000A18 00 02                  659 	.dw	2
+      000A1A 78                     660 	.db	120
+      000A1B 01                     661 	.sleb128	1
+      000A1C 00 00 85 DF            662 	.dw	0,(Smax7219$max7219_posli$120)
+      000A20 00 00 85 E0            663 	.dw	0,(Smax7219$max7219_posli$122)
+      000A24 00 02                  664 	.dw	2
+      000A26 78                     665 	.db	120
+      000A27 02                     666 	.sleb128	2
+      000A28 00 00 85 DA            667 	.dw	0,(Smax7219$max7219_posli$119)
+      000A2C 00 00 85 DF            668 	.dw	0,(Smax7219$max7219_posli$120)
+      000A30 00 02                  669 	.dw	2
+      000A32 78                     670 	.db	120
+      000A33 05                     671 	.sleb128	5
+      000A34 00 00 85 D8            672 	.dw	0,(Smax7219$max7219_posli$118)
+      000A38 00 00 85 DA            673 	.dw	0,(Smax7219$max7219_posli$119)
+      000A3C 00 02                  674 	.dw	2
+      000A3E 78                     675 	.db	120
+      000A3F 04                     676 	.sleb128	4
+      000A40 00 00 85 D6            677 	.dw	0,(Smax7219$max7219_posli$117)
+      000A44 00 00 85 D8            678 	.dw	0,(Smax7219$max7219_posli$118)
+      000A48 00 02                  679 	.dw	2
+      000A4A 78                     680 	.db	120
+      000A4B 03                     681 	.sleb128	3
+      000A4C 00 00 85 D1            682 	.dw	0,(Smax7219$max7219_posli$114)
+      000A50 00 00 85 D6            683 	.dw	0,(Smax7219$max7219_posli$117)
+      000A54 00 02                  684 	.dw	2
+      000A56 78                     685 	.db	120
+      000A57 02                     686 	.sleb128	2
+      000A58 00 00 85 CC            687 	.dw	0,(Smax7219$max7219_posli$113)
+      000A5C 00 00 85 D1            688 	.dw	0,(Smax7219$max7219_posli$114)
+      000A60 00 02                  689 	.dw	2
+      000A62 78                     690 	.db	120
+      000A63 05                     691 	.sleb128	5
+      000A64 00 00 85 CA            692 	.dw	0,(Smax7219$max7219_posli$112)
+      000A68 00 00 85 CC            693 	.dw	0,(Smax7219$max7219_posli$113)
+      000A6C 00 02                  694 	.dw	2
+      000A6E 78                     695 	.db	120
+      000A6F 04                     696 	.sleb128	4
+      000A70 00 00 85 C8            697 	.dw	0,(Smax7219$max7219_posli$111)
+      000A74 00 00 85 CA            698 	.dw	0,(Smax7219$max7219_posli$112)
+      000A78 00 02                  699 	.dw	2
+      000A7A 78                     700 	.db	120
+      000A7B 03                     701 	.sleb128	3
+      000A7C 00 00 85 C4            702 	.dw	0,(Smax7219$max7219_posli$108)
+      000A80 00 00 85 C8            703 	.dw	0,(Smax7219$max7219_posli$111)
+      000A84 00 02                  704 	.dw	2
+      000A86 78                     705 	.db	120
+      000A87 02                     706 	.sleb128	2
+      000A88 00 00 85 BF            707 	.dw	0,(Smax7219$max7219_posli$107)
+      000A8C 00 00 85 C4            708 	.dw	0,(Smax7219$max7219_posli$108)
+      000A90 00 02                  709 	.dw	2
+      000A92 78                     710 	.db	120
+      000A93 05                     711 	.sleb128	5
+      000A94 00 00 85 BD            712 	.dw	0,(Smax7219$max7219_posli$106)
+      000A98 00 00 85 BF            713 	.dw	0,(Smax7219$max7219_posli$107)
+      000A9C 00 02                  714 	.dw	2
+      000A9E 78                     715 	.db	120
+      000A9F 04                     716 	.sleb128	4
+      000AA0 00 00 85 BB            717 	.dw	0,(Smax7219$max7219_posli$105)
+      000AA4 00 00 85 BD            718 	.dw	0,(Smax7219$max7219_posli$106)
+      000AA8 00 02                  719 	.dw	2
+      000AAA 78                     720 	.db	120
+      000AAB 03                     721 	.sleb128	3
+      000AAC 00 00 85 B9            722 	.dw	0,(Smax7219$max7219_posli$102)
+      000AB0 00 00 85 BB            723 	.dw	0,(Smax7219$max7219_posli$105)
+      000AB4 00 02                  724 	.dw	2
+      000AB6 78                     725 	.db	120
+      000AB7 02                     726 	.sleb128	2
+      000AB8 00 00 85 B4            727 	.dw	0,(Smax7219$max7219_posli$101)
+      000ABC 00 00 85 B9            728 	.dw	0,(Smax7219$max7219_posli$102)
+      000AC0 00 02                  729 	.dw	2
+      000AC2 78                     730 	.db	120
+      000AC3 05                     731 	.sleb128	5
+      000AC4 00 00 85 B2            732 	.dw	0,(Smax7219$max7219_posli$100)
+      000AC8 00 00 85 B4            733 	.dw	0,(Smax7219$max7219_posli$101)
+      000ACC 00 02                  734 	.dw	2
+      000ACE 78                     735 	.db	120
+      000ACF 04                     736 	.sleb128	4
+      000AD0 00 00 85 B0            737 	.dw	0,(Smax7219$max7219_posli$99)
+      000AD4 00 00 85 B2            738 	.dw	0,(Smax7219$max7219_posli$100)
+      000AD8 00 02                  739 	.dw	2
+      000ADA 78                     740 	.db	120
+      000ADB 03                     741 	.sleb128	3
+      000ADC 00 00 85 AB            742 	.dw	0,(Smax7219$max7219_posli$95)
+      000AE0 00 00 85 B0            743 	.dw	0,(Smax7219$max7219_posli$99)
+      000AE4 00 02                  744 	.dw	2
+      000AE6 78                     745 	.db	120
+      000AE7 02                     746 	.sleb128	2
+      000AE8 00 00 85 A6            747 	.dw	0,(Smax7219$max7219_posli$94)
+      000AEC 00 00 85 AB            748 	.dw	0,(Smax7219$max7219_posli$95)
+      000AF0 00 02                  749 	.dw	2
+      000AF2 78                     750 	.db	120
+      000AF3 05                     751 	.sleb128	5
+      000AF4 00 00 85 A4            752 	.dw	0,(Smax7219$max7219_posli$93)
+      000AF8 00 00 85 A6            753 	.dw	0,(Smax7219$max7219_posli$94)
+      000AFC 00 02                  754 	.dw	2
+      000AFE 78                     755 	.db	120
+      000AFF 04                     756 	.sleb128	4
+      000B00 00 00 85 A2            757 	.dw	0,(Smax7219$max7219_posli$92)
+      000B04 00 00 85 A4            758 	.dw	0,(Smax7219$max7219_posli$93)
+      000B08 00 02                  759 	.dw	2
+      000B0A 78                     760 	.db	120
+      000B0B 03                     761 	.sleb128	3
+      000B0C 00 00 85 88            762 	.dw	0,(Smax7219$max7219_posli$84)
+      000B10 00 00 85 A2            763 	.dw	0,(Smax7219$max7219_posli$92)
+      000B14 00 02                  764 	.dw	2
+      000B16 78                     765 	.db	120
+      000B17 02                     766 	.sleb128	2
+      000B18 00 00 85 83            767 	.dw	0,(Smax7219$max7219_posli$83)
+      000B1C 00 00 85 88            768 	.dw	0,(Smax7219$max7219_posli$84)
+      000B20 00 02                  769 	.dw	2
+      000B22 78                     770 	.db	120
+      000B23 05                     771 	.sleb128	5
+      000B24 00 00 85 81            772 	.dw	0,(Smax7219$max7219_posli$82)
+      000B28 00 00 85 83            773 	.dw	0,(Smax7219$max7219_posli$83)
+      000B2C 00 02                  774 	.dw	2
+      000B2E 78                     775 	.db	120
+      000B2F 04                     776 	.sleb128	4
+      000B30 00 00 85 7F            777 	.dw	0,(Smax7219$max7219_posli$81)
+      000B34 00 00 85 81            778 	.dw	0,(Smax7219$max7219_posli$82)
+      000B38 00 02                  779 	.dw	2
+      000B3A 78                     780 	.db	120
+      000B3B 03                     781 	.sleb128	3
+      000B3C 00 00 85 7B            782 	.dw	0,(Smax7219$max7219_posli$78)
+      000B40 00 00 85 7F            783 	.dw	0,(Smax7219$max7219_posli$81)
+      000B44 00 02                  784 	.dw	2
+      000B46 78                     785 	.db	120
+      000B47 02                     786 	.sleb128	2
+      000B48 00 00 85 76            787 	.dw	0,(Smax7219$max7219_posli$77)
+      000B4C 00 00 85 7B            788 	.dw	0,(Smax7219$max7219_posli$78)
+      000B50 00 02                  789 	.dw	2
+      000B52 78                     790 	.db	120
+      000B53 05                     791 	.sleb128	5
+      000B54 00 00 85 74            792 	.dw	0,(Smax7219$max7219_posli$76)
+      000B58 00 00 85 76            793 	.dw	0,(Smax7219$max7219_posli$77)
+      000B5C 00 02                  794 	.dw	2
+      000B5E 78                     795 	.db	120
+      000B5F 04                     796 	.sleb128	4
+      000B60 00 00 85 72            797 	.dw	0,(Smax7219$max7219_posli$75)
+      000B64 00 00 85 74            798 	.dw	0,(Smax7219$max7219_posli$76)
+      000B68 00 02                  799 	.dw	2
+      000B6A 78                     800 	.db	120
+      000B6B 03                     801 	.sleb128	3
+      000B6C 00 00 85 70            802 	.dw	0,(Smax7219$max7219_posli$72)
+      000B70 00 00 85 72            803 	.dw	0,(Smax7219$max7219_posli$75)
+      000B74 00 02                  804 	.dw	2
+      000B76 78                     805 	.db	120
+      000B77 02                     806 	.sleb128	2
+      000B78 00 00 85 6B            807 	.dw	0,(Smax7219$max7219_posli$71)
+      000B7C 00 00 85 70            808 	.dw	0,(Smax7219$max7219_posli$72)
+      000B80 00 02                  809 	.dw	2
+      000B82 78                     810 	.db	120
+      000B83 05                     811 	.sleb128	5
+      000B84 00 00 85 69            812 	.dw	0,(Smax7219$max7219_posli$70)
+      000B88 00 00 85 6B            813 	.dw	0,(Smax7219$max7219_posli$71)
+      000B8C 00 02                  814 	.dw	2
+      000B8E 78                     815 	.db	120
+      000B8F 04                     816 	.sleb128	4
+      000B90 00 00 85 67            817 	.dw	0,(Smax7219$max7219_posli$69)
+      000B94 00 00 85 69            818 	.dw	0,(Smax7219$max7219_posli$70)
+      000B98 00 02                  819 	.dw	2
+      000B9A 78                     820 	.db	120
+      000B9B 03                     821 	.sleb128	3
+      000B9C 00 00 85 62            822 	.dw	0,(Smax7219$max7219_posli$65)
+      000BA0 00 00 85 67            823 	.dw	0,(Smax7219$max7219_posli$69)
+      000BA4 00 02                  824 	.dw	2
+      000BA6 78                     825 	.db	120
+      000BA7 02                     826 	.sleb128	2
+      000BA8 00 00 85 5D            827 	.dw	0,(Smax7219$max7219_posli$64)
+      000BAC 00 00 85 62            828 	.dw	0,(Smax7219$max7219_posli$65)
+      000BB0 00 02                  829 	.dw	2
+      000BB2 78                     830 	.db	120
+      000BB3 05                     831 	.sleb128	5
+      000BB4 00 00 85 5B            832 	.dw	0,(Smax7219$max7219_posli$63)
+      000BB8 00 00 85 5D            833 	.dw	0,(Smax7219$max7219_posli$64)
+      000BBC 00 02                  834 	.dw	2
+      000BBE 78                     835 	.db	120
+      000BBF 04                     836 	.sleb128	4
+      000BC0 00 00 85 59            837 	.dw	0,(Smax7219$max7219_posli$62)
+      000BC4 00 00 85 5B            838 	.dw	0,(Smax7219$max7219_posli$63)
+      000BC8 00 02                  839 	.dw	2
+      000BCA 78                     840 	.db	120
+      000BCB 03                     841 	.sleb128	3
+      000BCC 00 00 85 46            842 	.dw	0,(Smax7219$max7219_posli$56)
+      000BD0 00 00 85 59            843 	.dw	0,(Smax7219$max7219_posli$62)
+      000BD4 00 02                  844 	.dw	2
+      000BD6 78                     845 	.db	120
+      000BD7 02                     846 	.sleb128	2
+      000BD8 00 00 85 41            847 	.dw	0,(Smax7219$max7219_posli$55)
+      000BDC 00 00 85 46            848 	.dw	0,(Smax7219$max7219_posli$56)
+      000BE0 00 02                  849 	.dw	2
+      000BE2 78                     850 	.db	120
+      000BE3 05                     851 	.sleb128	5
+      000BE4 00 00 85 3F            852 	.dw	0,(Smax7219$max7219_posli$54)
+      000BE8 00 00 85 41            853 	.dw	0,(Smax7219$max7219_posli$55)
+      000BEC 00 02                  854 	.dw	2
+      000BEE 78                     855 	.db	120
+      000BEF 04                     856 	.sleb128	4
+      000BF0 00 00 85 3D            857 	.dw	0,(Smax7219$max7219_posli$53)
+      000BF4 00 00 85 3F            858 	.dw	0,(Smax7219$max7219_posli$54)
+      000BF8 00 02                  859 	.dw	2
+      000BFA 78                     860 	.db	120
+      000BFB 03                     861 	.sleb128	3
+      000BFC 00 00 85 37            862 	.dw	0,(Smax7219$max7219_posli$50)
+      000C00 00 00 85 3D            863 	.dw	0,(Smax7219$max7219_posli$53)
+      000C04 00 02                  864 	.dw	2
+      000C06 78                     865 	.db	120
+      000C07 02                     866 	.sleb128	2
+      000C08 00 00 85 32            867 	.dw	0,(Smax7219$max7219_posli$49)
+      000C0C 00 00 85 37            868 	.dw	0,(Smax7219$max7219_posli$50)
+      000C10 00 02                  869 	.dw	2
+      000C12 78                     870 	.db	120
+      000C13 05                     871 	.sleb128	5
+      000C14 00 00 85 30            872 	.dw	0,(Smax7219$max7219_posli$48)
+      000C18 00 00 85 32            873 	.dw	0,(Smax7219$max7219_posli$49)
+      000C1C 00 02                  874 	.dw	2
+      000C1E 78                     875 	.db	120
+      000C1F 04                     876 	.sleb128	4
+      000C20 00 00 85 2E            877 	.dw	0,(Smax7219$max7219_posli$47)
+      000C24 00 00 85 30            878 	.dw	0,(Smax7219$max7219_posli$48)
+      000C28 00 02                  879 	.dw	2
+      000C2A 78                     880 	.db	120
+      000C2B 03                     881 	.sleb128	3
+      000C2C 00 00 85 2C            882 	.dw	0,(Smax7219$max7219_posli$45)
+      000C30 00 00 85 2E            883 	.dw	0,(Smax7219$max7219_posli$47)
+      000C34 00 02                  884 	.dw	2
+      000C36 78                     885 	.db	120
+      000C37 02                     886 	.sleb128	2
+      000C38 00 00 85 2B            887 	.dw	0,(Smax7219$max7219_posli$44)
+      000C3C 00 00 85 2C            888 	.dw	0,(Smax7219$max7219_posli$45)
+      000C40 00 02                  889 	.dw	2
+      000C42 78                     890 	.db	120
+      000C43 01                     891 	.sleb128	1
+      000C44 00 00 00 00            892 	.dw	0,0
+      000C48 00 00 00 00            893 	.dw	0,0
+      000C4C 00 00 85 2A            894 	.dw	0,(Smax7219$max7219_init$39)
+      000C50 00 00 85 2B            895 	.dw	0,(Smax7219$max7219_init$42)
+      000C54 00 02                  896 	.dw	2
+      000C56 78                     897 	.db	120
+      000C57 01                     898 	.sleb128	1
+      000C58 00 00 85 26            899 	.dw	0,(Smax7219$max7219_init$38)
+      000C5C 00 00 85 2A            900 	.dw	0,(Smax7219$max7219_init$39)
+      000C60 00 02                  901 	.dw	2
+      000C62 78                     902 	.db	120
+      000C63 03                     903 	.sleb128	3
+      000C64 00 00 85 24            904 	.dw	0,(Smax7219$max7219_init$37)
+      000C68 00 00 85 26            905 	.dw	0,(Smax7219$max7219_init$38)
+      000C6C 00 02                  906 	.dw	2
+      000C6E 78                     907 	.db	120
+      000C6F 02                     908 	.sleb128	2
+      000C70 00 00 85 22            909 	.dw	0,(Smax7219$max7219_init$35)
+      000C74 00 00 85 24            910 	.dw	0,(Smax7219$max7219_init$37)
+      000C78 00 02                  911 	.dw	2
+      000C7A 78                     912 	.db	120
+      000C7B 01                     913 	.sleb128	1
+      000C7C 00 00 85 1E            914 	.dw	0,(Smax7219$max7219_init$34)
+      000C80 00 00 85 22            915 	.dw	0,(Smax7219$max7219_init$35)
+      000C84 00 02                  916 	.dw	2
+      000C86 78                     917 	.db	120
+      000C87 03                     918 	.sleb128	3
+      000C88 00 00 85 1C            919 	.dw	0,(Smax7219$max7219_init$33)
+      000C8C 00 00 85 1E            920 	.dw	0,(Smax7219$max7219_init$34)
+      000C90 00 02                  921 	.dw	2
+      000C92 78                     922 	.db	120
+      000C93 02                     923 	.sleb128	2
+      000C94 00 00 85 1A            924 	.dw	0,(Smax7219$max7219_init$31)
+      000C98 00 00 85 1C            925 	.dw	0,(Smax7219$max7219_init$33)
+      000C9C 00 02                  926 	.dw	2
+      000C9E 78                     927 	.db	120
+      000C9F 01                     928 	.sleb128	1
+      000CA0 00 00 85 16            929 	.dw	0,(Smax7219$max7219_init$30)
+      000CA4 00 00 85 1A            930 	.dw	0,(Smax7219$max7219_init$31)
+      000CA8 00 02                  931 	.dw	2
+      000CAA 78                     932 	.db	120
+      000CAB 03                     933 	.sleb128	3
+      000CAC 00 00 85 14            934 	.dw	0,(Smax7219$max7219_init$29)
+      000CB0 00 00 85 16            935 	.dw	0,(Smax7219$max7219_init$30)
+      000CB4 00 02                  936 	.dw	2
+      000CB6 78                     937 	.db	120
+      000CB7 02                     938 	.sleb128	2
+      000CB8 00 00 85 12            939 	.dw	0,(Smax7219$max7219_init$27)
+      000CBC 00 00 85 14            940 	.dw	0,(Smax7219$max7219_init$29)
+      000CC0 00 02                  941 	.dw	2
+      000CC2 78                     942 	.db	120
+      000CC3 01                     943 	.sleb128	1
+      000CC4 00 00 85 0E            944 	.dw	0,(Smax7219$max7219_init$26)
+      000CC8 00 00 85 12            945 	.dw	0,(Smax7219$max7219_init$27)
+      000CCC 00 02                  946 	.dw	2
+      000CCE 78                     947 	.db	120
+      000CCF 03                     948 	.sleb128	3
+      000CD0 00 00 85 0C            949 	.dw	0,(Smax7219$max7219_init$25)
+      000CD4 00 00 85 0E            950 	.dw	0,(Smax7219$max7219_init$26)
+      000CD8 00 02                  951 	.dw	2
+      000CDA 78                     952 	.db	120
+      000CDB 02                     953 	.sleb128	2
+      000CDC 00 00 85 0A            954 	.dw	0,(Smax7219$max7219_init$23)
+      000CE0 00 00 85 0C            955 	.dw	0,(Smax7219$max7219_init$25)
+      000CE4 00 02                  956 	.dw	2
+      000CE6 78                     957 	.db	120
+      000CE7 01                     958 	.sleb128	1
+      000CE8 00 00 85 06            959 	.dw	0,(Smax7219$max7219_init$22)
+      000CEC 00 00 85 0A            960 	.dw	0,(Smax7219$max7219_init$23)
+      000CF0 00 02                  961 	.dw	2
+      000CF2 78                     962 	.db	120
+      000CF3 03                     963 	.sleb128	3
+      000CF4 00 00 85 04            964 	.dw	0,(Smax7219$max7219_init$21)
+      000CF8 00 00 85 06            965 	.dw	0,(Smax7219$max7219_init$22)
+      000CFC 00 02                  966 	.dw	2
+      000CFE 78                     967 	.db	120
+      000CFF 02                     968 	.sleb128	2
+      000D00 00 00 85 02            969 	.dw	0,(Smax7219$max7219_init$19)
+      000D04 00 00 85 04            970 	.dw	0,(Smax7219$max7219_init$21)
+      000D08 00 02                  971 	.dw	2
+      000D0A 78                     972 	.db	120
+      000D0B 01                     973 	.sleb128	1
+      000D0C 00 00 84 FD            974 	.dw	0,(Smax7219$max7219_init$18)
+      000D10 00 00 85 02            975 	.dw	0,(Smax7219$max7219_init$19)
+      000D14 00 02                  976 	.dw	2
+      000D16 78                     977 	.db	120
+      000D17 05                     978 	.sleb128	5
+      000D18 00 00 84 FB            979 	.dw	0,(Smax7219$max7219_init$17)
+      000D1C 00 00 84 FD            980 	.dw	0,(Smax7219$max7219_init$18)
+      000D20 00 02                  981 	.dw	2
+      000D22 78                     982 	.db	120
+      000D23 04                     983 	.sleb128	4
+      000D24 00 00 84 F9            984 	.dw	0,(Smax7219$max7219_init$16)
+      000D28 00 00 84 FB            985 	.dw	0,(Smax7219$max7219_init$17)
+      000D2C 00 02                  986 	.dw	2
+      000D2E 78                     987 	.db	120
+      000D2F 03                     988 	.sleb128	3
+      000D30 00 00 84 F7            989 	.dw	0,(Smax7219$max7219_init$15)
+      000D34 00 00 84 F9            990 	.dw	0,(Smax7219$max7219_init$16)
+      000D38 00 02                  991 	.dw	2
+      000D3A 78                     992 	.db	120
+      000D3B 02                     993 	.sleb128	2
+      000D3C 00 00 84 F5            994 	.dw	0,(Smax7219$max7219_init$13)
+      000D40 00 00 84 F7            995 	.dw	0,(Smax7219$max7219_init$15)
+      000D44 00 02                  996 	.dw	2
+      000D46 78                     997 	.db	120
+      000D47 01                     998 	.sleb128	1
+      000D48 00 00 84 F0            999 	.dw	0,(Smax7219$max7219_init$12)
+      000D4C 00 00 84 F5           1000 	.dw	0,(Smax7219$max7219_init$13)
+      000D50 00 02                 1001 	.dw	2
+      000D52 78                    1002 	.db	120
+      000D53 05                    1003 	.sleb128	5
+      000D54 00 00 84 EE           1004 	.dw	0,(Smax7219$max7219_init$11)
+      000D58 00 00 84 F0           1005 	.dw	0,(Smax7219$max7219_init$12)
+      000D5C 00 02                 1006 	.dw	2
+      000D5E 78                    1007 	.db	120
+      000D5F 04                    1008 	.sleb128	4
+      000D60 00 00 84 EC           1009 	.dw	0,(Smax7219$max7219_init$10)
+      000D64 00 00 84 EE           1010 	.dw	0,(Smax7219$max7219_init$11)
+      000D68 00 02                 1011 	.dw	2
+      000D6A 78                    1012 	.db	120
+      000D6B 03                    1013 	.sleb128	3
+      000D6C 00 00 84 EA           1014 	.dw	0,(Smax7219$max7219_init$9)
+      000D70 00 00 84 EC           1015 	.dw	0,(Smax7219$max7219_init$10)
+      000D74 00 02                 1016 	.dw	2
+      000D76 78                    1017 	.db	120
+      000D77 02                    1018 	.sleb128	2
+      000D78 00 00 84 E8           1019 	.dw	0,(Smax7219$max7219_init$7)
+      000D7C 00 00 84 EA           1020 	.dw	0,(Smax7219$max7219_init$9)
+      000D80 00 02                 1021 	.dw	2
+      000D82 78                    1022 	.db	120
+      000D83 01                    1023 	.sleb128	1
+      000D84 00 00 84 E3           1024 	.dw	0,(Smax7219$max7219_init$6)
+      000D88 00 00 84 E8           1025 	.dw	0,(Smax7219$max7219_init$7)
+      000D8C 00 02                 1026 	.dw	2
+      000D8E 78                    1027 	.db	120
+      000D8F 05                    1028 	.sleb128	5
+      000D90 00 00 84 E1           1029 	.dw	0,(Smax7219$max7219_init$5)
+      000D94 00 00 84 E3           1030 	.dw	0,(Smax7219$max7219_init$6)
+      000D98 00 02                 1031 	.dw	2
+      000D9A 78                    1032 	.db	120
+      000D9B 04                    1033 	.sleb128	4
+      000D9C 00 00 84 DF           1034 	.dw	0,(Smax7219$max7219_init$4)
+      000DA0 00 00 84 E1           1035 	.dw	0,(Smax7219$max7219_init$5)
+      000DA4 00 02                 1036 	.dw	2
+      000DA6 78                    1037 	.db	120
+      000DA7 03                    1038 	.sleb128	3
+      000DA8 00 00 84 DD           1039 	.dw	0,(Smax7219$max7219_init$3)
+      000DAC 00 00 84 DF           1040 	.dw	0,(Smax7219$max7219_init$4)
+      000DB0 00 02                 1041 	.dw	2
+      000DB2 78                    1042 	.db	120
+      000DB3 02                    1043 	.sleb128	2
+      000DB4 00 00 84 DB           1044 	.dw	0,(Smax7219$max7219_init$1)
+      000DB8 00 00 84 DD           1045 	.dw	0,(Smax7219$max7219_init$3)
+      000DBC 00 02                 1046 	.dw	2
+      000DBE 78                    1047 	.db	120
+      000DBF 01                    1048 	.sleb128	1
+      000DC0 00 00 00 00           1049 	.dw	0,0
+      000DC4 00 00 00 00           1050 	.dw	0,0
+                                   1051 
+                                   1052 	.area .debug_abbrev (NOLOAD)
+      0000F7                       1053 Ldebug_abbrev:
+      0000F7 04                    1054 	.uleb128	4
+      0000F8 05                    1055 	.uleb128	5
+      0000F9 00                    1056 	.db	0
+      0000FA 02                    1057 	.uleb128	2
+      0000FB 0A                    1058 	.uleb128	10
+      0000FC 03                    1059 	.uleb128	3
+      0000FD 08                    1060 	.uleb128	8
+      0000FE 49                    1061 	.uleb128	73
+      0000FF 13                    1062 	.uleb128	19
+      000100 00                    1063 	.uleb128	0
+      000101 00                    1064 	.uleb128	0
+      000102 03                    1065 	.uleb128	3
+      000103 2E                    1066 	.uleb128	46
+      000104 01                    1067 	.db	1
+      000105 01                    1068 	.uleb128	1
+      000106 13                    1069 	.uleb128	19
+      000107 03                    1070 	.uleb128	3
+      000108 08                    1071 	.uleb128	8
+      000109 11                    1072 	.uleb128	17
+      00010A 01                    1073 	.uleb128	1
+      00010B 12                    1074 	.uleb128	18
+      00010C 01                    1075 	.uleb128	1
+      00010D 3F                    1076 	.uleb128	63
+      00010E 0C                    1077 	.uleb128	12
+      00010F 40                    1078 	.uleb128	64
+      000110 06                    1079 	.uleb128	6
+      000111 00                    1080 	.uleb128	0
+      000112 00                    1081 	.uleb128	0
+      000113 07                    1082 	.uleb128	7
+      000114 34                    1083 	.uleb128	52
+      000115 00                    1084 	.db	0
+      000116 02                    1085 	.uleb128	2
+      000117 0A                    1086 	.uleb128	10
+      000118 03                    1087 	.uleb128	3
+      000119 08                    1088 	.uleb128	8
+      00011A 49                    1089 	.uleb128	73
+      00011B 13                    1090 	.uleb128	19
+      00011C 00                    1091 	.uleb128	0
+      00011D 00                    1092 	.uleb128	0
+      00011E 01                    1093 	.uleb128	1
+      00011F 11                    1094 	.uleb128	17
+      000120 01                    1095 	.db	1
+      000121 03                    1096 	.uleb128	3
+      000122 08                    1097 	.uleb128	8
+      000123 10                    1098 	.uleb128	16
+      000124 06                    1099 	.uleb128	6
+      000125 13                    1100 	.uleb128	19
+      000126 0B                    1101 	.uleb128	11
+      000127 25                    1102 	.uleb128	37
+      000128 08                    1103 	.uleb128	8
+      000129 00                    1104 	.uleb128	0
+      00012A 00                    1105 	.uleb128	0
+      00012B 06                    1106 	.uleb128	6
+      00012C 0B                    1107 	.uleb128	11
+      00012D 00                    1108 	.db	0
+      00012E 11                    1109 	.uleb128	17
+      00012F 01                    1110 	.uleb128	1
+      000130 12                    1111 	.uleb128	18
+      000131 01                    1112 	.uleb128	1
+      000132 00                    1113 	.uleb128	0
+      000133 00                    1114 	.uleb128	0
+      000134 02                    1115 	.uleb128	2
+      000135 2E                    1116 	.uleb128	46
+      000136 00                    1117 	.db	0
+      000137 03                    1118 	.uleb128	3
+      000138 08                    1119 	.uleb128	8
+      000139 11                    1120 	.uleb128	17
+      00013A 01                    1121 	.uleb128	1
+      00013B 12                    1122 	.uleb128	18
+      00013C 01                    1123 	.uleb128	1
+      00013D 3F                    1124 	.uleb128	63
+      00013E 0C                    1125 	.uleb128	12
+      00013F 40                    1126 	.uleb128	64
+      000140 06                    1127 	.uleb128	6
+      000141 00                    1128 	.uleb128	0
+      000142 00                    1129 	.uleb128	0
+      000143 05                    1130 	.uleb128	5
+      000144 0B                    1131 	.uleb128	11
+      000145 01                    1132 	.db	1
+      000146 01                    1133 	.uleb128	1
+      000147 13                    1134 	.uleb128	19
+      000148 11                    1135 	.uleb128	17
+      000149 01                    1136 	.uleb128	1
+      00014A 12                    1137 	.uleb128	18
+      00014B 01                    1138 	.uleb128	1
+      00014C 00                    1139 	.uleb128	0
+      00014D 00                    1140 	.uleb128	0
+      00014E 08                    1141 	.uleb128	8
+      00014F 24                    1142 	.uleb128	36
+      000150 00                    1143 	.db	0
+      000151 03                    1144 	.uleb128	3
+      000152 08                    1145 	.uleb128	8
+      000153 0B                    1146 	.uleb128	11
+      000154 0B                    1147 	.uleb128	11
+      000155 3E                    1148 	.uleb128	62
+      000156 0B                    1149 	.uleb128	11
+      000157 00                    1150 	.uleb128	0
+      000158 00                    1151 	.uleb128	0
+      000159 00                    1152 	.uleb128	0
+                                   1153 
+                                   1154 	.area .debug_info (NOLOAD)
+      000341 00 00 00 F1           1155 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000345                       1156 Ldebug_info_start:
+      000345 00 02                 1157 	.dw	2
+      000347 00 00 00 F7           1158 	.dw	0,(Ldebug_abbrev)
+      00034B 04                    1159 	.db	4
+      00034C 01                    1160 	.uleb128	1
+      00034D 2E 2F 73 72 63 2F 6D  1161 	.ascii "./src/max7219.c"
+             61 78 37 32 31 39 2E
+             63
+      00035C 00                    1162 	.db	0
+      00035D 00 00 04 47           1163 	.dw	0,(Ldebug_line_start+-4)
+      000361 01                    1164 	.db	1
+      000362 53 44 43 43 20 76 65  1165 	.ascii "SDCC version 4.1.0 #12072"
+             72 73 69 6F 6E 20 34
+             2E 31 2E 30 20 23 31
+             32 30 37 32
+      00037B 00                    1166 	.db	0
+      00037C 02                    1167 	.uleb128	2
+      00037D 6D 61 78 37 32 31 39  1168 	.ascii "max7219_init"
+             5F 69 6E 69 74
+      000389 00                    1169 	.db	0
+      00038A 00 00 84 DB           1170 	.dw	0,(_max7219_init)
+      00038E 00 00 85 2B           1171 	.dw	0,(XG$max7219_init$0$0+1)
+      000392 01                    1172 	.db	1
+      000393 00 00 0C 4C           1173 	.dw	0,(Ldebug_loc_start+572)
+      000397 03                    1174 	.uleb128	3
+      000398 00 00 00 E1           1175 	.dw	0,225
+      00039C 6D 61 78 37 32 31 39  1176 	.ascii "max7219_posli"
+             5F 70 6F 73 6C 69
+      0003A9 00                    1177 	.db	0
+      0003AA 00 00 85 2B           1178 	.dw	0,(_max7219_posli)
+      0003AE 00 00 85 E1           1179 	.dw	0,(XG$max7219_posli$0$0+1)
+      0003B2 01                    1180 	.db	1
+      0003B3 00 00 0A 10           1181 	.dw	0,(Ldebug_loc_start)
+      0003B7 04                    1182 	.uleb128	4
+      0003B8 02                    1183 	.db	2
+      0003B9 91                    1184 	.db	145
+      0003BA 02                    1185 	.sleb128	2
+      0003BB 61 64 72 65 73 61     1186 	.ascii "adresa"
+      0003C1 00                    1187 	.db	0
+      0003C2 00 00 00 E1           1188 	.dw	0,225
+      0003C6 04                    1189 	.uleb128	4
+      0003C7 02                    1190 	.db	2
+      0003C8 91                    1191 	.db	145
+      0003C9 03                    1192 	.sleb128	3
+      0003CA 64 61 74 61           1193 	.ascii "data"
+      0003CE 00                    1194 	.db	0
+      0003CF 00 00 00 E1           1195 	.dw	0,225
+      0003D3 05                    1196 	.uleb128	5
+      0003D4 00 00 00 B2           1197 	.dw	0,178
+      0003D8 00 00 85 4D           1198 	.dw	0,(Smax7219$max7219_posli$58)
+      0003DC 00 00 85 88           1199 	.dw	0,(Smax7219$max7219_posli$85)
+      0003E0 06                    1200 	.uleb128	6
+      0003E1 00 00 85 57           1201 	.dw	0,(Smax7219$max7219_posli$60)
+      0003E5 00 00 85 62           1202 	.dw	0,(Smax7219$max7219_posli$66)
+      0003E9 06                    1203 	.uleb128	6
+      0003EA 00 00 85 65           1204 	.dw	0,(Smax7219$max7219_posli$67)
+      0003EE 00 00 85 70           1205 	.dw	0,(Smax7219$max7219_posli$73)
+      0003F2 00                    1206 	.uleb128	0
+      0003F3 05                    1207 	.uleb128	5
+      0003F4 00 00 00 D2           1208 	.dw	0,210
+      0003F8 00 00 85 96           1209 	.dw	0,(Smax7219$max7219_posli$88)
+      0003FC 00 00 85 D1           1210 	.dw	0,(Smax7219$max7219_posli$115)
+      000400 06                    1211 	.uleb128	6
+      000401 00 00 85 A0           1212 	.dw	0,(Smax7219$max7219_posli$90)
+      000405 00 00 85 AB           1213 	.dw	0,(Smax7219$max7219_posli$96)
+      000409 06                    1214 	.uleb128	6
+      00040A 00 00 85 AE           1215 	.dw	0,(Smax7219$max7219_posli$97)
+      00040E 00 00 85 B9           1216 	.dw	0,(Smax7219$max7219_posli$103)
+      000412 00                    1217 	.uleb128	0
+      000413 07                    1218 	.uleb128	7
+      000414 02                    1219 	.db	2
+      000415 91                    1220 	.db	145
+      000416 7F                    1221 	.sleb128	-1
+      000417 6D 61 73 6B 61        1222 	.ascii "maska"
+      00041C 00                    1223 	.db	0
+      00041D 00 00 00 E1           1224 	.dw	0,225
+      000421 00                    1225 	.uleb128	0
+      000422 08                    1226 	.uleb128	8
+      000423 75 6E 73 69 67 6E 65  1227 	.ascii "unsigned char"
+             64 20 63 68 61 72
+      000430 00                    1228 	.db	0
+      000431 01                    1229 	.db	1
+      000432 08                    1230 	.db	8
+      000433 00                    1231 	.uleb128	0
+      000434 00                    1232 	.uleb128	0
+      000435 00                    1233 	.uleb128	0
+      000436                       1234 Ldebug_info_end:
+                                   1235 
+                                   1236 	.area .debug_pubnames (NOLOAD)
+      00006A 00 00 00 31           1237 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      00006E                       1238 Ldebug_pubnames_start:
+      00006E 00 02                 1239 	.dw	2
+      000070 00 00 03 41           1240 	.dw	0,(Ldebug_info_start-4)
+      000074 00 00 00 F5           1241 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      000078 00 00 00 3B           1242 	.dw	0,59
+      00007C 6D 61 78 37 32 31 39  1243 	.ascii "max7219_init"
+             5F 69 6E 69 74
+      000088 00                    1244 	.db	0
+      000089 00 00 00 56           1245 	.dw	0,86
+      00008D 6D 61 78 37 32 31 39  1246 	.ascii "max7219_posli"
+             5F 70 6F 73 6C 69
+      00009A 00                    1247 	.db	0
+      00009B 00 00 00 00           1248 	.dw	0,0
+      00009F                       1249 Ldebug_pubnames_end:
+                                   1250 
+                                   1251 	.area .debug_frame (NOLOAD)
+      0006AC 00 00                 1252 	.dw	0
+      0006AE 00 0E                 1253 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      0006B0                       1254 Ldebug_CIE0_start:
+      0006B0 FF FF                 1255 	.dw	0xffff
+      0006B2 FF FF                 1256 	.dw	0xffff
+      0006B4 01                    1257 	.db	1
+      0006B5 00                    1258 	.db	0
+      0006B6 01                    1259 	.uleb128	1
+      0006B7 7F                    1260 	.sleb128	-1
+      0006B8 09                    1261 	.db	9
+      0006B9 0C                    1262 	.db	12
+      0006BA 08                    1263 	.uleb128	8
+      0006BB 02                    1264 	.uleb128	2
+      0006BC 89                    1265 	.db	137
+      0006BD 01                    1266 	.uleb128	1
+      0006BE                       1267 Ldebug_CIE0_end:
+      0006BE 00 00 01 55           1268 	.dw	0,341
+      0006C2 00 00 06 AC           1269 	.dw	0,(Ldebug_CIE0_start-4)
+      0006C6 00 00 85 2B           1270 	.dw	0,(Smax7219$max7219_posli$44)	;initial loc
+      0006CA 00 00 00 B6           1271 	.dw	0,Smax7219$max7219_posli$124-Smax7219$max7219_posli$44
+      0006CE 01                    1272 	.db	1
+      0006CF 00 00 85 2B           1273 	.dw	0,(Smax7219$max7219_posli$44)
+      0006D3 0E                    1274 	.db	14
+      0006D4 02                    1275 	.uleb128	2
+      0006D5 01                    1276 	.db	1
+      0006D6 00 00 85 2C           1277 	.dw	0,(Smax7219$max7219_posli$45)
+      0006DA 0E                    1278 	.db	14
+      0006DB 03                    1279 	.uleb128	3
+      0006DC 01                    1280 	.db	1
+      0006DD 00 00 85 2E           1281 	.dw	0,(Smax7219$max7219_posli$47)
+      0006E1 0E                    1282 	.db	14
+      0006E2 04                    1283 	.uleb128	4
+      0006E3 01                    1284 	.db	1
+      0006E4 00 00 85 30           1285 	.dw	0,(Smax7219$max7219_posli$48)
+      0006E8 0E                    1286 	.db	14
+      0006E9 05                    1287 	.uleb128	5
+      0006EA 01                    1288 	.db	1
+      0006EB 00 00 85 32           1289 	.dw	0,(Smax7219$max7219_posli$49)
+      0006EF 0E                    1290 	.db	14
+      0006F0 06                    1291 	.uleb128	6
+      0006F1 01                    1292 	.db	1
+      0006F2 00 00 85 37           1293 	.dw	0,(Smax7219$max7219_posli$50)
+      0006F6 0E                    1294 	.db	14
+      0006F7 03                    1295 	.uleb128	3
+      0006F8 01                    1296 	.db	1
+      0006F9 00 00 85 3D           1297 	.dw	0,(Smax7219$max7219_posli$53)
+      0006FD 0E                    1298 	.db	14
+      0006FE 04                    1299 	.uleb128	4
+      0006FF 01                    1300 	.db	1
+      000700 00 00 85 3F           1301 	.dw	0,(Smax7219$max7219_posli$54)
+      000704 0E                    1302 	.db	14
+      000705 05                    1303 	.uleb128	5
+      000706 01                    1304 	.db	1
+      000707 00 00 85 41           1305 	.dw	0,(Smax7219$max7219_posli$55)
+      00070B 0E                    1306 	.db	14
+      00070C 06                    1307 	.uleb128	6
+      00070D 01                    1308 	.db	1
+      00070E 00 00 85 46           1309 	.dw	0,(Smax7219$max7219_posli$56)
+      000712 0E                    1310 	.db	14
+      000713 03                    1311 	.uleb128	3
+      000714 01                    1312 	.db	1
+      000715 00 00 85 59           1313 	.dw	0,(Smax7219$max7219_posli$62)
+      000719 0E                    1314 	.db	14
+      00071A 04                    1315 	.uleb128	4
+      00071B 01                    1316 	.db	1
+      00071C 00 00 85 5B           1317 	.dw	0,(Smax7219$max7219_posli$63)
+      000720 0E                    1318 	.db	14
+      000721 05                    1319 	.uleb128	5
+      000722 01                    1320 	.db	1
+      000723 00 00 85 5D           1321 	.dw	0,(Smax7219$max7219_posli$64)
+      000727 0E                    1322 	.db	14
+      000728 06                    1323 	.uleb128	6
+      000729 01                    1324 	.db	1
+      00072A 00 00 85 62           1325 	.dw	0,(Smax7219$max7219_posli$65)
+      00072E 0E                    1326 	.db	14
+      00072F 03                    1327 	.uleb128	3
+      000730 01                    1328 	.db	1
+      000731 00 00 85 67           1329 	.dw	0,(Smax7219$max7219_posli$69)
+      000735 0E                    1330 	.db	14
+      000736 04                    1331 	.uleb128	4
+      000737 01                    1332 	.db	1
+      000738 00 00 85 69           1333 	.dw	0,(Smax7219$max7219_posli$70)
+      00073C 0E                    1334 	.db	14
+      00073D 05                    1335 	.uleb128	5
+      00073E 01                    1336 	.db	1
+      00073F 00 00 85 6B           1337 	.dw	0,(Smax7219$max7219_posli$71)
+      000743 0E                    1338 	.db	14
+      000744 06                    1339 	.uleb128	6
+      000745 01                    1340 	.db	1
+      000746 00 00 85 70           1341 	.dw	0,(Smax7219$max7219_posli$72)
+      00074A 0E                    1342 	.db	14
+      00074B 03                    1343 	.uleb128	3
+      00074C 01                    1344 	.db	1
+      00074D 00 00 85 72           1345 	.dw	0,(Smax7219$max7219_posli$75)
+      000751 0E                    1346 	.db	14
+      000752 04                    1347 	.uleb128	4
+      000753 01                    1348 	.db	1
+      000754 00 00 85 74           1349 	.dw	0,(Smax7219$max7219_posli$76)
+      000758 0E                    1350 	.db	14
+      000759 05                    1351 	.uleb128	5
+      00075A 01                    1352 	.db	1
+      00075B 00 00 85 76           1353 	.dw	0,(Smax7219$max7219_posli$77)
+      00075F 0E                    1354 	.db	14
+      000760 06                    1355 	.uleb128	6
+      000761 01                    1356 	.db	1
+      000762 00 00 85 7B           1357 	.dw	0,(Smax7219$max7219_posli$78)
+      000766 0E                    1358 	.db	14
+      000767 03                    1359 	.uleb128	3
+      000768 01                    1360 	.db	1
+      000769 00 00 85 7F           1361 	.dw	0,(Smax7219$max7219_posli$81)
+      00076D 0E                    1362 	.db	14
+      00076E 04                    1363 	.uleb128	4
+      00076F 01                    1364 	.db	1
+      000770 00 00 85 81           1365 	.dw	0,(Smax7219$max7219_posli$82)
+      000774 0E                    1366 	.db	14
+      000775 05                    1367 	.uleb128	5
+      000776 01                    1368 	.db	1
+      000777 00 00 85 83           1369 	.dw	0,(Smax7219$max7219_posli$83)
+      00077B 0E                    1370 	.db	14
+      00077C 06                    1371 	.uleb128	6
+      00077D 01                    1372 	.db	1
+      00077E 00 00 85 88           1373 	.dw	0,(Smax7219$max7219_posli$84)
+      000782 0E                    1374 	.db	14
+      000783 03                    1375 	.uleb128	3
+      000784 01                    1376 	.db	1
+      000785 00 00 85 A2           1377 	.dw	0,(Smax7219$max7219_posli$92)
+      000789 0E                    1378 	.db	14
+      00078A 04                    1379 	.uleb128	4
+      00078B 01                    1380 	.db	1
+      00078C 00 00 85 A4           1381 	.dw	0,(Smax7219$max7219_posli$93)
+      000790 0E                    1382 	.db	14
+      000791 05                    1383 	.uleb128	5
+      000792 01                    1384 	.db	1
+      000793 00 00 85 A6           1385 	.dw	0,(Smax7219$max7219_posli$94)
+      000797 0E                    1386 	.db	14
+      000798 06                    1387 	.uleb128	6
+      000799 01                    1388 	.db	1
+      00079A 00 00 85 AB           1389 	.dw	0,(Smax7219$max7219_posli$95)
+      00079E 0E                    1390 	.db	14
+      00079F 03                    1391 	.uleb128	3
+      0007A0 01                    1392 	.db	1
+      0007A1 00 00 85 B0           1393 	.dw	0,(Smax7219$max7219_posli$99)
+      0007A5 0E                    1394 	.db	14
+      0007A6 04                    1395 	.uleb128	4
+      0007A7 01                    1396 	.db	1
+      0007A8 00 00 85 B2           1397 	.dw	0,(Smax7219$max7219_posli$100)
+      0007AC 0E                    1398 	.db	14
+      0007AD 05                    1399 	.uleb128	5
+      0007AE 01                    1400 	.db	1
+      0007AF 00 00 85 B4           1401 	.dw	0,(Smax7219$max7219_posli$101)
+      0007B3 0E                    1402 	.db	14
+      0007B4 06                    1403 	.uleb128	6
+      0007B5 01                    1404 	.db	1
+      0007B6 00 00 85 B9           1405 	.dw	0,(Smax7219$max7219_posli$102)
+      0007BA 0E                    1406 	.db	14
+      0007BB 03                    1407 	.uleb128	3
+      0007BC 01                    1408 	.db	1
+      0007BD 00 00 85 BB           1409 	.dw	0,(Smax7219$max7219_posli$105)
+      0007C1 0E                    1410 	.db	14
+      0007C2 04                    1411 	.uleb128	4
+      0007C3 01                    1412 	.db	1
+      0007C4 00 00 85 BD           1413 	.dw	0,(Smax7219$max7219_posli$106)
+      0007C8 0E                    1414 	.db	14
+      0007C9 05                    1415 	.uleb128	5
+      0007CA 01                    1416 	.db	1
+      0007CB 00 00 85 BF           1417 	.dw	0,(Smax7219$max7219_posli$107)
+      0007CF 0E                    1418 	.db	14
+      0007D0 06                    1419 	.uleb128	6
+      0007D1 01                    1420 	.db	1
+      0007D2 00 00 85 C4           1421 	.dw	0,(Smax7219$max7219_posli$108)
+      0007D6 0E                    1422 	.db	14
+      0007D7 03                    1423 	.uleb128	3
+      0007D8 01                    1424 	.db	1
+      0007D9 00 00 85 C8           1425 	.dw	0,(Smax7219$max7219_posli$111)
+      0007DD 0E                    1426 	.db	14
+      0007DE 04                    1427 	.uleb128	4
+      0007DF 01                    1428 	.db	1
+      0007E0 00 00 85 CA           1429 	.dw	0,(Smax7219$max7219_posli$112)
+      0007E4 0E                    1430 	.db	14
+      0007E5 05                    1431 	.uleb128	5
+      0007E6 01                    1432 	.db	1
+      0007E7 00 00 85 CC           1433 	.dw	0,(Smax7219$max7219_posli$113)
+      0007EB 0E                    1434 	.db	14
+      0007EC 06                    1435 	.uleb128	6
+      0007ED 01                    1436 	.db	1
+      0007EE 00 00 85 D1           1437 	.dw	0,(Smax7219$max7219_posli$114)
+      0007F2 0E                    1438 	.db	14
+      0007F3 03                    1439 	.uleb128	3
+      0007F4 01                    1440 	.db	1
+      0007F5 00 00 85 D6           1441 	.dw	0,(Smax7219$max7219_posli$117)
+      0007F9 0E                    1442 	.db	14
+      0007FA 04                    1443 	.uleb128	4
+      0007FB 01                    1444 	.db	1
+      0007FC 00 00 85 D8           1445 	.dw	0,(Smax7219$max7219_posli$118)
+      000800 0E                    1446 	.db	14
+      000801 05                    1447 	.uleb128	5
+      000802 01                    1448 	.db	1
+      000803 00 00 85 DA           1449 	.dw	0,(Smax7219$max7219_posli$119)
+      000807 0E                    1450 	.db	14
+      000808 06                    1451 	.uleb128	6
+      000809 01                    1452 	.db	1
+      00080A 00 00 85 DF           1453 	.dw	0,(Smax7219$max7219_posli$120)
+      00080E 0E                    1454 	.db	14
+      00080F 03                    1455 	.uleb128	3
+      000810 01                    1456 	.db	1
+      000811 00 00 85 E0           1457 	.dw	0,(Smax7219$max7219_posli$122)
+      000815 0E                    1458 	.db	14
+      000816 02                    1459 	.uleb128	2
+                                   1460 
+                                   1461 	.area .debug_frame (NOLOAD)
+      000817 00 00                 1462 	.dw	0
+      000819 00 0E                 1463 	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+      00081B                       1464 Ldebug_CIE1_start:
+      00081B FF FF                 1465 	.dw	0xffff
+      00081D FF FF                 1466 	.dw	0xffff
+      00081F 01                    1467 	.db	1
+      000820 00                    1468 	.db	0
+      000821 01                    1469 	.uleb128	1
+      000822 7F                    1470 	.sleb128	-1
+      000823 09                    1471 	.db	9
+      000824 0C                    1472 	.db	12
+      000825 08                    1473 	.uleb128	8
+      000826 02                    1474 	.uleb128	2
+      000827 89                    1475 	.db	137
+      000828 01                    1476 	.uleb128	1
+      000829                       1477 Ldebug_CIE1_end:
+      000829 00 00 00 E5           1478 	.dw	0,229
+      00082D 00 00 08 17           1479 	.dw	0,(Ldebug_CIE1_start-4)
+      000831 00 00 84 DB           1480 	.dw	0,(Smax7219$max7219_init$1)	;initial loc
+      000835 00 00 00 50           1481 	.dw	0,Smax7219$max7219_init$42-Smax7219$max7219_init$1
+      000839 01                    1482 	.db	1
+      00083A 00 00 84 DB           1483 	.dw	0,(Smax7219$max7219_init$1)
+      00083E 0E                    1484 	.db	14
+      00083F 02                    1485 	.uleb128	2
+      000840 01                    1486 	.db	1
+      000841 00 00 84 DD           1487 	.dw	0,(Smax7219$max7219_init$3)
+      000845 0E                    1488 	.db	14
+      000846 03                    1489 	.uleb128	3
+      000847 01                    1490 	.db	1
+      000848 00 00 84 DF           1491 	.dw	0,(Smax7219$max7219_init$4)
+      00084C 0E                    1492 	.db	14
+      00084D 04                    1493 	.uleb128	4
+      00084E 01                    1494 	.db	1
+      00084F 00 00 84 E1           1495 	.dw	0,(Smax7219$max7219_init$5)
+      000853 0E                    1496 	.db	14
+      000854 05                    1497 	.uleb128	5
+      000855 01                    1498 	.db	1
+      000856 00 00 84 E3           1499 	.dw	0,(Smax7219$max7219_init$6)
+      00085A 0E                    1500 	.db	14
+      00085B 06                    1501 	.uleb128	6
+      00085C 01                    1502 	.db	1
+      00085D 00 00 84 E8           1503 	.dw	0,(Smax7219$max7219_init$7)
+      000861 0E                    1504 	.db	14
+      000862 02                    1505 	.uleb128	2
+      000863 01                    1506 	.db	1
+      000864 00 00 84 EA           1507 	.dw	0,(Smax7219$max7219_init$9)
+      000868 0E                    1508 	.db	14
+      000869 03                    1509 	.uleb128	3
+      00086A 01                    1510 	.db	1
+      00086B 00 00 84 EC           1511 	.dw	0,(Smax7219$max7219_init$10)
+      00086F 0E                    1512 	.db	14
+      000870 04                    1513 	.uleb128	4
+      000871 01                    1514 	.db	1
+      000872 00 00 84 EE           1515 	.dw	0,(Smax7219$max7219_init$11)
+      000876 0E                    1516 	.db	14
+      000877 05                    1517 	.uleb128	5
+      000878 01                    1518 	.db	1
+      000879 00 00 84 F0           1519 	.dw	0,(Smax7219$max7219_init$12)
+      00087D 0E                    1520 	.db	14
+      00087E 06                    1521 	.uleb128	6
+      00087F 01                    1522 	.db	1
+      000880 00 00 84 F5           1523 	.dw	0,(Smax7219$max7219_init$13)
+      000884 0E                    1524 	.db	14
+      000885 02                    1525 	.uleb128	2
+      000886 01                    1526 	.db	1
+      000887 00 00 84 F7           1527 	.dw	0,(Smax7219$max7219_init$15)
+      00088B 0E                    1528 	.db	14
+      00088C 03                    1529 	.uleb128	3
+      00088D 01                    1530 	.db	1
+      00088E 00 00 84 F9           1531 	.dw	0,(Smax7219$max7219_init$16)
+      000892 0E                    1532 	.db	14
+      000893 04                    1533 	.uleb128	4
+      000894 01                    1534 	.db	1
+      000895 00 00 84 FB           1535 	.dw	0,(Smax7219$max7219_init$17)
+      000899 0E                    1536 	.db	14
+      00089A 05                    1537 	.uleb128	5
+      00089B 01                    1538 	.db	1
+      00089C 00 00 84 FD           1539 	.dw	0,(Smax7219$max7219_init$18)
+      0008A0 0E                    1540 	.db	14
+      0008A1 06                    1541 	.uleb128	6
+      0008A2 01                    1542 	.db	1
+      0008A3 00 00 85 02           1543 	.dw	0,(Smax7219$max7219_init$19)
+      0008A7 0E                    1544 	.db	14
+      0008A8 02                    1545 	.uleb128	2
+      0008A9 01                    1546 	.db	1
+      0008AA 00 00 85 04           1547 	.dw	0,(Smax7219$max7219_init$21)
+      0008AE 0E                    1548 	.db	14
+      0008AF 03                    1549 	.uleb128	3
+      0008B0 01                    1550 	.db	1
+      0008B1 00 00 85 06           1551 	.dw	0,(Smax7219$max7219_init$22)
+      0008B5 0E                    1552 	.db	14
+      0008B6 04                    1553 	.uleb128	4
+      0008B7 01                    1554 	.db	1
+      0008B8 00 00 85 0A           1555 	.dw	0,(Smax7219$max7219_init$23)
+      0008BC 0E                    1556 	.db	14
+      0008BD 02                    1557 	.uleb128	2
+      0008BE 01                    1558 	.db	1
+      0008BF 00 00 85 0C           1559 	.dw	0,(Smax7219$max7219_init$25)
+      0008C3 0E                    1560 	.db	14
+      0008C4 03                    1561 	.uleb128	3
+      0008C5 01                    1562 	.db	1
+      0008C6 00 00 85 0E           1563 	.dw	0,(Smax7219$max7219_init$26)
+      0008CA 0E                    1564 	.db	14
+      0008CB 04                    1565 	.uleb128	4
+      0008CC 01                    1566 	.db	1
+      0008CD 00 00 85 12           1567 	.dw	0,(Smax7219$max7219_init$27)
+      0008D1 0E                    1568 	.db	14
+      0008D2 02                    1569 	.uleb128	2
+      0008D3 01                    1570 	.db	1
+      0008D4 00 00 85 14           1571 	.dw	0,(Smax7219$max7219_init$29)
+      0008D8 0E                    1572 	.db	14
+      0008D9 03                    1573 	.uleb128	3
+      0008DA 01                    1574 	.db	1
+      0008DB 00 00 85 16           1575 	.dw	0,(Smax7219$max7219_init$30)
+      0008DF 0E                    1576 	.db	14
+      0008E0 04                    1577 	.uleb128	4
+      0008E1 01                    1578 	.db	1
+      0008E2 00 00 85 1A           1579 	.dw	0,(Smax7219$max7219_init$31)
+      0008E6 0E                    1580 	.db	14
+      0008E7 02                    1581 	.uleb128	2
+      0008E8 01                    1582 	.db	1
+      0008E9 00 00 85 1C           1583 	.dw	0,(Smax7219$max7219_init$33)
+      0008ED 0E                    1584 	.db	14
+      0008EE 03                    1585 	.uleb128	3
+      0008EF 01                    1586 	.db	1
+      0008F0 00 00 85 1E           1587 	.dw	0,(Smax7219$max7219_init$34)
+      0008F4 0E                    1588 	.db	14
+      0008F5 04                    1589 	.uleb128	4
+      0008F6 01                    1590 	.db	1
+      0008F7 00 00 85 22           1591 	.dw	0,(Smax7219$max7219_init$35)
+      0008FB 0E                    1592 	.db	14
+      0008FC 02                    1593 	.uleb128	2
+      0008FD 01                    1594 	.db	1
+      0008FE 00 00 85 24           1595 	.dw	0,(Smax7219$max7219_init$37)
+      000902 0E                    1596 	.db	14
+      000903 03                    1597 	.uleb128	3
+      000904 01                    1598 	.db	1
+      000905 00 00 85 26           1599 	.dw	0,(Smax7219$max7219_init$38)
+      000909 0E                    1600 	.db	14
+      00090A 04                    1601 	.uleb128	4
+      00090B 01                    1602 	.db	1
+      00090C 00 00 85 2A           1603 	.dw	0,(Smax7219$max7219_init$39)
+      000910 0E                    1604 	.db	14
+      000911 02                    1605 	.uleb128	2

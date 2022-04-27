@@ -1,0 +1,322 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+  9 A$max7219$100                                                  00001A GR
+  9 A$max7219$103                                                  00001C GR
+  9 A$max7219$106                                                  00001E GR
+  9 A$max7219$108                                                  000020 GR
+  9 A$max7219$111                                                  000022 GR
+  9 A$max7219$112                                                  000025 GR
+  9 A$max7219$117                                                  000027 GR
+  9 A$max7219$120                                                  000029 GR
+  9 A$max7219$123                                                  00002B GR
+  9 A$max7219$124                                                  00002E GR
+  9 A$max7219$129                                                  00002F GR
+  9 A$max7219$132                                                  000031 GR
+  9 A$max7219$135                                                  000033 GR
+  9 A$max7219$136                                                  000036 GR
+  9 A$max7219$141                                                  000037 GR
+  9 A$max7219$144                                                  000039 GR
+  9 A$max7219$147                                                  00003B GR
+  9 A$max7219$148                                                  00003E GR
+  9 A$max7219$153                                                  00003F GR
+  9 A$max7219$156                                                  000041 GR
+  9 A$max7219$159                                                  000043 GR
+  9 A$max7219$160                                                  000046 GR
+  9 A$max7219$165                                                  000047 GR
+  9 A$max7219$168                                                  000049 GR
+  9 A$max7219$171                                                  00004B GR
+  9 A$max7219$172                                                  00004E GR
+  9 A$max7219$181                                                  00004F GR
+  9 A$max7219$193                                                  000050 GR
+  9 A$max7219$198                                                  000051 GR
+  9 A$max7219$201                                                  000053 GR
+  9 A$max7219$203                                                  000055 GR
+  9 A$max7219$206                                                  000057 GR
+  9 A$max7219$207                                                  00005A GR
+  9 A$max7219$212                                                  00005C GR
+  9 A$max7219$213                                                  00005E GR
+  9 A$max7219$217                                                  000060 GR
+  9 A$max7219$220                                                  000062 GR
+  9 A$max7219$222                                                  000064 GR
+  9 A$max7219$225                                                  000066 GR
+  9 A$max7219$226                                                  000069 GR
+  9 A$max7219$233                                                  00006B GR
+  9 A$max7219$234                                                  00006D GR
+  9 A$max7219$235                                                  00006F GR
+  9 A$max7219$241                                                  000072 GR
+  9 A$max7219$242                                                  000074 GR
+  9 A$max7219$244                                                  000076 GR
+  9 A$max7219$245                                                  000077 GR
+  9 A$max7219$246                                                  000079 GR
+  9 A$max7219$252                                                  00007C GR
+  9 A$max7219$255                                                  00007E GR
+  9 A$max7219$257                                                  000080 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$max7219$260                                                  000082 GR
+  9 A$max7219$261                                                  000085 GR
+  9 A$max7219$265                                                  000087 GR
+  9 A$max7219$272                                                  00008A GR
+  9 A$max7219$275                                                  00008C GR
+  9 A$max7219$277                                                  00008E GR
+  9 A$max7219$280                                                  000090 GR
+  9 A$max7219$281                                                  000093 GR
+  9 A$max7219$289                                                  000095 GR
+  9 A$max7219$292                                                  000097 GR
+  9 A$max7219$294                                                  000099 GR
+  9 A$max7219$297                                                  00009B GR
+  9 A$max7219$298                                                  00009E GR
+  9 A$max7219$303                                                  0000A0 GR
+  9 A$max7219$307                                                  0000A2 GR
+  9 A$max7219$310                                                  0000A4 GR
+  9 A$max7219$312                                                  0000A6 GR
+  9 A$max7219$315                                                  0000A8 GR
+  9 A$max7219$316                                                  0000AB GR
+  9 A$max7219$320                                                  0000AD GR
+  9 A$max7219$326                                                  0000B0 GR
+  9 A$max7219$327                                                  0000B2 GR
+  9 A$max7219$333                                                  0000B4 GR
+  9 A$max7219$334                                                  0000B6 GR
+  9 A$max7219$335                                                  0000B8 GR
+  9 A$max7219$341                                                  0000BB GR
+  9 A$max7219$342                                                  0000BD GR
+  9 A$max7219$344                                                  0000BF GR
+  9 A$max7219$345                                                  0000C0 GR
+  9 A$max7219$346                                                  0000C2 GR
+  9 A$max7219$352                                                  0000C5 GR
+  9 A$max7219$355                                                  0000C7 GR
+  9 A$max7219$357                                                  0000C9 GR
+  9 A$max7219$360                                                  0000CB GR
+  9 A$max7219$361                                                  0000CE GR
+  9 A$max7219$365                                                  0000D0 GR
+  9 A$max7219$372                                                  0000D3 GR
+  9 A$max7219$375                                                  0000D5 GR
+  9 A$max7219$377                                                  0000D7 GR
+  9 A$max7219$380                                                  0000D9 GR
+  9 A$max7219$381                                                  0000DC GR
+  9 A$max7219$389                                                  0000DE GR
+  9 A$max7219$392                                                  0000E0 GR
+  9 A$max7219$394                                                  0000E2 GR
+  9 A$max7219$397                                                  0000E4 GR
+  9 A$max7219$398                                                  0000E7 GR
+  9 A$max7219$403                                                  0000E9 GR
+  9 A$max7219$407                                                  0000EB GR
+  9 A$max7219$410                                                  0000ED GR
+  9 A$max7219$412                                                  0000EF GR
+  9 A$max7219$415                                                  0000F1 GR
+  9 A$max7219$416                                                  0000F4 GR
+  9 A$max7219$420                                                  0000F6 GR
+  9 A$max7219$426                                                  0000F9 GR
+  9 A$max7219$429                                                  0000FB GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$max7219$431                                                  0000FD GR
+  9 A$max7219$434                                                  0000FF GR
+  9 A$max7219$435                                                  000102 GR
+  9 A$max7219$442                                                  000104 GR
+  9 A$max7219$446                                                  000105 GR
+  9 A$max7219$66                                                   000000 GR
+  9 A$max7219$69                                                   000002 GR
+  9 A$max7219$72                                                   000004 GR
+  9 A$max7219$74                                                   000006 GR
+  9 A$max7219$77                                                   000008 GR
+  9 A$max7219$78                                                   00000B GR
+  9 A$max7219$83                                                   00000D GR
+  9 A$max7219$86                                                   00000F GR
+  9 A$max7219$89                                                   000011 GR
+  9 A$max7219$91                                                   000013 GR
+  9 A$max7219$94                                                   000015 GR
+  9 A$max7219$95                                                   000018 GR
+ 10 Ldebug_CIE0_end                                                000012 R
+ 10 Ldebug_CIE0_start                                              000004 R
+ 10 Ldebug_CIE1_end                                                00017D R
+ 10 Ldebug_CIE1_start                                              00016F R
+  D Ldebug_abbrev                                                  000000 R
+  E Ldebug_info_end                                                0000F5 R
+  E Ldebug_info_start                                              000004 R
+  B Ldebug_line_end                                                000148 R
+  B Ldebug_line_start                                              000004 R
+  B Ldebug_line_stmt                                               00007A R
+  C Ldebug_loc_start                                               000000 R
+  F Ldebug_pubnames_end                                            000035 R
+  F Ldebug_pubnames_start                                          000004 R
+  9 Smax7219$max7219_init$0                                     =  000000 GR
+  9 Smax7219$max7219_init$1                                     =  000000 GR
+  9 Smax7219$max7219_init$10                                    =  000011 GR
+  9 Smax7219$max7219_init$11                                    =  000013 GR
+  9 Smax7219$max7219_init$12                                    =  000015 GR
+  9 Smax7219$max7219_init$13                                    =  00001A GR
+  9 Smax7219$max7219_init$14                                    =  00001A GR
+  9 Smax7219$max7219_init$15                                    =  00001C GR
+  9 Smax7219$max7219_init$16                                    =  00001E GR
+  9 Smax7219$max7219_init$17                                    =  000020 GR
+  9 Smax7219$max7219_init$18                                    =  000022 GR
+  9 Smax7219$max7219_init$19                                    =  000027 GR
+  9 Smax7219$max7219_init$2                                     =  000000 GR
+  9 Smax7219$max7219_init$20                                    =  000027 GR
+  9 Smax7219$max7219_init$21                                    =  000029 GR
+  9 Smax7219$max7219_init$22                                    =  00002B GR
+  9 Smax7219$max7219_init$23                                    =  00002F GR
+  9 Smax7219$max7219_init$24                                    =  00002F GR
+  9 Smax7219$max7219_init$25                                    =  000031 GR
+  9 Smax7219$max7219_init$26                                    =  000033 GR
+  9 Smax7219$max7219_init$27                                    =  000037 GR
+  9 Smax7219$max7219_init$28                                    =  000037 GR
+  9 Smax7219$max7219_init$29                                    =  000039 GR
+  9 Smax7219$max7219_init$3                                     =  000002 GR
+  9 Smax7219$max7219_init$30                                    =  00003B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Smax7219$max7219_init$31                                    =  00003F GR
+  9 Smax7219$max7219_init$32                                    =  00003F GR
+  9 Smax7219$max7219_init$33                                    =  000041 GR
+  9 Smax7219$max7219_init$34                                    =  000043 GR
+  9 Smax7219$max7219_init$35                                    =  000047 GR
+  9 Smax7219$max7219_init$36                                    =  000047 GR
+  9 Smax7219$max7219_init$37                                    =  000049 GR
+  9 Smax7219$max7219_init$38                                    =  00004B GR
+  9 Smax7219$max7219_init$39                                    =  00004F GR
+  9 Smax7219$max7219_init$4                                     =  000004 GR
+  9 Smax7219$max7219_init$40                                    =  00004F GR
+  9 Smax7219$max7219_init$41                                    =  00004F GR
+  9 Smax7219$max7219_init$42                                    =  000050 GR
+  9 Smax7219$max7219_init$5                                     =  000006 GR
+  9 Smax7219$max7219_init$6                                     =  000008 GR
+  9 Smax7219$max7219_init$7                                     =  00000D GR
+  9 Smax7219$max7219_init$8                                     =  00000D GR
+  9 Smax7219$max7219_init$9                                     =  00000F GR
+  9 Smax7219$max7219_posli$100                                  =  0000D7 GR
+  9 Smax7219$max7219_posli$101                                  =  0000D9 GR
+  9 Smax7219$max7219_posli$102                                  =  0000DE GR
+  9 Smax7219$max7219_posli$103                                  =  0000DE GR
+  9 Smax7219$max7219_posli$104                                  =  0000DE GR
+  9 Smax7219$max7219_posli$105                                  =  0000E0 GR
+  9 Smax7219$max7219_posli$106                                  =  0000E2 GR
+  9 Smax7219$max7219_posli$107                                  =  0000E4 GR
+  9 Smax7219$max7219_posli$108                                  =  0000E9 GR
+  9 Smax7219$max7219_posli$109                                  =  0000E9 GR
+  9 Smax7219$max7219_posli$110                                  =  0000EB GR
+  9 Smax7219$max7219_posli$111                                  =  0000ED GR
+  9 Smax7219$max7219_posli$112                                  =  0000EF GR
+  9 Smax7219$max7219_posli$113                                  =  0000F1 GR
+  9 Smax7219$max7219_posli$114                                  =  0000F6 GR
+  9 Smax7219$max7219_posli$115                                  =  0000F6 GR
+  9 Smax7219$max7219_posli$116                                  =  0000F9 GR
+  9 Smax7219$max7219_posli$117                                  =  0000FB GR
+  9 Smax7219$max7219_posli$118                                  =  0000FD GR
+  9 Smax7219$max7219_posli$119                                  =  0000FF GR
+  9 Smax7219$max7219_posli$120                                  =  000104 GR
+  9 Smax7219$max7219_posli$121                                  =  000104 GR
+  9 Smax7219$max7219_posli$122                                  =  000105 GR
+  9 Smax7219$max7219_posli$123                                  =  000105 GR
+  9 Smax7219$max7219_posli$124                                  =  000106 GR
+  9 Smax7219$max7219_posli$43                                   =  000050 GR
+  9 Smax7219$max7219_posli$44                                   =  000050 GR
+  9 Smax7219$max7219_posli$45                                   =  000051 GR
+  9 Smax7219$max7219_posli$46                                   =  000051 GR
+  9 Smax7219$max7219_posli$47                                   =  000053 GR
+  9 Smax7219$max7219_posli$48                                   =  000055 GR
+  9 Smax7219$max7219_posli$49                                   =  000057 GR
+  9 Smax7219$max7219_posli$50                                   =  00005C GR
+  9 Smax7219$max7219_posli$51                                   =  00005C GR
+  9 Smax7219$max7219_posli$52                                   =  000060 GR
+  9 Smax7219$max7219_posli$53                                   =  000062 GR
+  9 Smax7219$max7219_posli$54                                   =  000064 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Smax7219$max7219_posli$55                                   =  000066 GR
+  9 Smax7219$max7219_posli$56                                   =  00006B GR
+  9 Smax7219$max7219_posli$57                                   =  00006B GR
+  9 Smax7219$max7219_posli$58                                   =  000072 GR
+  9 Smax7219$max7219_posli$59                                   =  000072 GR
+  9 Smax7219$max7219_posli$60                                   =  00007C GR
+  9 Smax7219$max7219_posli$61                                   =  00007C GR
+  9 Smax7219$max7219_posli$62                                   =  00007E GR
+  9 Smax7219$max7219_posli$63                                   =  000080 GR
+  9 Smax7219$max7219_posli$64                                   =  000082 GR
+  9 Smax7219$max7219_posli$65                                   =  000087 GR
+  9 Smax7219$max7219_posli$66                                   =  000087 GR
+  9 Smax7219$max7219_posli$67                                   =  00008A GR
+  9 Smax7219$max7219_posli$68                                   =  00008A GR
+  9 Smax7219$max7219_posli$69                                   =  00008C GR
+  9 Smax7219$max7219_posli$70                                   =  00008E GR
+  9 Smax7219$max7219_posli$71                                   =  000090 GR
+  9 Smax7219$max7219_posli$72                                   =  000095 GR
+  9 Smax7219$max7219_posli$73                                   =  000095 GR
+  9 Smax7219$max7219_posli$74                                   =  000095 GR
+  9 Smax7219$max7219_posli$75                                   =  000097 GR
+  9 Smax7219$max7219_posli$76                                   =  000099 GR
+  9 Smax7219$max7219_posli$77                                   =  00009B GR
+  9 Smax7219$max7219_posli$78                                   =  0000A0 GR
+  9 Smax7219$max7219_posli$79                                   =  0000A0 GR
+  9 Smax7219$max7219_posli$80                                   =  0000A2 GR
+  9 Smax7219$max7219_posli$81                                   =  0000A4 GR
+  9 Smax7219$max7219_posli$82                                   =  0000A6 GR
+  9 Smax7219$max7219_posli$83                                   =  0000A8 GR
+  9 Smax7219$max7219_posli$84                                   =  0000AD GR
+  9 Smax7219$max7219_posli$85                                   =  0000AD GR
+  9 Smax7219$max7219_posli$86                                   =  0000B0 GR
+  9 Smax7219$max7219_posli$87                                   =  0000B4 GR
+  9 Smax7219$max7219_posli$88                                   =  0000BB GR
+  9 Smax7219$max7219_posli$89                                   =  0000BB GR
+  9 Smax7219$max7219_posli$90                                   =  0000C5 GR
+  9 Smax7219$max7219_posli$91                                   =  0000C5 GR
+  9 Smax7219$max7219_posli$92                                   =  0000C7 GR
+  9 Smax7219$max7219_posli$93                                   =  0000C9 GR
+  9 Smax7219$max7219_posli$94                                   =  0000CB GR
+  9 Smax7219$max7219_posli$95                                   =  0000D0 GR
+  9 Smax7219$max7219_posli$96                                   =  0000D0 GR
+  9 Smax7219$max7219_posli$97                                   =  0000D3 GR
+  9 Smax7219$max7219_posli$98                                   =  0000D3 GR
+  9 Smax7219$max7219_posli$99                                   =  0000D5 GR
+  9 XG$max7219_init$0$0                                         =  00004F GR
+  9 XG$max7219_posli$0$0                                        =  000105 GR
+    _GPIO_Init                                                     ****** GX
+    _GPIO_WriteHigh                                                ****** GX
+    _GPIO_WriteLow                                                 ****** GX
+  9 _max7219_init                                                  000000 GR
+  9 _max7219_posli                                                 000050 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 6.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 DATA                                       size      0   flags    0
+   2 INITIALIZED                                size      0   flags    0
+   3 DABS                                       size      0   flags    8
+   4 HOME                                       size      0   flags    0
+   5 GSINIT                                     size      0   flags    0
+   6 GSFINAL                                    size      0   flags    0
+   7 CONST                                      size      0   flags    0
+   8 INITIALIZER                                size      0   flags    0
+   9 CODE                                       size    106   flags    0
+   A CABS                                       size      0   flags    8
+   B .debug_line                                size    148   flags  100
+   C .debug_loc                                 size    3B8   flags  100
+   D .debug_abbrev                              size     63   flags  100
+   E .debug_info                                size     F5   flags  100
+   F .debug_pubnames                            size     35   flags  100
+  10 .debug_frame                               size    266   flags  100
+
